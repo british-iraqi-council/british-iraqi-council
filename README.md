@@ -98,6 +98,14 @@ npm run smoke      # needs a running build: npx next start -p 3100
 npm run gitcheck   # lint, format, test, clean build
 ```
 
+## Deploy and environment
+
+The site is built for Vercel on Node 24 (`engines` in `package.json`, `.nvmrc`). Every page is prerendered, so the variables below are read at build time: changing one needs a new deployment.
+
+- `NEXT_PUBLIC_SITE_URL`: the site's public address, such as `https://www.example.org`, used for canonical URLs, `hreflang` alternates, the sitemap, Open Graph links and the schema.org block. A trailing slash is removed. When it is not set, the site uses `https://` plus `VERCEL_PROJECT_PRODUCTION_URL` (set by Vercel), and `http://localhost:3000` outside Vercel. Set it once the domain is confirmed.
+- `NEXT_PUBLIC_BASE_URL`: the base address of the API that receives the two forms; the paths in `src/core/constants/endpoints.ts` are added after `/api`. Next.js writes its value into the build, so changing it needs a redeploy. While it is unset, or while the endpoints do not exist, both forms tell the visitor that the message could not be sent.
+- `VERCEL_ENV` (set by Vercel): `/robots.txt` allows crawling only when it is `production`. Preview deployments and local builds ask crawlers to stay out, and `npm run smoke` expects the same unless `VERCEL_ENV=production`.
+
 ## Waiting on the council
 
 None of these blocks the launch. Each one, when it arrives, switches on the part of the site that waits for it.
@@ -123,7 +131,7 @@ Written for this build in Arabic and English, live as written, pending the counc
 
 - `ORGANISATION.description` (`src/content/organisation.ts`): the one-sentence site description, also used in metadata and the schema.org block
 - `OBJECTIVES` (`src/content/objectives.ts`): the six objectives, titles and sentences
-- `WHY_IRAQ` (`src/content/why-iraq.ts`): four sector tiles (energy; infrastructure and construction; agriculture and food; technology), titles and sentences
+- `WHY_IRAQ` (`src/content/why-iraq.ts`): four sector tiles (energy; construction and infrastructure; agriculture and food; technology), titles and sentences, each framed as a partnership between Iraqi and British companies
 - `BENEFITS` (`src/content/benefits.ts`): Access, Visibility, Advocacy, Networking, each with its sentence
 - `TIERS` (`src/content/tiers.ts`): Bronze, Silver and Gold, their names, taglines and features (Silver and Gold list only what they add)
 - `COMMITTEES` (`src/content/committees.ts`): five sector committees
@@ -131,11 +139,12 @@ Written for this build in Arabic and English, live as written, pending the counc
 - `about.*` (`messages/ar.json`, `messages/en.json`): the About page's wording: the page title, lede and description, the in-page pill labels, the three "Who we are" paragraphs, the sentence after the standing line and the "Approval" and "Ratification" labels on the two institution cards, the objectives lede, the people section titles and the "View profile" link
 - `WHY_JOIN` (`src/content/why-join.ts`): the four Why join rows (trade growth, investment opportunities, sector committees, events and networking), their titles and sentences, and the alt text of their four stock photographs
 - `membership.*` (`messages/ar.json`, `messages/en.json`): the Membership page's wording: the page title, lede and description, the in-page pill labels, the Why join introduction, the benefits and tiers titles and ledes, the "Everything in {tier}, plus" line, and the "Apply" label with its screen-reader suffix
-- `contact.*` (`messages/ar.json`, `messages/en.json`): the Contact page's wording: the page title, lede and description, the introduction sentence, the form labels and placeholders, and the success and "could not send" messages
-- `apply.*` (`messages/ar.json`, `messages/en.json`): the application page's wording: the page title, lede and description, the three group titles, the field labels and hints, the consent sentence, and the success and "could not send" messages. Two lines describe how the council handles applications and need its confirmation: the tier hint ("You can change tier later by talking it through with the council") and the success message ("the council will be in touch")
+- `contact.*` (`messages/ar.json`, `messages/en.json`): the Contact page's wording: the page title, lede and description, the introduction sentence, the form labels and placeholders, the summary shown when fields need correcting, and the success and "could not send" messages
+- `apply.*` (`messages/ar.json`, `messages/en.json`): the application page's wording: the page title, lede and description, the three group titles, the field labels and hints, the consent sentence, the "Remove file" button, the "opens in a new tab" cue read to screen readers after the privacy policy link, the summary shown when fields need correcting, and the success and "could not send" messages. Two lines describe how the council handles applications and need its confirmation: the tier hint ("You can change tier later by talking it through with the council") and the success message ("the council will be in touch")
 - `forms.errors.*` (`messages/ar.json`, `messages/en.json`): the validation messages of both forms
 - `privacy.*` and `terms.*` (`messages/ar.json`, `messages/en.json`): the privacy policy and terms of use, with their titles, ledes, descriptions and "Last updated" lines. **Needs legal review** before launch (see the two points under "Waiting on the council")
-- Tier feature wording: one Bronze feature ("A listing in the member directory once it opens") and one Silver feature ("Priority invitations to VIP events and roundtables") follow the spec's approved draft and share five-word runs with JBBC's feature labels; worth rewording when the council confirms the tiers
+- Tier feature wording: three features were reworded so that no tier label shares a five-word run with JBBC's feature labels: "An entry in the council's directory of members once it opens" (Bronze), "Priority invitations to high-level gatherings and roundtables" (Silver) and "Following up opportunities and partnerships" (Gold)
+- Wording about the council's standing: the site describes the council as formed in Iraq with the approval of Iraqi institutions, and its official standing as standing in Iraq only (`home.who.body`, `about.standing.body`, `membership.whyJoin.intro`, the Advocacy benefit and the investment row of Why join). Any wider claim needs the council's confirmation
 - `notFound.*` (`messages/ar.json`, `messages/en.json`): the 404 wording, also used by the standalone `src/app/not-found.tsx`
 - Hero image alt text (`src/core/constants/images.ts`)
 - `CONTACT_SUBJECTS`, `APPLICATION_SECTORS`, `COMPANY_SIZES`, `COUNTRIES` (`src/content/application-options.ts`): the labels of the form select lists
