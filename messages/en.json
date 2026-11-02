@@ -1,7 +1,6 @@
 {
   "common": {
     "siteName": "Iraqi–British Business Council",
-    "siteShort": "IBBC",
     "skipToContent": "Skip to content"
   },
   "nav": {
@@ -59,15 +58,15 @@
     },
     "objectives": {
       "title": "Our objectives",
-      "lede": "Six areas of work that shape what the council does for its members."
+      "lede": "The areas of work that shape what the council does for its members."
     },
     "whyIraq": {
       "title": "Why Iraq",
-      "lede": "Sectors where British expertise and investment can work with Iraqi companies on what the country is building next."
+      "lede": "Sectors where Iraq is building, and where Iraqi and British companies can work in partnership."
     },
     "membership": {
       "title": "Bring your company into the council's network in Iraq and the United Kingdom.",
-      "apply": "Apply now"
+      "apply": "Choose a membership tier"
     },
     "partners": {
       "title": "Partners and supporters",
@@ -107,7 +106,7 @@
     },
     "objectives": {
       "title": "Our objectives",
-      "lede": "The six areas of work through which the council serves its members."
+      "lede": "The areas of work through which the council serves its members."
     },
     "people": {
       "profile": "View profile"
@@ -157,7 +156,6 @@
       "lede": "Write to the council about membership, partnerships or anything else, and we will reply by email."
     },
     "intro": "Send us a message using the form and the council will get back to you.",
-    "formTitle": "Send a message",
     "form": {
       "name": "Full name",
       "company": "Company (optional)",
@@ -167,7 +165,6 @@
       "subjectPlaceholder": "Choose a subject",
       "message": "Message",
       "messagePlaceholder": "How can we help?",
-      "required": "Required",
       "submit": "Send message",
       "submitting": "Sending…",
       "invalidSummary": "Please correct the highlighted fields.",

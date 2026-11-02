@@ -6,7 +6,7 @@ export const OBJECTIVES: readonly IconCard[] = [
     icon: "trending-up",
     title: { ar: "تنمية أعمال الأعضاء", en: "Growing members' business" },
     body: {
-      ar: "نساعد الشركات الأعضاء على توسيع أعمالها في العراق والمملكة المتحدة وفي الأسواق الأبعد.",
+      ar: "نساعد الشركات الأعضاء على توسيع أعمالها في العراق والمملكة المتحدة وخارجهما.",
       en: "We help member companies expand their business in Iraq, in the United Kingdom and in markets further afield.",
     },
   },
@@ -15,7 +15,7 @@ export const OBJECTIVES: readonly IconCard[] = [
     icon: "handshake",
     title: { ar: "بناء الصلات التجارية", en: "Making introductions" },
     body: {
-      ar: "لقاءات مباشرة بين الشركات، وبعثات تجارية، وطاولات مستديرة للاستثمار تضع الأعضاء أمام الشركاء المناسبين.",
+      ar: "لقاءات مباشرة بين الشركات، وبعثات تجارية، وموائد مستديرة للاستثمار تجمع الأعضاء بالشركاء المناسبين.",
       en: "Company-to-company meetings, trade missions and investment roundtables that put members in front of the right partners.",
     },
   },

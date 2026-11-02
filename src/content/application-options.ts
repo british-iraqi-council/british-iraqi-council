@@ -9,7 +9,7 @@ import type {
 export const CONTACT_SUBJECTS: readonly Option<ContactSubject>[] = [
   { value: "general", label: { ar: "استفسار عام", en: "General enquiry" } },
   { value: "membership", label: { ar: "العضوية", en: "Membership" } },
-  { value: "partnership", label: { ar: "الشراكات", en: "Partnership" } },
+  { value: "partnership", label: { ar: "الشراكات", en: "Partnerships" } },
   { value: "media", label: { ar: "الإعلام والصحافة", en: "Media and press" } },
   { value: "other", label: { ar: "موضوع آخر", en: "Other" } },
 ];

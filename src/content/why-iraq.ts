@@ -6,20 +6,20 @@ export const WHY_IRAQ: readonly IconCard[] = [
     icon: "zap",
     title: { ar: "الطاقة", en: "Energy" },
     body: {
-      ar: "النفط والغاز وتوليد الكهرباء والطاقة المتجددة، مجالات تلتقي فيها الخبرة الهندسية والخدمية البريطانية بالشركات العراقية.",
-      en: "Oil, gas, power generation and renewables: fields where British engineering and services can work alongside Iraqi companies.",
+      ar: "النفط والغاز وتوليد الكهرباء والطاقة المتجددة، مجالات تتيح فيها مشاريع الطاقة في العراق للشركات العراقية والبريطانية أن تعمل معًا في شراكة.",
+      en: "Oil, gas, power generation and renewables, where Iraq's energy projects give Iraqi and British companies room to work in partnership.",
     },
   },
   {
     id: "infrastructure",
     icon: "building",
     title: {
-      ar: "البنية التحتية والبناء",
-      en: "Infrastructure and construction",
+      ar: "البناء والبنية التحتية",
+      en: "Construction and infrastructure",
     },
     body: {
-      ar: "الطرق والإسكان وشبكات المياه والمباني العامة، ميادين مفتوحة لخبرات التصميم وإدارة المشاريع البريطانية بالتعاون مع المقاولين العراقيين.",
-      en: "Roads, housing, water networks and public buildings, open to British design and project management working with Iraqi contractors.",
+      ar: "الطرق والإسكان وشبكات المياه والمباني العامة، مجالات يستطيع فيها المقاولون العراقيون وشركات التصميم وإدارة المشاريع البريطانية أن ينهضوا معًا بأعمال البناء في العراق.",
+      en: "Roads, housing, water networks and public buildings, where Iraqi contractors and British design and project management firms can take on Iraq's building work together.",
     },
   },
   {
@@ -27,8 +27,8 @@ export const WHY_IRAQ: readonly IconCard[] = [
     icon: "wheat",
     title: { ar: "الزراعة والغذاء", en: "Agriculture and food" },
     body: {
-      ar: "الزراعة والري وتصنيع الأغذية، مجالات تستطيع فيها الشركات البريطانية أن تشارك المنتجين العراقيين أساليب وتقنيات حديثة.",
-      en: "Farming, irrigation and food processing, where British companies can share modern methods and technology with Iraqi producers.",
+      ar: "الزراعة والري وتصنيع الأغذية، مجالات يستطيع فيها المنتجون العراقيون والشركات البريطانية أن يطوّروا معًا قطاع الغذاء في العراق.",
+      en: "Farming, irrigation and food processing, where Iraqi producers and British companies can develop Iraq's food sector together.",
     },
   },
   {
@@ -36,8 +36,8 @@ export const WHY_IRAQ: readonly IconCard[] = [
     icon: "cpu",
     title: { ar: "التكنولوجيا", en: "Technology" },
     body: {
-      ar: "الاتصالات والخدمات الرقمية والتكنولوجيا المالية، مجالات يمكن للشركات العراقية والبريطانية أن تبني فيها خدمات جديدة معًا.",
-      en: "Telecommunications, digital services and financial technology, where Iraqi and British firms can build new services together.",
+      ar: "الاتصالات والخدمات الرقمية والتكنولوجيا المالية، مجالات تستطيع فيها الشركات العراقية والبريطانية أن تبني معًا خدمات جديدة للسوق العراقية.",
+      en: "Telecommunications, digital services and financial technology, where Iraqi and British firms can build new services for the Iraqi market together.",
     },
   },
 ];

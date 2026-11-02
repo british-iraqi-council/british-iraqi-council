@@ -5,7 +5,7 @@ export const TIERS: readonly Tier[] = [
     id: "bronze",
     name: { ar: "البرونزية", en: "Bronze" },
     tagline: {
-      ar: "مكانك في شبكة المجلس وفعالياته ولجانه.",
+      ar: "مكان لشركتكم في شبكة المجلس وفعالياته ولجانه.",
       en: "A place in the council's network, its events and its committees.",
     },
     added: [
@@ -15,8 +15,8 @@ export const TIERS: readonly Tier[] = [
         en: "Introductions to other businesses",
       },
       {
-        ar: "إدراج شركتك في دليل الأعضاء عند إطلاقه",
-        en: "A listing in the member directory once it opens",
+        ar: "إدراج شركتكم في دليل أعضاء المجلس عند إطلاقه",
+        en: "An entry in the council's directory of members once it opens",
       },
       { ar: "دعوات إلى فعاليات المجلس", en: "Invitations to council events" },
       { ar: "عروض خاصة بالأعضاء", en: "Offers for members" },
@@ -35,8 +35,8 @@ export const TIERS: readonly Tier[] = [
     },
     added: [
       {
-        ar: "أولوية الدعوة إلى فعاليات كبار الضيوف والطاولات المستديرة",
-        en: "Priority invitations to VIP events and roundtables",
+        ar: "أولوية الدعوة إلى فعاليات كبار الشخصيات والموائد المستديرة",
+        en: "Priority invitations to high-level gatherings and roundtables",
       },
       {
         ar: "لقاءات مع الجهات الحكومية والقطاع العام",
@@ -48,7 +48,7 @@ export const TIERS: readonly Tier[] = [
       },
       { ar: "إحاطات عن السوق", en: "Market briefings" },
       {
-        ar: "تعريف بشركتك في قنوات المجلس",
+        ar: "تعريف بشركتكم في قنوات المجلس",
         en: "A profile on the council's channels",
       },
     ],
@@ -57,12 +57,12 @@ export const TIERS: readonly Tier[] = [
     id: "gold",
     name: { ar: "الذهبية", en: "Gold" },
     tagline: {
-      ar: "الدعم الأشمل، مع معرفة بالسوق مصمّمة لشركتك وإرشاد شخصي ورأي في السياسات.",
+      ar: "الدعم الأشمل، مع معلومات وتحليلات عن السوق مخصّصة لشركتكم، وإرشاد شخصي، ورأي في السياسات.",
       en: "The fullest support, with tailored insight, personal guidance and a say in policy.",
     },
     added: [
       {
-        ar: "معرفة بالسوق مصمّمة لاحتياجات شركتك",
+        ar: "معلومات وتحليلات عن السوق مخصّصة لشركتكم",
         en: "Market insight tailored to your company",
       },
       {
@@ -76,7 +76,7 @@ export const TIERS: readonly Tier[] = [
       { ar: "إرشاد شخصي", en: "Personal guidance" },
       {
         ar: "متابعة الفرص والشراكات",
-        en: "Follow-up on leads and partnerships",
+        en: "Following up opportunities and partnerships",
       },
     ],
   },
