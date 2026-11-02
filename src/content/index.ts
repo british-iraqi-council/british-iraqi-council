@@ -7,4 +7,5 @@ export * from "./why-iraq";
 export * from "./benefits";
 export * from "./tiers";
 export * from "./committees";
+export * from "./why-join";
 export * from "./application-options";

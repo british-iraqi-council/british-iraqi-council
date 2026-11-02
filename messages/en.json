@@ -111,5 +111,36 @@
     "people": {
       "profile": "View profile"
     }
+  },
+  "membership": {
+    "meta": {
+      "title": "Membership",
+      "description": "Why companies join the Iraqi–British Business Council, what membership offers and the three membership tiers, with a way to apply."
+    },
+    "heading": {
+      "title": "Membership",
+      "lede": "Why companies join the council, what membership offers, and how to apply."
+    },
+    "indexLabel": "On this page",
+    "sections": {
+      "why-join": "Why join",
+      "benefits": "Benefits",
+      "tiers": "Tiers"
+    },
+    "whyJoin": {
+      "title": "Why join",
+      "intro": "Membership places your company in a network of Iraqi and British businesses, close to the institutions that shape trade between the two countries, alongside a council that knows the Iraqi market from within. Whether you are an Iraqi firm looking to grow abroad or a British firm looking at Iraq, the council works to turn that interest into partnerships."
+    },
+    "benefits": {
+      "title": "Membership benefits",
+      "lede": "What membership gives every company in the council's network."
+    },
+    "tiers": {
+      "title": "Membership tiers",
+      "lede": "Three tiers, each building on the one before. Choose the one that suits your company and apply; the council will discuss the terms of membership with you after your application.",
+      "includes": "Everything in {tier}, plus",
+      "apply": "Apply",
+      "applyFor": "for {tier} membership"
+    }
   }
 }

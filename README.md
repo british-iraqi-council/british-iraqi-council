@@ -10,6 +10,9 @@ Arabic-first, bilingual (Arabic and English) website for the Iraqi–British Bus
 /about      About: page heading with in-page pills, who we are, official
             standing, objectives (board, honorary advisors and executive
             team once supplied, each with its pill)
+/membership Membership: page heading with in-page pills, why join (four
+            image and text rows, with the sector committees), benefits,
+            the three tiers, each with an Apply link to /membership/apply
 ```
 
 `/` redirects to `/ar`; unprefixed paths such as `/about` redirect to `/ar/about`. Planned pages: Home, About, Membership (and apply), Contact, Privacy, Terms.
@@ -20,7 +23,8 @@ Arabic-first, bilingual (Arabic and English) website for the Iraqi–British Bus
 messages/            ar.json, en.json
 src/app/[locale]/    layout, (public) routes, catch-all, not-found
 src/content/         typed { ar, en } content: organisation, people, partners,
-                     objectives, why-iraq, benefits, tiers, committees, form options
+                     objectives, why-iraq, why-join, benefits, tiers, committees,
+                     form options
 src/assets/images/   stock photographs (imported, never served from public/),
                      with stock/CREDITS.md
 src/core/constants/  site URL, main navigation, hero images and alt text
@@ -68,5 +72,7 @@ Written for this build in Arabic and English, live as written, pending the counc
 - `COMMITTEES` (`src/content/committees.ts`): five sector committees
 - `home.*` (`messages/ar.json`, `messages/en.json`): the Home page's wording: the hero headline and sentence ("Where Iraqi enterprise meets British business"), button labels, the "Who we are" paragraph, the vision and mission, the objectives and Why Iraq ledes, the membership band sentence, the partners headings, and the Home page title and description
 - `about.*` (`messages/ar.json`, `messages/en.json`): the About page's wording: the page title, lede and description, the in-page pill labels, the three "Who we are" paragraphs, the sentence after the standing line and the "Approval" and "Ratification" labels on the two institution cards, the objectives lede, the people section titles and the "View profile" link
+- `WHY_JOIN` (`src/content/why-join.ts`): the four Why join rows (trade growth, investment opportunities, sector committees, events and networking), their titles and sentences, and the alt text of their four stock photographs
+- `membership.*` (`messages/ar.json`, `messages/en.json`): the Membership page's wording: the page title, lede and description, the in-page pill labels, the Why join introduction, the benefits and tiers titles and ledes, the "Everything in {tier}, plus" line, and the "Apply" label with its screen-reader suffix
 - Hero image alt text (`src/core/constants/images.ts`)
 - `CONTACT_SUBJECTS`, `APPLICATION_SECTORS`, `COMPANY_SIZES`, `COUNTRIES` (`src/content/application-options.ts`): the labels of the form select lists

@@ -11,6 +11,9 @@
   --color-muted: #545b78;
   --color-line: #e4dccb;
   --color-on-blue-muted: #c9d0ea;
+  --color-tier-bronze: #b0743f;
+  --color-tier-silver: #8a8f99;
+  --color-tier-gold: #b8932e;
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-cormorant), Georgia, serif;

@@ -1,5 +1,6 @@
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
-const PATHS = ["", "/about"];
+const PATHS = ["", "/about", "/membership"];
+const TIER_IDS = ["bronze", "silver", "gold"];
 const LOCALES = [
   { code: "ar", dir: "rtl" },
   { code: "en", dir: "ltr" },
@@ -46,6 +47,7 @@ const checkRedirect = async (from, toSuffix) => {
 
 await checkRedirect("/", "/ar");
 await checkRedirect("/about", "/ar/about");
+await checkRedirect("/membership", "/ar/membership");
 
 for (const { code, dir } of LOCALES) {
   for (const path of PATHS) {
@@ -77,6 +79,23 @@ for (const { code, dir } of LOCALES) {
       for (const id of ["board", "advisors", "team"]) {
         if (html.includes(`id="${id}"`) || html.includes(`href="#${id}"`)) {
           fail(`${url}: renders the empty "${id}" section or its pill`);
+        }
+      }
+    }
+    if (path === "/membership") {
+      for (const id of ["why-join", "benefits", "tiers"]) {
+        if (!html.includes(`id="${id}"`) || !html.includes(`href="#${id}"`)) {
+          fail(`${url}: missing the "${id}" section or its pill`);
+        }
+      }
+      const hrefs = [...html.matchAll(/href="([^"]*)"/g)].map(
+        (match) => match[1],
+      );
+      for (const tier of TIER_IDS) {
+        const suffix = `/${code}/membership/apply?tier=${tier}`;
+        const count = hrefs.filter((href) => href.endsWith(suffix)).length;
+        if (count !== 1) {
+          fail(`${url}: expected one link ending ${suffix}, found ${count}`);
         }
       }
     }

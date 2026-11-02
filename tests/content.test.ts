@@ -9,6 +9,7 @@ import {
   TEAM,
   TIERS,
   WHY_IRAQ,
+  WHY_JOIN,
 } from "@/content";
 
 const isLocalized = (value: object): boolean => {
@@ -82,6 +83,18 @@ describe("content", () => {
     expect(OBJECTIVES.length).toBe(6);
     expect(WHY_IRAQ.length).toBe(4);
     expect(BENEFITS.length).toBe(4);
+  });
+
+  it("has the four Why join rows, each with an image", () => {
+    expect(WHY_JOIN.map((row) => row.id)).toEqual([
+      "trade",
+      "investment",
+      "committees",
+      "events",
+    ]);
+    for (const row of WHY_JOIN) {
+      expect(row.image).toBeTruthy();
+    }
   });
 
   it("holds no people or partners until the council supplies them", () => {

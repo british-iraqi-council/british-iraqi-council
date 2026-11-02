@@ -41,6 +41,12 @@ describe("colour tokens", () => {
     expect(tokens.line).toBe("#E4DCCB");
   });
 
+  it("holds the three tier edge colours", () => {
+    expect(tokens["tier-bronze"]).toBe("#B0743F");
+    expect(tokens["tier-silver"]).toBe("#8A8F99");
+    expect(tokens["tier-gold"]).toBe("#B8932E");
+  });
+
   it("meets the contrast pairs", () => {
     expect(ratio("ink", "ivory")).toBeGreaterThanOrEqual(7);
     expect(ratio("muted", "ivory")).toBeGreaterThanOrEqual(4.5);
