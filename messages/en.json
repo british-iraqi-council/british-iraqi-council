@@ -201,5 +201,46 @@
       "attachmentTooLarge": "The file is larger than 4 MB. Please attach a smaller PDF.",
       "consentRequired": "Please confirm your consent to continue."
     }
+  },
+  "apply": {
+    "meta": {
+      "title": "Apply for membership",
+      "description": "Apply to bring your company into the Iraqi–British Business Council, and choose the membership tier that suits you."
+    },
+    "heading": {
+      "title": "Apply for membership",
+      "lede": "Tell us about your company and who we should contact, and choose a membership tier. The council will review your application and get in touch."
+    },
+    "form": {
+      "companyLegend": "Company",
+      "contactLegend": "Contact person",
+      "membershipLegend": "Membership",
+      "companyName": "Company name",
+      "sector": "Sector",
+      "sectorPlaceholder": "Choose a sector",
+      "country": "Country",
+      "countryPlaceholder": "Choose a country",
+      "city": "City (optional)",
+      "website": "Website (optional)",
+      "companySize": "Company size (optional)",
+      "companySizePlaceholder": "Choose a company size",
+      "fullName": "Full name",
+      "position": "Position (optional)",
+      "email": "Email address",
+      "phone": "Phone",
+      "tier": "Membership tier",
+      "tierHint": "You can change tier later by talking it through with the council.",
+      "heardFrom": "How did you hear about the council? (optional)",
+      "message": "What are you hoping to gain from membership? (optional)",
+      "attachment": "Company profile (optional)",
+      "attachmentHint": "PDF only, up to 4 MB.",
+      "chooseFile": "Choose a file",
+      "consent": "I agree to my details being used to consider this application, and I have read the <link>privacy policy</link>.",
+      "submit": "Send application",
+      "submitting": "Sending…",
+      "successMessage": "Thank you. Your application has been sent and the council will be in touch.",
+      "unsentMessage": "We couldn't send your application right now. Please try again later.",
+      "honeypotLabel": "Leave this field empty"
+    }
   }
 }

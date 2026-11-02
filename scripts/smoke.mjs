@@ -1,5 +1,5 @@
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
-const PATHS = ["", "/about", "/membership", "/contact"];
+const PATHS = ["", "/about", "/membership", "/membership/apply", "/contact"];
 const TIER_IDS = ["bronze", "silver", "gold"];
 const LOCALES = [
   { code: "ar", dir: "rtl" },
@@ -97,6 +97,15 @@ for (const { code, dir } of LOCALES) {
         if (count !== 1) {
           fail(`${url}: expected one link ending ${suffix}, found ${count}`);
         }
+      }
+    }
+    if (path === "/membership/apply") {
+      const tierInputs = html.match(/name="tier"/g)?.length ?? 0;
+      if (tierInputs !== 3) {
+        fail(`${url}: expected three name="tier" inputs, found ${tierInputs}`);
+      }
+      if (!html.includes('name="consent"')) {
+        fail(`${url}: missing name="consent"`);
       }
     }
     if (path === "/contact") {
