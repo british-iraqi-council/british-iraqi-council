@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { BANNER_IMAGES } from "@/core/constants/images";
 import {
   IndexPills,
   InstitutionsBand,
@@ -17,7 +18,12 @@ export default async function MembershipPageClient({
 
   return (
     <>
-      <PageHeading title={t("heading.title")} lede={t("heading.lede")}>
+      <PageHeading
+        title={t("heading.title")}
+        lede={t("heading.lede")}
+        image={BANNER_IMAGES.membership.src}
+        imagePosition={BANNER_IMAGES.membership.position}
+      >
         <IndexPills items={pills} title={t("indexLabel")} locale={locale} />
       </PageHeading>
       <WhyJoin locale={locale} />

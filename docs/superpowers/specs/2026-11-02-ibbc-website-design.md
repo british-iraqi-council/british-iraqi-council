@@ -41,7 +41,7 @@ The site has three jobs:
 
 **Anti-goals** (a failure even if everything works)
 
-- **Looking like a JBBC copy.** No JBBC sentence, layout detail or asset is reused verbatim. The maroon palette, the wireframe "wave" banner pattern, the Brown typeface and the London-landmark photo bands are JBBC's and stay out.
+- **Looking like a JBBC copy.** No JBBC sentence, layout detail or asset is reused verbatim. The maroon palette, the wireframe "wave" banner pattern and the Brown typeface are JBBC's and stay out. London imagery is allowed sparingly (the About two-cities frame), since the project lead asked for imagery like the original website (2026-11-02); a full-width London-landmark band stays out.
 - **Invented facts.** No board member, advisor, staff name, member company, partner, sponsor, address, phone number, figure, date or event is made up. Where the site needs one and the client has not supplied it, that part of the page is left out (section 7).
 - **Off-brand look.** The identity is union blue, a spark of red and ivory. Red stays an accent; it never becomes a large background like JBBC's maroon.
 
@@ -64,7 +64,7 @@ The site has three jobs:
 
 ## 4. Calls made by Claude (the project lead may overrule any of these)
 
-- **Stack:** the same as Al-Dallah. Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, next-intl v4, Zod 4, lucide-react. GSAP and Lenis only if a motion need appears; none is planned. Node 24.
+- **Stack:** the same as Al-Dallah. Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, next-intl v4, Zod 4, lucide-react. GSAP (ScrollTrigger, `@gsap/react`) and Lenis, added on 2026-11-02 for the motion in section 6.7. Node 24.
 - **Default locale:** Arabic. `/` redirects to `/ar`; `/en` is a full peer.
 - **Hosting:** Vercel.
 - **Fonts:** stand-ins until the identity's real fonts are known (section 6.2).
@@ -172,7 +172,7 @@ The heading sizes follow the team's Baghdad Expo site, at the project lead's req
 
 ### 6.3 Layout
 
-- Ivory page; white cards with a thin `line` edge and a modest radius (about 12 to 16px); blue full-width bands for Vision and Mission and the membership band.
+- Ivory page; white cards with a thin `line` edge and a modest radius (about 12 to 16px); full-width photo bands under a blue veil for Vision and Mission and the membership band (section 6.8).
 - Section titles: serif heading, then a short red rule (about 52 to 72px by 3px) below it, as in the identity deck.
 - Pill buttons: white on blue, red for the main call to action, blue on ivory.
 - One container width and side padding shared by every block, so edges line up. Following the Baghdad Expo site at the project lead's request (2026-11-02), the `shell` container is up to 1800px wide (`--shell-max`) with 24, 40, 80 and 112px side padding (`--shell-pad`, from 0, 640, 1024 and 1280px).
@@ -182,7 +182,7 @@ The heading sizes follow the team's Baghdad Expo site, at the project lead's req
 ### 6.4 Header, page heading, footer
 
 - **Header:** the emblem and "IBBC" with the full name in both scripts beneath, as in the mockup; links Home, About, Membership, Contact; the language switch; a red "Contact us" pill. On Home it sits transparent over the hero with white text; elsewhere and once scrolled it is a solid white bar. Below `lg`, a menu button opens a full menu that includes Contact and the language switch.
-- **Page heading** on inner pages: a blue band with the page title, a red rule and a one-line lede. No wave pattern.
+- **Page heading** on inner pages: a band with the page title, a red rule and a one-line lede over a stock photograph under a blue veil (section 6.8). No wave pattern.
 - **Footer:** a blue band with the logo, quick links, contact details, social links, the legal links and the copyright.
 
 ### 6.5 Hero (Home)
@@ -207,6 +207,19 @@ The project lead approved the drawn emblem from the mockups for launch. Draw it 
 ### 6.7 Motion
 
 Minimal: a short fade or rise as sections enter, disabled under reduced motion. Content must never depend on an animation to become visible.
+
+Extended on 2026-11-02 at the project lead's request for "animation or smoothness": a CSS hero and page-heading entrance, section reveals on IntersectionObserver with staggered cards and settling photographs, a slow parallax on the hero and banner photographs, hover lifts, and Lenis smooth scrolling. CLAUDE.md ("Motion") holds the vocabulary and its rules.
+
+### 6.8 Imagery
+
+Added on 2026-11-02 at the project lead's request ("a lot more images … along the other pages and banners … a combination of flagpoles and other images"). Every photograph is free stock (Unsplash or Pexels), credited in `src/assets/images/stock/CREDITS.md`, and never presented as the council's own; the council's own photographs replace them when supplied. The hero is unchanged.
+
+- **Page headings:** every inner page's heading sits over a photograph (`PageHeading` `image` and `imagePosition`) under a `blue-deep` veil, `photo-veil-start`: even (82 to 88%) below 1024px, and from 1024px a gradient from 92% on the reading-start side, behind the text, to 40% at the far edge, mirrored in Arabic. About: the Central Bank of Iraq tower in Baghdad. Membership: a handshake across a desk. Application: a handshake outdoors. Contact: the cable-stayed bridge in Basra. Privacy and Terms: a white and blue geometric lattice. The photographs behind text are decorative (`alt=""`) and only the headings' images load eagerly.
+- **Photo bands** (`PhotoBand`): Vision and Mission over Baghdad's towers and cranes at dusk, and the Home membership band over a conference audience, under an even veil (`photo-veil`, 72 to 84%). The vision and mission cards are translucent `blue-deep` with a light blur.
+- **Split frames** (`SplitPhotoFrame`): two photographs in a rounded frame with the 4px red seam, the first on the reading-start side. Home's Who we are shows the Iraqi flag on a flagpole by the Basra waterfront beside the British flag on a flagpole; About's Who we are shows Baghdad and the Tigris from the air beside London and the Thames, Baghdad first.
+- **Why Iraq** cards carry a 16:10 photograph on top (refinery, tower crane, date palm, server aisle), with the icon overlapping its lower edge. The photograph is an optional `image` on the card data.
+- **Why join:** the trade growth row shows a Basra waterfront with port cranes (replacing a Hong Kong port).
+- Text over a photograph is measured against real viewport pixels at 360, 768, 1440 and 1920 wide in both languages; title-size text must reach 3:1 and everything else 4.5:1 (results in `CLAUDE.md`).
 
 ## 7. Content and missing information
 

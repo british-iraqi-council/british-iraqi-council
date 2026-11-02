@@ -1,4 +1,5 @@
 import { useLocale } from "next-intl";
+import Reveal from "../reveal";
 import RichText from "../rich-text";
 import { SectionHeadingProps } from "./section-heading-props";
 
@@ -22,7 +23,8 @@ export default function SectionHeading({
   const centred = align === "center";
 
   return (
-    <div
+    <Reveal
+      variant="sequence"
       className={`flex flex-col gap-5 ${centred ? "items-center text-center" : "items-start"}`}
     >
       <h2
@@ -31,12 +33,12 @@ export default function SectionHeading({
       >
         <RichText text={title} locale={locale} />
       </h2>
-      <span aria-hidden="true" className="rule-red" />
+      <span aria-hidden="true" data-reveal="rule" className="rule-red" />
       {lede ? (
         <p className={`max-w-[62ch] text-lead ${colours.lede}`}>
           <RichText text={lede} locale={locale} />
         </p>
       ) : null}
-    </div>
+    </Reveal>
   );
 }

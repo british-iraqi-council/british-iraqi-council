@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { PARTNERS, type Partner } from "@/content";
-import { Section, SectionHeading } from "@/core/new-components/common";
+import { Reveal, Section, SectionHeading } from "@/core/new-components/common";
 import { HomeSectionProps } from "../types";
 
 const GROUPS: readonly {
@@ -25,14 +25,18 @@ export default async function Partners({ locale }: HomeSectionProps) {
 
   return (
     <Section>
-      <div className="reveal flex flex-col gap-10 lg:gap-12">
+      <div className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} />
         {groups.map((group) => (
           <div key={group.kind} className="flex flex-col gap-5">
             <h3 className="font-display text-title font-semibold text-blue">
               {t(group.label)}
             </h3>
-            <ul className="flex flex-wrap items-center gap-6 lg:gap-8">
+            <Reveal
+              as="ul"
+              variant="stagger"
+              className="flex flex-wrap items-center gap-6 lg:gap-8"
+            >
               {group.items.map((partner) => {
                 const logo = (
                   <Image
@@ -60,7 +64,7 @@ export default async function Partners({ locale }: HomeSectionProps) {
                   </li>
                 );
               })}
-            </ul>
+            </Reveal>
           </div>
         ))}
       </div>

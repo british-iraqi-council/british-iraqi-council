@@ -1,6 +1,6 @@
 import baghdadRiverside from "@/assets/images/stock/baghdad-riverside-construction.jpg";
+import basraWaterfront from "@/assets/images/stock/basra-waterfront-cranes.jpg";
 import conferenceAudience from "@/assets/images/stock/conference-audience.jpg";
-import containerPort from "@/assets/images/stock/container-port-dusk.jpg";
 import meetingTable from "@/assets/images/stock/meeting-table.jpg";
 import type { WhyJoinRow } from "./types";
 
@@ -12,10 +12,10 @@ export const WHY_JOIN: readonly WhyJoinRow[] = [
       ar: "للتجارة بين العراق والمملكة المتحدة مجال واسع لتنمو في الاتجاهين. ويساعد المجلس أعضاءه على إيجاد المشترين والموردين والوكلاء في البلد الآخر، وعلى فهم ما تتطلبه التجارة فيه قبل الصفقة الأولى.",
       en: "Trade between Iraq and the United Kingdom has room to grow in both directions. The council helps members find buyers, suppliers and agents in the other country, and understand what trading there involves before the first deal.",
     },
-    image: containerPort,
+    image: basraWaterfront,
     imageAlt: {
-      ar: "ميناء حاويات برافعاته وحاوياته المكدّسة عند الغسق",
-      en: "A container port with cranes and stacked containers at dusk",
+      ar: "واجهة مائية في البصرة تظهر خلفها رافعات الميناء وجسر معلّق",
+      en: "A waterfront in Basra with port cranes and a cable-stayed bridge beyond",
     },
   },
   {

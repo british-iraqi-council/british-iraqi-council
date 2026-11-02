@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { ORGANISATION } from "@/content";
 import { localize } from "@/lib/localize";
 import Icon from "../icon";
+import Reveal from "../reveal";
 import RichText from "../rich-text";
 import Section from "../section";
 import SectionHeading from "../section-heading";
@@ -24,13 +25,17 @@ export default async function InstitutionsBand({
 
   return (
     <Section>
-      <div className="reveal flex flex-col gap-10 lg:gap-12">
+      <div className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} />
-        <ul className="grid gap-6 md:grid-cols-2 lg:gap-8">
+        <Reveal
+          as="ul"
+          variant="stagger"
+          className="grid gap-6 md:grid-cols-2 lg:gap-8"
+        >
           {bodies.map(({ role, name }) => (
             <li
               key={role}
-              className="flex items-center gap-4 rounded-2xl border border-line bg-white p-6 lg:p-7"
+              className="card-lift flex items-center gap-4 rounded-2xl border border-line bg-white p-6 lg:p-7"
             >
               <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-ivory text-blue">
                 <Icon name="landmark" className="size-6" />
@@ -43,7 +48,7 @@ export default async function InstitutionsBand({
               </div>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </Section>
   );

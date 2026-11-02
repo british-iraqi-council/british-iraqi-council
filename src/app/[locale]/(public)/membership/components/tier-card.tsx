@@ -21,7 +21,7 @@ export default async function TierCard({
   const colour = TIER_COLOURS[tier.id];
 
   return (
-    <li className="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
+    <li className="card-lift relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
       <span
         aria-hidden="true"
         className={`absolute inset-x-0 top-0 h-1 ${colour}`}

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useLenis } from "@/hooks";
 import { Link, usePathname } from "@/core/i18n/navigation";
 import { MAIN_NAV } from "@/core/constants/navigation";
 import { isActivePath } from "@/lib/is-active-path";
@@ -23,6 +24,13 @@ export default function MobileMenu({
   const pathname = usePathname();
   const sheetRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (!open || !lenis) return;
+    lenis.stop();
+    return () => lenis.start();
+  }, [open, lenis]);
 
   useEffect(() => {
     const query = window.matchMedia("(min-width: 64rem)");
@@ -76,7 +84,7 @@ export default function MobileMenu({
         aria-hidden="true"
         tabIndex={-1}
         onClick={onClose}
-        className="absolute inset-0 size-full bg-ink/45"
+        className="absolute inset-0 size-full bg-ink/45 motion-safe:animate-[enter-fade_240ms_var(--ease-out-quint)]"
       />
       <div
         id="site-menu"
@@ -84,7 +92,8 @@ export default function MobileMenu({
         role="dialog"
         aria-modal="true"
         aria-label={t("menuDialog")}
-        className="relative max-h-dvh overflow-y-auto rounded-b-3xl bg-white pb-6 shadow-xl"
+        data-lenis-prevent
+        className="relative max-h-dvh overflow-y-auto rounded-b-3xl bg-white pb-6 shadow-xl motion-safe:animate-[enter-sheet_360ms_var(--ease-out-expo)]"
       >
         <div className="shell flex flex-col gap-6">
           <div className="flex h-20 items-center justify-between gap-4">

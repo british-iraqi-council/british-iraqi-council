@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { HERO_IMAGES } from "@/core/constants/images";
-import { Button, RichText } from "@/core/new-components/common";
+import { Button, Parallax, RichText } from "@/core/new-components/common";
 import { localize } from "@/lib/localize";
 import { HomeSectionProps } from "../types";
 
@@ -20,10 +20,15 @@ export default async function Hero({ locale }: HomeSectionProps) {
 
   return (
     <section className="relative isolate -mt-20 flex flex-col overflow-hidden bg-blue-deep sm:min-h-[38rem] sm:justify-end lg:-mt-24 lg:min-h-[42rem]">
-      <div className="relative h-64 sm:absolute sm:inset-0 sm:-z-10 sm:h-auto">
-        <div className="absolute inset-0 grid grid-cols-2">
+      <div className="relative h-64 overflow-hidden sm:absolute sm:inset-0 sm:-z-10 sm:h-auto">
+        <Parallax
+          from={0}
+          to={5}
+          start="top top"
+          className="absolute inset-0 grid grid-cols-2"
+        >
           {HALVES.map(({ key, image, position }) => (
-            <div key={key} className="relative">
+            <div key={key} className="relative overflow-hidden">
               <Image
                 src={image.src}
                 alt={localize(image.alt, locale)}
@@ -31,18 +36,18 @@ export default async function Hero({ locale }: HomeSectionProps) {
                 loading="eager"
                 fetchPriority="high"
                 sizes="50vw"
-                className={`object-cover ${position}`}
+                className={`enter-settle object-cover ${position}`}
               />
             </div>
           ))}
-        </div>
+        </Parallax>
         <div
           aria-hidden="true"
           className="hero-veil absolute inset-0 rtl:hero-veil-mirrored"
         />
         <span
           aria-hidden="true"
-          className="absolute inset-x-0 top-20 bottom-0 mx-auto w-1 bg-red sm:top-0"
+          className="enter-draw-y absolute inset-x-0 top-20 bottom-0 mx-auto w-1 bg-red sm:top-0"
         />
       </div>
 
@@ -55,18 +60,21 @@ export default async function Hero({ locale }: HomeSectionProps) {
           <p
             lang={other}
             dir={other === "ar" ? "rtl" : "ltr"}
-            className={`text-lg text-white sm:text-xl ${other === "ar" ? "font-arabic-display" : "font-brand font-semibold"}`}
+            className={`enter-rise text-lg text-white sm:text-xl ${other === "ar" ? "font-arabic-display" : "font-brand font-semibold"}`}
           >
             {tOther("title")}
           </p>
-          <h1 className="mt-2 font-display text-hero font-semibold text-white hyphens-auto sm:hyphens-manual [overflow-wrap:anywhere]">
+          <h1 className="enter-rise mt-2 font-display [--enter-step:1] text-hero font-semibold text-white hyphens-auto sm:hyphens-manual [overflow-wrap:anywhere]">
             <RichText text={t("title")} locale={locale} />
           </h1>
-          <span aria-hidden="true" className="mt-6 rule-red" />
-          <p className="mt-6 max-w-[36rem] text-lead text-white">
+          <span
+            aria-hidden="true"
+            className="enter-draw-x mt-6 rule-red [--enter-step:3]"
+          />
+          <p className="enter-rise mt-6 max-w-[36rem] text-lead text-white [--enter-step:3]">
             <RichText text={t("sentence")} locale={locale} />
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="enter-rise mt-8 flex flex-wrap gap-3 [--enter-step:4]">
             <Button href="/about" variant="white">
               {t("learnMore")}
             </Button>

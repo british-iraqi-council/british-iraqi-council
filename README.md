@@ -5,21 +5,28 @@ Arabic-first, bilingual (Arabic and English) website for the Iraqi–British Bus
 ## Routes
 
 ```
-/ar, /en    Home: hero, standing strip, who we are, vision and mission,
-            objectives, why Iraq, membership band, the "Approved and ratified
-            by" band (partners once supplied)
-/about      About: page heading with in-page pills, who we are, official
-            standing, objectives, the Board (one member so far; honorary
-            advisors and executive team once supplied, each with its pill)
-/membership Membership: page heading with in-page pills, why join (four
-            image and text rows, with the sector committees), benefits,
-            the three tiers, each with an Apply link to /membership/apply,
-            then the "Approved and ratified by" band
+/ar, /en    Home: hero, standing strip, who we are (beside the two
+            flagpoles), vision and mission (photo band over Baghdad at
+            dusk), objectives, why Iraq (four photo cards), membership band
+            (photo band over a conference audience), the "Approved and
+            ratified by" band (partners once supplied)
+/about      About: page heading over the Central Bank of Iraq tower, with
+            in-page pills; who we are beside Baghdad and London from the
+            air; official standing, objectives, the Board (one member so
+            far; honorary advisors and executive team once supplied, each
+            with its pill)
+/membership Membership: page heading over a handshake, with in-page pills;
+            why join (four image and text rows, with the sector
+            committees), benefits, the three tiers, each with an Apply link
+            to /membership/apply, then the "Approved and ratified by" band
 /membership/apply
-            Membership application (?tier= pre-selects a tier)
-/contact    Contact details card (phone so far) beside the form
-/privacy    Privacy policy (draft, needs legal review)
-/terms      Terms of use (draft, needs legal review)
+            Membership application (?tier= pre-selects a tier), page
+            heading over a handshake outdoors
+/contact    Page heading over the Basra bridge; contact details card (phone
+            so far) beside the form
+/privacy    Privacy policy (draft, needs legal review), page heading over
+            a geometric lattice
+/terms      Terms of use (draft, needs legal review), same heading photo
 (any other) Branded 404 in the visitor's language
 ```
 
@@ -39,14 +46,16 @@ src/assets/images/   stock photographs (imported, never served from public/),
                      with stock/CREDITS.md
 src/core/config/     fonts via next/font/google
 src/core/constants/  site URL, API base URL, form endpoints, main navigation,
-                     hero images and alt text, social image size
+                     photographs and their alt text, social image size
 src/core/i18n/       routing, request config, navigation
 src/core/new-components/common/
                      shared UI (see below)
 src/core/services/   api-services (multipart POST returning Result<T>)
 src/core/types/      Result<T>, failures, form action state
 src/repositories/    contact and membership: <name>_repo.ts, <name>_impl.ts
-src/lib/             localize, split-ltr-runs, isolate-ltr-runs, highlight-terms,
+src/hooks/           use-reduced-motion, use-lenis
+src/lib/             gsap (plugin registration), smooth-scroll (Lenis provider),
+                     lenis-context, localize, split-ltr-runs, isolate-ltr-runs, highlight-terms,
                      pick-messages, about-sections, contact-items, parse-tier,
                      parse-form-errors, to-form-data, zod-helpers, is-active-path,
                      organization-schema, build-page-metadata, build-alternates,
@@ -80,19 +89,32 @@ brand/             Emblem with the IBBC wordmark and the council's name
 emblem/            The octagonal emblem with its red notch (inline SVG)
 button/            Pills: red, white, blue, outline-light
 language-switcher/ Switches to the other language, keeping the path and query
-page-heading/      Blue band at the top of every inner page: title, red rule,
-                   lede, optional in-page pills; carries #content
+page-heading/      Band at the top of every inner page: title, red rule, lede,
+                   optional in-page pills, optional background photo under a
+                   blue veil (deep on the reading-start side); carries #content
+photo-band/        Full-width band with a background photo under an even blue
+                   veil, content in shell (Vision and mission, membership band)
+split-photo-frame/ Two photographs side by side in a rounded frame with the red
+                   seam, the first on the reading-start side
 section/           Section with the standard inset
 section-heading/   Section title with an optional lede, dark or light
 index-pills/       In-page index as pills (About, Membership)
 icon-card-grid/    Cards with an icon, title and sentence (objectives, Why Iraq,
-                   benefits)
+                   benefits); a card with an image shows it on top, 16:10
 icon/              Maps a content icon name to its lucide icon
 form-field/        Label, hint, error and described-by wiring; CONTROL_CLASS
 legal-page/        Privacy and terms pages from their message sections
+reveal/            Scroll-in on IntersectionObserver: rise, frame, sequence or
+                   stagger; finished state outright under reduced motion
+parallax/          Slow-drifting photograph layer (ScrollTrigger scrub), fine
+                   pointers without reduced motion only
 rich-text/         Isolates every Latin or numeric run in a content string
 ltr-run/           One isolated left-to-right run
 ```
+
+## Stack
+
+Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, next-intl v4, Zod 4, lucide-react, GSAP with ScrollTrigger and `@gsap/react` (section reveals and photograph parallax), and Lenis (smooth scrolling). The motion vocabulary and its rules are in CLAUDE.md under "Motion".
 
 ## Commands
 
@@ -130,7 +152,7 @@ None of these blocks the launch. Each one, when it arrives, switches on the part
 - Where form submissions should go: both forms post to endpoints that do not exist yet (`src/core/constants/endpoints.ts`, with `NEXT_PUBLIC_BASE_URL`) and tell the visitor honestly that the message could not be sent
 - Confirmation, or changes, for the draft copy below, in particular the tiers and their features, the sector committees, the Why Iraq sectors, the vision, the mission and the objectives
 - Confirmation that Arabic is the default language
-- The council's own photographs, to replace the stock frames over time (all current photographs are stock, credited in `src/assets/images/stock/CREDITS.md`)
+- The council's own photographs, to replace the stock frames over time: the page headings, the two photo bands, the split frames, the Why Iraq cards and the Why join rows all use stock photographs, credited in `src/assets/images/stock/CREDITS.md` (all photo constants and their alt text are in `src/core/constants/images.ts`, the Why Iraq and Why join photographs in their content files)
 - For the later phase: member companies for the directory, events, and news
 - Legal review of the privacy policy and terms. Two points need it in particular: the privacy text says the council shares the data with no one, which must be revisited once a hosting or processing provider or a form endpoint is in place; and the privacy text names the contact form as the channel for data requests, which cannot deliver anything until the form endpoint exists. A working phone now exists, so the privacy text could name it alongside the contact form for data requests
 
@@ -158,5 +180,5 @@ Written for this build in Arabic and English, live as written, pending the counc
 - Tier feature wording: three features were reworded so that no tier label shares a five-word run with JBBC's feature labels: "An entry in the council's directory of members once it opens" (Bronze), "Priority invitations to high-level gatherings and roundtables" (Silver) and "Following up opportunities and partnerships" (Gold)
 - Wording about the council's standing: the site describes the council as formed in Iraq with the approval of Iraqi institutions, and its official standing as standing in Iraq only (`home.who.body`, `about.standing.body`, `membership.whyJoin.intro`, the Advocacy benefit and the investment row of Why join). Any wider claim needs the council's confirmation
 - `notFound.*` (`messages/ar.json`, `messages/en.json`): the 404 wording, also used by the standalone `src/app/not-found.tsx`
-- Hero image alt text (`src/core/constants/images.ts`)
+- Image alt text: the hero, flagpole and two cities photographs (`src/core/constants/images.ts`) and the Why Iraq cards (`src/content/why-iraq.ts`); the banner photographs behind text are decorative and carry empty alt text
 - `CONTACT_SUBJECTS`, `APPLICATION_SECTORS`, `COMPANY_SIZES`, `COUNTRIES` (`src/content/application-options.ts`): the labels of the form select lists
