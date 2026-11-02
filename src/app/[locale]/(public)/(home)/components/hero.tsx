@@ -59,7 +59,7 @@ export default async function Hero({ locale }: HomeSectionProps) {
           >
             {tOther("title")}
           </p>
-          <h1 className="mt-2 font-display text-hero font-semibold text-white hyphens-auto [overflow-wrap:anywhere]">
+          <h1 className="mt-2 font-display text-hero font-semibold text-white hyphens-auto sm:hyphens-manual [overflow-wrap:anywhere]">
             <RichText text={t("title")} locale={locale} />
           </h1>
           <span aria-hidden="true" className="mt-6 rule-red" />

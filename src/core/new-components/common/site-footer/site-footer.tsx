@@ -49,7 +49,7 @@ export default async function SiteFooter() {
   return (
     <footer className="on-blue bg-blue text-white">
       <div
-        className={`shell grid gap-12 py-14 lg:py-16 ${contact.length > 0 ? "lg:grid-cols-[1.6fr_1fr_1fr]" : "lg:grid-cols-[2fr_1fr]"}`}
+        className={`shell grid gap-12 py-16 lg:py-20 ${contact.length > 0 ? "lg:grid-cols-[1.6fr_1fr_1fr]" : "lg:grid-cols-[2fr_1fr]"}`}
       >
         <div className="flex flex-col items-start gap-6">
           <Brand tone="light" />
