@@ -168,7 +168,7 @@ The identity shows a serif in small capitals for the wordmark and titles. Until 
 
 All via `next/font/google`. Keep one type scale with no one-off sizes. The hero title is the largest text on the page at every width, and the hero paragraph is clearly smaller. Swap the families in one file when the identity's fonts arrive.
 
-The heading sizes follow the team's Baghdad Expo site, at the project lead's request (2026-11-02): `text-hero` `clamp(3rem, 1.9rem + 4.4vw, 5.5rem)` (48 to 88px, line-height 1.05), `text-display` `clamp(2.75rem, 1.9rem + 3.4vw, 4.5rem)` (44 to 72px, 1.08) for inner-page titles, and `text-headline` `clamp(2.25rem, 1.65rem + 2.4vw, 3.75rem)` (36 to 60px, 1.12) for section titles. Arabic keeps its own line-heights. The hero stays larger than the display, and the display than the headline, at every width.
+The heading sizes follow the team's Baghdad Expo site, at the project lead's request (2026-11-02): `text-hero` `clamp(3rem, 2.2rem + 3.2vw, 4.75rem)` (48 to 76px, line-height 1.05; kept below Expo's 88px so the English title stays within four lines), `text-display` `clamp(2.75rem, 1.9rem + 3.4vw, 4.5rem)` (44 to 72px, 1.08) for inner-page titles, and `text-headline` `clamp(2.25rem, 1.65rem + 2.4vw, 3.75rem)` (36 to 60px, 1.12) for section titles. Arabic keeps its own line-heights. The hero stays larger than the display, and the display than the headline, at every width.
 
 ### 6.3 Layout
 

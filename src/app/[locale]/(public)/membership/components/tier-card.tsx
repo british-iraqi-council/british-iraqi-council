@@ -28,7 +28,7 @@ export default async function TierCard({
       />
       <div className="flex flex-1 flex-col gap-6 p-6 pt-8 lg:p-8 lg:pt-10">
         <div className="flex flex-col gap-3">
-          <h3 className="flex items-center gap-3 font-display text-headline font-semibold text-blue hyphens-auto [overflow-wrap:anywhere]">
+          <h3 className="flex items-center gap-3 font-display text-title font-semibold text-blue hyphens-auto [overflow-wrap:anywhere]">
             <span
               aria-hidden="true"
               className={`size-2.5 shrink-0 rounded-full ${colour}`}

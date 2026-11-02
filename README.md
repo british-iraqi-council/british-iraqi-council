@@ -62,7 +62,7 @@ docs/                design spec and identity reference
 
 ## Layout
 
-The container, spacing and section-heading sizes follow the team's Baghdad Expo site, at the project lead's request (2026-11-02). Every block sits in the `shell` utility (`src/app/tailwind.css`): up to 1800px wide with 24, 40, 80 and 112px side padding, exposed as `--shell-max` and `--shell-pad`. `<main>` alone spaces the top-level blocks, 96px apart and 128px from 1024px. Section titles run 36 to 60px, inner-page titles 44 to 72px and the Home title 48 to 88px. CLAUDE.md has the details.
+The container, spacing and section-heading sizes follow the team's Baghdad Expo site, at the project lead's request (2026-11-02). Every block sits in the `shell` utility (`src/app/tailwind.css`): up to 1800px wide with 24, 40, 80 and 112px side padding, exposed as `--shell-max` and `--shell-pad`. `<main>` alone spaces the top-level blocks, 96px apart and 128px from 1024px. Section titles run 36 to 60px, inner-page titles 44 to 72px and the Home title 48 to 76px. CLAUDE.md has the details.
 
 ## Shared components
 

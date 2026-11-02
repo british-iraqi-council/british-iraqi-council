@@ -50,7 +50,7 @@ export default async function Hero({ locale }: HomeSectionProps) {
         <div
           id="content"
           tabIndex={-1}
-          className="on-blue flex max-w-[44rem] flex-col items-start focus:outline-none lg:max-w-[calc(50vw_-_max(var(--shell-pad),(100vw_-_var(--shell-max))_/_2_+_var(--shell-pad))_-_2rem)]"
+          className="on-blue flex max-w-[44rem] flex-col items-start focus:outline-none xl:max-w-[calc(50vw_-_max(var(--shell-pad),(100vw_-_var(--shell-max))_/_2_+_var(--shell-pad))_-_2rem)]"
         >
           <p
             lang={other}
