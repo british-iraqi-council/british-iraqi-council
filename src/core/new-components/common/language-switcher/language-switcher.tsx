@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Languages } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/core/i18n/navigation";
@@ -19,10 +20,15 @@ export default function LanguageSwitcher({
   const pathname = usePathname();
   const t = useTranslations("languageSwitcher");
   const next = locale === "ar" ? "en" : "ar";
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    setSearch(window.location.search);
+  }, [pathname]);
 
   return (
     <Link
-      href={pathname}
+      href={`${pathname}${search}`}
       locale={next}
       hrefLang={next}
       onClick={onNavigate}
