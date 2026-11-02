@@ -146,6 +146,34 @@
   "error": {
     "unexpectedError": "Something went wrong. Please try again."
   },
+  "contact": {
+    "meta": {
+      "title": "Contact us",
+      "description": "Send a message to the Iraqi–British Business Council about membership, partnerships or media enquiries."
+    },
+    "heading": {
+      "title": "Contact us",
+      "lede": "Write to the council about membership, partnerships or anything else, and we will reply by email."
+    },
+    "intro": "Send us a message using the form and the council will get back to you.",
+    "formTitle": "Send a message",
+    "form": {
+      "name": "Full name",
+      "company": "Company (optional)",
+      "email": "Email address",
+      "phone": "Phone (optional)",
+      "subject": "Subject",
+      "subjectPlaceholder": "Choose a subject",
+      "message": "Message",
+      "messagePlaceholder": "How can we help?",
+      "required": "Required",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "successMessage": "Thank you. Your message has been sent.",
+      "unsentMessage": "We couldn't send your message right now. Please try again later.",
+      "honeypotLabel": "Leave this field empty"
+    }
+  },
   "forms": {
     "errors": {
       "nameRequired": "Please enter your name.",

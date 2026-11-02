@@ -1,5 +1,5 @@
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
-const PATHS = ["", "/about", "/membership"];
+const PATHS = ["", "/about", "/membership", "/contact"];
 const TIER_IDS = ["bronze", "silver", "gold"];
 const LOCALES = [
   { code: "ar", dir: "rtl" },
@@ -97,6 +97,16 @@ for (const { code, dir } of LOCALES) {
         if (count !== 1) {
           fail(`${url}: expected one link ending ${suffix}, found ${count}`);
         }
+      }
+    }
+    if (path === "/contact") {
+      if (html.includes('href="tel:') || html.includes('href="mailto:')) {
+        fail(
+          `${url}: has a tel: or mailto: link before any contact detail is confirmed`,
+        );
+      }
+      if (!html.includes("<form")) {
+        fail(`${url}: has no <form`);
       }
     }
     for (const token of FORBIDDEN) {

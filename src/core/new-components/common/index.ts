@@ -27,3 +27,5 @@ export { default as SiteHeader } from "./site-header";
 export type { HeaderLinksProps, MobileMenuProps } from "./site-header";
 export { default as SiteShell } from "./site-shell";
 export type { SiteShellProps } from "./site-shell";
+export { default as FormField, describedBy, CONTROL_CLASS } from "./form-field";
+export type { FormFieldProps } from "./form-field";
