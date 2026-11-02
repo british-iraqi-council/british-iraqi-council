@@ -5,18 +5,9 @@ import {
   COUNTRIES,
   TIERS,
 } from "@/content";
+import { emailField, emptyToUndefined, valuesOf } from "@/lib/zod-helpers";
 
 export const ATTACHMENT_MAX_BYTES = 4 * 1024 * 1024;
-
-const emptyToUndefined = (value: unknown) => (value === "" ? undefined : value);
-
-const valuesOf = <T extends string>(items: readonly { value: T }[]) =>
-  items.map((item) => item.value) as [T, ...T[]];
-
-const tierIds = TIERS.map((tier) => tier.id) as [
-  (typeof TIERS)[number]["id"],
-  ...(typeof TIERS)[number]["id"][],
-];
 
 const optionalText = (max: number, key: string) =>
   z.preprocess(emptyToUndefined, z.string().trim().max(max, key).optional());
@@ -74,13 +65,16 @@ export const applicationSchema = z.object({
     .min(2, "fullNameRequired")
     .max(120, "fullNameTooLong"),
   position: optionalText(120, "positionTooLong"),
-  email: z.string("emailInvalid").trim().pipe(z.email("emailInvalid")),
+  email: emailField,
   phone: z
     .string("phoneRequired")
     .trim()
     .min(7, "phoneRequired")
     .max(24, "phoneRequired"),
-  tier: z.enum(tierIds, "tierRequired"),
+  tier: z.enum(
+    valuesOf(TIERS.map(({ id }) => ({ value: id }))),
+    "tierRequired",
+  ),
   heardFrom: optionalText(160, "heardFromTooLong"),
   message: optionalText(2000, "messageTooLong"),
   attachment: z.preprocess(

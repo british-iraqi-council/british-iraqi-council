@@ -1,12 +1,6 @@
 import { z } from "zod";
 import { CONTACT_SUBJECTS } from "@/content";
-
-const emptyToUndefined = (value: unknown) => (value === "" ? undefined : value);
-
-const SUBJECT_VALUES = CONTACT_SUBJECTS.map((option) => option.value) as [
-  (typeof CONTACT_SUBJECTS)[number]["value"],
-  ...(typeof CONTACT_SUBJECTS)[number]["value"][],
-];
+import { emailField, emptyToUndefined, valuesOf } from "@/lib/zod-helpers";
 
 export const CONTACT_FIELDS = [
   "name",
@@ -29,12 +23,12 @@ export const contactSchema = z.object({
     emptyToUndefined,
     z.string().trim().max(160, "companyTooLong").optional(),
   ),
-  email: z.string("emailInvalid").trim().pipe(z.email("emailInvalid")),
+  email: emailField,
   phone: z.preprocess(
     emptyToUndefined,
     z.string().trim().min(7, "phoneInvalid").max(24, "phoneInvalid").optional(),
   ),
-  subject: z.enum(SUBJECT_VALUES, "subjectRequired"),
+  subject: z.enum(valuesOf(CONTACT_SUBJECTS), "subjectRequired"),
   message: z
     .string("messageTooShort")
     .trim()
