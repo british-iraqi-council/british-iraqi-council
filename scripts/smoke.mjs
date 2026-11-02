@@ -51,6 +51,19 @@ for (const { code, dir } of LOCALES) {
   }
 }
 
+for (const [path, type] of [
+  ["/icon.svg", "image/svg+xml"],
+  ["/apple-icon", "image/png"],
+]) {
+  const response = await get(path);
+  const contentType = response.headers.get("content-type") ?? "";
+  if (response.status !== 200 || !contentType.startsWith(type)) {
+    fail(
+      `${path}: expected 200 ${type}, got ${response.status} ${contentType}`,
+    );
+  }
+}
+
 const missing = await get("/ar/does-not-exist");
 if (missing.status !== 404) {
   fail(`/ar/does-not-exist: expected 404, got ${missing.status}`);

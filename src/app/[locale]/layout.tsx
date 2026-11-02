@@ -45,7 +45,13 @@ export default async function RootLayout({
   setRequestLocale(locale);
   const dir = getLangDir(locale);
   const messages = await getMessages();
-  const shellMessages = pickMessages(messages, ["common", "nav", "notFound"]);
+  const shellMessages = pickMessages(messages, [
+    "common",
+    "nav",
+    "languageSwitcher",
+    "footer",
+    "notFound",
+  ]);
 
   return (
     <html

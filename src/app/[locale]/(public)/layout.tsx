@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import { SiteShell } from "@/core/new-components/common";
 import { PublicLayoutProps } from "./types";
 
 export default async function PublicLayout({
@@ -8,9 +9,5 @@ export default async function PublicLayout({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return (
-    <main id="content" tabIndex={-1}>
-      {children}
-    </main>
-  );
+  return <SiteShell>{children}</SiteShell>;
 }

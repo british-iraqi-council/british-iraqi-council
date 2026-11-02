@@ -1,10 +1,32 @@
 {
   "common": {
     "siteName": "Iraqi–British Business Council",
-    "siteShort": "IBBC"
+    "siteShort": "IBBC",
+    "skipToContent": "Skip to content"
   },
   "nav": {
-    "home": "Home"
+    "home": "Home",
+    "about": "About",
+    "membership": "Membership",
+    "contact": "Contact",
+    "contactUs": "Contact us",
+    "menuLabel": "Main menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "ar": "العربية",
+    "en": "English"
+  },
+  "footer": {
+    "quickLinks": "Quick links",
+    "contact": "Contact",
+    "social": "Social media",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "copyright": "© {year} {siteName}"
   },
   "notFound": {
     "title": "Page not found",

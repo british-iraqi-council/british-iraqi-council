@@ -10,9 +10,14 @@
   --color-ink: #14204a;
   --color-muted: #545b78;
   --color-line: #e4dccb;
+  --color-on-blue-muted: #c9d0ea;
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-cormorant), Georgia, serif;
+  --font-brand: var(--font-cormorant), Georgia, serif;
+  --font-latin: var(--font-inter), system-ui, sans-serif;
+  --font-arabic:
+    var(--font-plex-arabic), "Segoe UI", Tahoma, system-ui, sans-serif;
 
   --text-hero: clamp(2.75rem, 1.9rem + 3.6vw, 4.75rem);
   --text-hero--line-height: 1.05;
@@ -37,6 +42,30 @@
   @media (min-width: 64rem) {
     padding-inline: 2.5rem;
   }
+}
+
+@layer base {
+  html {
+    --focus-ring: var(--color-blue);
+    scroll-padding-top: 6.5rem;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  html[lang="ar"] body {
+    line-height: 1.75;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+@utility on-blue {
+  --focus-ring: var(--color-white);
 }
 
 @utility rule-red {

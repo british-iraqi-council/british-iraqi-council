@@ -49,5 +49,6 @@ describe("colour tokens", () => {
     expect(ratio("white", "blue")).toBeGreaterThanOrEqual(7);
     expect(ratio("white", "red")).toBeGreaterThanOrEqual(4.5);
     expect(ratio("white", "blue-deep")).toBeGreaterThanOrEqual(7);
+    expect(ratio("on-blue-muted", "blue")).toBeGreaterThanOrEqual(7);
   });
 });
