@@ -142,5 +142,36 @@
       "apply": "Apply",
       "applyFor": "for {tier} membership"
     }
+  },
+  "error": {
+    "unexpectedError": "Something went wrong. Please try again."
+  },
+  "forms": {
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "nameTooLong": "Please shorten your name to 120 characters or fewer.",
+      "companyTooLong": "Please shorten the company name to 160 characters or fewer.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phoneInvalid": "Please enter a valid phone number.",
+      "subjectRequired": "Please choose a subject.",
+      "messageTooShort": "Please write at least 10 characters.",
+      "messageTooLong": "Please shorten your message to 2,000 characters or fewer.",
+      "companyNameRequired": "Please enter your company name.",
+      "companyNameTooLong": "Please shorten the company name to 160 characters or fewer.",
+      "sectorRequired": "Please choose a sector.",
+      "countryRequired": "Please choose a country.",
+      "cityTooLong": "Please shorten the city to 80 characters or fewer.",
+      "websiteInvalid": "Please enter a valid website address, for example https://example.com.",
+      "companySizeInvalid": "Please choose a company size from the list.",
+      "fullNameRequired": "Please enter your full name.",
+      "fullNameTooLong": "Please shorten your name to 120 characters or fewer.",
+      "positionTooLong": "Please shorten your position to 120 characters or fewer.",
+      "phoneRequired": "Please enter a valid phone number.",
+      "tierRequired": "Please choose a membership tier.",
+      "heardFromTooLong": "Please shorten this answer to 160 characters or fewer.",
+      "attachmentType": "Please attach a PDF file.",
+      "attachmentTooLarge": "The file is larger than 4 MB. Please attach a smaller PDF.",
+      "consentRequired": "Please confirm your consent to continue."
+    }
   }
 }

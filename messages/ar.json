@@ -142,5 +142,36 @@
       "apply": "قدّم طلبك",
       "applyFor": "للعضوية {tier}"
     }
+  },
+  "error": {
+    "unexpectedError": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى."
+  },
+  "forms": {
+    "errors": {
+      "nameRequired": "يرجى إدخال الاسم.",
+      "nameTooLong": "يرجى اختصار الاسم إلى 120 حرفاً أو أقل.",
+      "companyTooLong": "يرجى اختصار اسم الشركة إلى 160 حرفاً أو أقل.",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح.",
+      "phoneInvalid": "يرجى إدخال رقم هاتف صحيح.",
+      "subjectRequired": "يرجى اختيار الموضوع.",
+      "messageTooShort": "يرجى كتابة 10 أحرف على الأقل.",
+      "messageTooLong": "يرجى اختصار الرسالة إلى 2000 حرف أو أقل.",
+      "companyNameRequired": "يرجى إدخال اسم الشركة.",
+      "companyNameTooLong": "يرجى اختصار اسم الشركة إلى 160 حرفاً أو أقل.",
+      "sectorRequired": "يرجى اختيار القطاع.",
+      "countryRequired": "يرجى اختيار الدولة.",
+      "cityTooLong": "يرجى اختصار اسم المدينة إلى 80 حرفاً أو أقل.",
+      "websiteInvalid": "يرجى إدخال عنوان موقع صحيح، مثل https://example.com.",
+      "companySizeInvalid": "يرجى اختيار حجم الشركة من القائمة.",
+      "fullNameRequired": "يرجى إدخال الاسم الكامل.",
+      "fullNameTooLong": "يرجى اختصار الاسم إلى 120 حرفاً أو أقل.",
+      "positionTooLong": "يرجى اختصار المنصب إلى 120 حرفاً أو أقل.",
+      "phoneRequired": "يرجى إدخال رقم هاتف صحيح.",
+      "tierRequired": "يرجى اختيار فئة العضوية.",
+      "heardFromTooLong": "يرجى اختصار الإجابة إلى 160 حرفاً أو أقل.",
+      "attachmentType": "يرجى إرفاق ملف بصيغة PDF.",
+      "attachmentTooLarge": "حجم الملف أكبر من 4 ميغابايت. يرجى إرفاق ملف PDF أصغر.",
+      "consentRequired": "يرجى تأكيد موافقتك للمتابعة."
+    }
   }
 }
