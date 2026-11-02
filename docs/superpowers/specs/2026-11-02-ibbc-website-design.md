@@ -41,7 +41,7 @@ The site has three jobs:
 
 **Anti-goals** (a failure even if everything works)
 
-- **Looking like a JBBC copy.** No JBBC sentence, layout detail or asset is reused verbatim. The maroon palette, the wireframe "wave" banner pattern, the Brown typeface and the London-landmark photo bands are JBBC's and stay out.
+- **Looking like a JBBC copy.** No JBBC sentence, layout detail or asset is reused verbatim. The maroon palette, the wireframe "wave" banner pattern and the Brown typeface are JBBC's and stay out. London imagery is allowed sparingly (the About two-cities frame), since the project lead asked for imagery like the original website (2026-11-02); a full-width London-landmark band stays out.
 - **Invented facts.** No board member, advisor, staff name, member company, partner, sponsor, address, phone number, figure, date or event is made up. Where the site needs one and the client has not supplied it, that part of the page is left out (section 7).
 - **Off-brand look.** The identity is union blue, a spark of red and ivory. Red stays an accent; it never becomes a large background like JBBC's maroon.
 
@@ -64,7 +64,7 @@ The site has three jobs:
 
 ## 4. Calls made by Claude (the project lead may overrule any of these)
 
-- **Stack:** the same as Al-Dallah. Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, next-intl v4, Zod 4, lucide-react. GSAP and Lenis only if a motion need appears; none is planned. Node 24.
+- **Stack:** the same as Al-Dallah. Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, next-intl v4, Zod 4, lucide-react. GSAP (ScrollTrigger, `@gsap/react`) and Lenis, added on 2026-11-02 for the motion in section 6.7. Node 24.
 - **Default locale:** Arabic. `/` redirects to `/ar`; `/en` is a full peer.
 - **Hosting:** Vercel.
 - **Fonts:** stand-ins until the identity's real fonts are known (section 6.2).
@@ -207,6 +207,8 @@ The project lead approved the drawn emblem from the mockups for launch. Draw it 
 ### 6.7 Motion
 
 Minimal: a short fade or rise as sections enter, disabled under reduced motion. Content must never depend on an animation to become visible.
+
+Extended on 2026-11-02 at the project lead's request for "animation or smoothness": a CSS hero and page-heading entrance, section reveals on IntersectionObserver with staggered cards and settling photographs, a slow parallax on the hero and banner photographs, hover lifts, and Lenis smooth scrolling. CLAUDE.md ("Motion") holds the vocabulary and its rules.
 
 ### 6.8 Imagery
 

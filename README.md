@@ -53,7 +53,9 @@ src/core/new-components/common/
 src/core/services/   api-services (multipart POST returning Result<T>)
 src/core/types/      Result<T>, failures, form action state
 src/repositories/    contact and membership: <name>_repo.ts, <name>_impl.ts
-src/lib/             localize, split-ltr-runs, isolate-ltr-runs, highlight-terms,
+src/hooks/           use-reduced-motion, use-lenis
+src/lib/             gsap (plugin registration), smooth-scroll (Lenis provider),
+                     lenis-context, localize, split-ltr-runs, isolate-ltr-runs, highlight-terms,
                      pick-messages, about-sections, contact-items, parse-tier,
                      parse-form-errors, to-form-data, zod-helpers, is-active-path,
                      organization-schema, build-page-metadata, build-alternates,
@@ -102,9 +104,17 @@ icon-card-grid/    Cards with an icon, title and sentence (objectives, Why Iraq,
 icon/              Maps a content icon name to its lucide icon
 form-field/        Label, hint, error and described-by wiring; CONTROL_CLASS
 legal-page/        Privacy and terms pages from their message sections
+reveal/            Scroll-in on IntersectionObserver: rise, frame, sequence or
+                   stagger; finished state outright under reduced motion
+parallax/          Slow-drifting photograph layer (ScrollTrigger scrub), fine
+                   pointers without reduced motion only
 rich-text/         Isolates every Latin or numeric run in a content string
 ltr-run/           One isolated left-to-right run
 ```
+
+## Stack
+
+Next.js 16 App Router, React 19, TypeScript strict, Tailwind v4, next-intl v4, Zod 4, lucide-react, GSAP with ScrollTrigger and `@gsap/react` (section reveals and photograph parallax), and Lenis (smooth scrolling). The motion vocabulary and its rules are in CLAUDE.md under "Motion".
 
 ## Commands
 
