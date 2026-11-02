@@ -10,7 +10,14 @@ import {
   type FormEvent,
 } from "react";
 import { useTranslations } from "next-intl";
-import { AlertCircle, Check, ChevronDown, Upload } from "lucide-react";
+import {
+  AlertCircle,
+  Check,
+  ChevronDown,
+  ExternalLink,
+  Upload,
+  X,
+} from "lucide-react";
 import type { TierId } from "@/content";
 import { Link } from "@/core/i18n/navigation";
 import {
@@ -20,9 +27,14 @@ import {
   describedBy,
 } from "@/core/new-components/common";
 import type { FormActionState } from "@/core/types/form-action-state";
+import { firstInvalidField, focusControl } from "@/lib/focus-first-invalid";
 import { parseTier } from "@/lib/parse-tier";
 import { sendApplication } from "../actions";
-import { ATTACHMENT_MAX_BYTES, type ApplicationField } from "../schemas";
+import {
+  APPLICATION_FIELDS,
+  ATTACHMENT_MAX_BYTES,
+  type ApplicationField,
+} from "../schemas";
 import type { ApplicationFormProps, FormOption } from "../types";
 
 const INITIAL_STATE: FormActionState<ApplicationField> = { status: "idle" };
@@ -65,7 +77,12 @@ export default function ApplicationForm({
   const [tier, setTier] = useState<TierId | "">("");
   const [fileName, setFileName] = useState<string | null>(null);
   const [attachmentError, setAttachmentError] = useState<string | null>(null);
+  const [attachmentBlocked, setAttachmentBlocked] = useState(false);
+  const [attachmentResetFor, setAttachmentResetFor] =
+    useState<FormActionState<ApplicationField> | null>(null);
+  const [attempt, setAttempt] = useState(0);
   const formRef = useRef<HTMLFormElement>(null);
+  const attachmentRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const requested = parseTier(
@@ -82,13 +99,21 @@ export default function ApplicationForm({
       setTier("");
       setFileName(null);
     }
+    if (state.status === "invalid" && formRef.current) {
+      const field = firstInvalidField(APPLICATION_FIELDS, state.errors);
+      if (field) {
+        focusControl(formRef.current, field);
+      }
+    }
   }, [state]);
 
   const serverErrors: Partial<Record<ApplicationField, string>> =
     state.status === "invalid" ? state.errors : {};
+  const serverAttachmentError =
+    attachmentResetFor === state ? undefined : serverErrors.attachment;
   const errors: Partial<Record<ApplicationField, string>> = {
     ...serverErrors,
-    ...(attachmentError ? { attachment: attachmentError } : {}),
+    attachment: attachmentError ?? serverAttachmentError,
   };
 
   const control = (name: ApplicationField) => ({
@@ -134,6 +159,8 @@ export default function ApplicationForm({
   const onAttachmentChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     setFileName(file ? file.name : null);
+    setAttachmentBlocked(false);
+    setAttachmentResetFor(state);
     if (!file) {
       setAttachmentError(null);
     } else if (file.size > ATTACHMENT_MAX_BYTES) {
@@ -145,14 +172,38 @@ export default function ApplicationForm({
     }
   };
 
+  const removeAttachment = () => {
+    if (attachmentRef.current) {
+      attachmentRef.current.value = "";
+    }
+    setFileName(null);
+    setAttachmentError(null);
+    setAttachmentBlocked(false);
+    setAttachmentResetFor(state);
+    attachmentRef.current?.focus();
+  };
+
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (isPending) {
+      return;
+    }
+    setAttempt((count) => count + 1);
     if (attachmentError) {
+      setAttachmentBlocked(true);
+      focusControl(event.currentTarget, "attachment");
       return;
     }
     const formData = new FormData(event.currentTarget);
     startTransition(() => formAction(formData));
   };
+
+  const statusMessage =
+    attachmentBlocked && attachmentError
+      ? attachmentError
+      : state.status === "invalid"
+        ? t("invalidSummary")
+        : null;
 
   return (
     <form
@@ -311,6 +362,8 @@ export default function ApplicationForm({
             <div
               role="radiogroup"
               aria-labelledby="tier-label"
+              aria-required="true"
+              aria-invalid={Boolean(errors.tier)}
               aria-describedby={describedBy("tier", {
                 hint: t("tierHint"),
                 error: errors.tier,
@@ -397,28 +450,41 @@ export default function ApplicationForm({
             hint={t("attachmentHint")}
             error={errors.attachment}
           >
-            <label
-              htmlFor="attachment"
-              className="flex min-h-24 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-muted bg-ivory px-4 py-5 text-center transition-[border-color,box-shadow] duration-150 hover:border-ink has-[input:focus-visible]:border-blue has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-3 has-[input:focus-visible]:outline-blue"
-            >
-              <Upload size={20} aria-hidden="true" className="text-blue" />
-              <span className="text-sm font-semibold break-all text-ink">
-                {fileName ?? t("chooseFile")}
-              </span>
-              <input
-                id="attachment"
-                name="attachment"
-                type="file"
-                accept=".pdf,application/pdf"
-                onChange={onAttachmentChange}
-                aria-invalid={Boolean(errors.attachment)}
-                aria-describedby={describedBy("attachment", {
-                  hint: t("attachmentHint"),
-                  error: errors.attachment,
-                })}
-                className="sr-only"
-              />
-            </label>
+            <div className="flex flex-col gap-3">
+              <label
+                htmlFor="attachment"
+                className="flex min-h-24 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-muted bg-ivory px-4 py-5 text-center transition-[border-color,box-shadow] duration-150 hover:border-ink has-[input:focus-visible]:border-blue has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-3 has-[input:focus-visible]:outline-blue"
+              >
+                <Upload size={20} aria-hidden="true" className="text-blue" />
+                <span className="text-sm font-semibold break-all text-ink">
+                  {fileName ?? t("chooseFile")}
+                </span>
+                <input
+                  ref={attachmentRef}
+                  id="attachment"
+                  name="attachment"
+                  type="file"
+                  accept=".pdf,application/pdf"
+                  onChange={onAttachmentChange}
+                  aria-invalid={Boolean(errors.attachment)}
+                  aria-describedby={describedBy("attachment", {
+                    hint: t("attachmentHint"),
+                    error: errors.attachment,
+                  })}
+                  className="sr-only"
+                />
+              </label>
+              {fileName || errors.attachment ? (
+                <button
+                  type="button"
+                  onClick={removeAttachment}
+                  className="inline-flex min-h-11 items-center gap-2 self-start rounded-full border border-blue px-5 text-sm font-semibold text-blue transition-colors duration-150 hover:bg-ivory"
+                >
+                  <X size={16} aria-hidden="true" className="shrink-0" />
+                  {t("removeFile")}
+                </button>
+              ) : null}
+            </div>
           </FormField>
 
           <div className="flex flex-col gap-2">
@@ -439,9 +505,17 @@ export default function ApplicationForm({
                   link: (chunks) => (
                     <Link
                       href="/privacy"
-                      className="font-semibold text-blue underline underline-offset-4"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold whitespace-nowrap text-blue underline underline-offset-4"
                     >
                       {chunks}
+                      <ExternalLink
+                        size={14}
+                        aria-hidden="true"
+                        className="ms-1 inline-block align-[-0.125em]"
+                      />
+                      <span className="sr-only">{t("opensInNewTab")}</span>
                     </Link>
                   ),
                 })}
@@ -467,13 +541,28 @@ export default function ApplicationForm({
       <div className="flex flex-wrap items-center gap-5">
         <button
           type="submit"
-          disabled={isPending}
-          className="inline-flex min-h-11 items-center justify-center rounded-full bg-blue px-8 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-blue-deep disabled:opacity-60 motion-safe:active:scale-[0.97]"
+          aria-disabled={isPending}
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-blue px-8 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-blue-deep aria-disabled:cursor-not-allowed aria-disabled:opacity-60 motion-safe:active:scale-[0.97]"
         >
           {isPending ? t("submitting") : t("submit")}
         </button>
 
         <div role="status" aria-live="polite" className="min-w-0 flex-1">
+          {statusMessage ? (
+            <p
+              key={attempt}
+              className="flex items-start gap-2 text-sm font-medium text-ink"
+            >
+              <AlertCircle
+                size={16}
+                aria-hidden="true"
+                className="mt-0.5 shrink-0 text-red"
+              />
+              <span>
+                <RichText text={statusMessage} locale={locale} />
+              </span>
+            </p>
+          ) : null}
           {state.status === "success" ? (
             <p className="flex items-start gap-2 text-sm font-medium text-ink">
               <Check

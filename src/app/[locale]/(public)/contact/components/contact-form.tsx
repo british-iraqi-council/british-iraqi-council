@@ -5,6 +5,7 @@ import {
   useActionState,
   useEffect,
   useRef,
+  useState,
   type FormEvent,
 } from "react";
 import { useTranslations } from "next-intl";
@@ -15,8 +16,9 @@ import {
   describedBy,
 } from "@/core/new-components/common";
 import type { FormActionState } from "@/core/types/form-action-state";
+import { firstInvalidField, focusControl } from "@/lib/focus-first-invalid";
 import { sendMessage } from "../actions";
-import type { ContactField } from "../schemas";
+import { CONTACT_FIELDS, type ContactField } from "../schemas";
 import { ContactFormProps } from "../types";
 
 const INITIAL_STATE: FormActionState<ContactField> = { status: "idle" };
@@ -27,11 +29,18 @@ export default function ContactForm({ locale, subjects }: ContactFormProps) {
     sendMessage,
     INITIAL_STATE,
   );
+  const [attempt, setAttempt] = useState(0);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (state.status === "success") {
       formRef.current?.reset();
+    }
+    if (state.status === "invalid" && formRef.current) {
+      const field = firstInvalidField(CONTACT_FIELDS, state.errors);
+      if (field) {
+        focusControl(formRef.current, field);
+      }
     }
   }, [state]);
 
@@ -47,6 +56,10 @@ export default function ContactForm({ locale, subjects }: ContactFormProps) {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (isPending) {
+      return;
+    }
+    setAttempt((count) => count + 1);
     const formData = new FormData(event.currentTarget);
     startTransition(() => formAction(formData));
   };
@@ -159,13 +172,26 @@ export default function ContactForm({ locale, subjects }: ContactFormProps) {
       <div className="flex flex-wrap items-center gap-5 pt-2">
         <button
           type="submit"
-          disabled={isPending}
-          className="inline-flex min-h-11 items-center justify-center rounded-full bg-blue px-8 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-blue-deep disabled:opacity-60 motion-safe:active:scale-[0.97]"
+          aria-disabled={isPending}
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-blue px-8 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-blue-deep aria-disabled:cursor-not-allowed aria-disabled:opacity-60 motion-safe:active:scale-[0.97]"
         >
           {isPending ? t("submitting") : t("submit")}
         </button>
 
         <div role="status" aria-live="polite" className="min-w-0 flex-1">
+          {state.status === "invalid" ? (
+            <p
+              key={attempt}
+              className="flex items-start gap-2 text-sm font-medium text-ink"
+            >
+              <AlertCircle
+                size={16}
+                aria-hidden="true"
+                className="mt-0.5 shrink-0 text-red"
+              />
+              {t("invalidSummary")}
+            </p>
+          ) : null}
           {state.status === "success" ? (
             <p className="flex items-start gap-2 text-sm font-medium text-ink">
               <Check

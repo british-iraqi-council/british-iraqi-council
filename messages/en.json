@@ -169,6 +169,7 @@
       "required": "Required",
       "submit": "Send message",
       "submitting": "Sending…",
+      "invalidSummary": "Please correct the highlighted fields.",
       "successMessage": "Thank you. Your message has been sent.",
       "unsentMessage": "We couldn't send your message right now. Please try again later.",
       "honeypotLabel": "Leave this field empty"
@@ -235,9 +236,12 @@
       "attachment": "Company profile (optional)",
       "attachmentHint": "PDF only, up to 4 MB.",
       "chooseFile": "Choose a file",
+      "removeFile": "Remove file",
       "consent": "I agree to my details being used to consider this application, and I have read the <link>privacy policy</link>.",
+      "opensInNewTab": ", opens in a new tab",
       "submit": "Send application",
       "submitting": "Sending…",
+      "invalidSummary": "Please correct the highlighted fields.",
       "successMessage": "Thank you. Your application has been sent and the council will be in touch.",
       "unsentMessage": "We couldn't send your application right now. Please try again later.",
       "honeypotLabel": "Leave this field empty"
