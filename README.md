@@ -7,6 +7,9 @@ Arabic-first, bilingual (Arabic and English) website for the Iraqi–British Bus
 ```
 /ar, /en    Home: hero, standing strip, who we are, vision and mission,
             objectives, why Iraq, membership band (partners once supplied)
+/about      About: page heading with in-page pills, who we are, official
+            standing, objectives (board, honorary advisors and executive
+            team once supplied, each with its pill)
 ```
 
 `/` redirects to `/ar`; unprefixed paths such as `/about` redirect to `/ar/about`. Planned pages: Home, About, Membership (and apply), Contact, Privacy, Terms.
@@ -64,5 +67,6 @@ Written for this build in Arabic and English, live as written, pending the counc
 - `TIERS` (`src/content/tiers.ts`): Bronze, Silver and Gold, their names, taglines and features (Silver and Gold list only what they add)
 - `COMMITTEES` (`src/content/committees.ts`): five sector committees
 - `home.*` (`messages/ar.json`, `messages/en.json`): the Home page's wording: the hero headline and sentence ("Where Iraqi enterprise meets British business"), button labels, the "Who we are" paragraph, the vision and mission, the objectives and Why Iraq ledes, the membership band sentence, the partners headings, and the Home page title and description
+- `about.*` (`messages/ar.json`, `messages/en.json`): the About page's wording: the page title, lede and description, the in-page pill labels, the three "Who we are" paragraphs, the sentence after the standing line and the "Approval" and "Ratification" labels on the two institution cards, the objectives lede, the people section titles and the "View profile" link
 - Hero image alt text (`src/core/constants/images.ts`)
 - `CONTACT_SUBJECTS`, `APPLICATION_SECTORS`, `COMPANY_SIZES`, `COUNTRIES` (`src/content/application-options.ts`): the labels of the form select lists

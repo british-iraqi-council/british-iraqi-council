@@ -73,5 +73,43 @@
       "partners": "Partners",
       "supporters": "Supporters"
     }
+  },
+  "about": {
+    "meta": {
+      "title": "About the council",
+      "description": "Who the Iraqi–British Business Council is, its official standing in Iraq and its objectives for Iraqi and British companies."
+    },
+    "heading": {
+      "title": "About the council",
+      "lede": "Who the council is, the official standing it was formed with, and what it works to achieve."
+    },
+    "indexLabel": "On this page",
+    "sections": {
+      "who-we-are": "Who we are",
+      "standing": "Official standing",
+      "objectives": "Objectives",
+      "board": "Board of Directors",
+      "advisors": "Honorary Advisors",
+      "team": "Executive Team"
+    },
+    "who": {
+      "title": "Who we are",
+      "p1": "The Iraqi–British Business Council is a member-based council that connects Iraqi and British companies. It works for businesses on both sides: Iraqi firms looking for partners, expertise and markets in the United Kingdom, and British firms looking at the opportunities Iraq offers.",
+      "p2": "Because the council was formed in Iraq, its work starts from close knowledge of the Iraqi market: how business is done there, where growth is coming from and what a partner from abroad needs to know before committing.",
+      "p3": "Membership gives a company its place in that network: introductions to the right counterparts, a clearer view of each market, and a council that raises the issues that matter to its members with the bodies concerned."
+    },
+    "standing": {
+      "title": "Official standing",
+      "body": "This standing is the basis of the council's work: companies in both countries deal with a body established within Iraq's own institutions.",
+      "approval": "Approval",
+      "ratification": "Ratification"
+    },
+    "objectives": {
+      "title": "Our objectives",
+      "lede": "The six areas of work through which the council serves its members."
+    },
+    "people": {
+      "profile": "View profile"
+    }
   }
 }

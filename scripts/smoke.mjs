@@ -1,5 +1,5 @@
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
-const PATHS = [""];
+const PATHS = ["", "/about"];
 const LOCALES = [
   { code: "ar", dir: "rtl" },
   { code: "en", dir: "ltr" },
@@ -68,6 +68,16 @@ for (const { code, dir } of LOCALES) {
       const h1 = main.match(/<h1[\s\S]*?<\/h1>/i)?.[0] ?? "";
       if (plainText(h1) !== HERO_TITLE[code]) {
         fail(`${url}: <main> has no <h1> reading "${HERO_TITLE[code]}"`);
+      }
+    }
+    if (path === "/about") {
+      if (!html.includes('id="objectives"')) {
+        fail(`${url}: missing id="objectives"`);
+      }
+      for (const id of ["board", "advisors", "team"]) {
+        if (html.includes(`id="${id}"`) || html.includes(`href="#${id}"`)) {
+          fail(`${url}: renders the empty "${id}" section or its pill`);
+        }
       }
     }
     for (const token of FORBIDDEN) {
