@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import type { Photo } from "@/content";
+import type { FramedPhoto, Photo } from "@/content";
 import baghdadAerial from "@/assets/images/stock/baghdad-aerial-tigris.jpg";
 import baghdadTower from "@/assets/images/stock/baghdad-cbi-tower.jpg";
 import baghdadDusk from "@/assets/images/stock/baghdad-towers-dusk.jpg";
@@ -14,18 +14,12 @@ import londonAerial from "@/assets/images/stock/london-aerial-thames.jpg";
 import ukFlag from "@/assets/images/stock/uk-flag-closeup.jpg";
 import ukFlagPole from "@/assets/images/stock/uk-flag-pole.jpg";
 
-export type StockImage = Photo;
-
-export interface FramedPhoto extends Photo {
-  position: string;
-}
-
 export interface BannerPhoto {
   src: StaticImageData;
   position: string;
 }
 
-export const HERO_IMAGES: { iraq: StockImage; uk: StockImage } = {
+export const HERO_IMAGES: { iraq: Photo; uk: Photo } = {
   iraq: {
     src: iraqFlag,
     alt: {

@@ -33,7 +33,7 @@ export type { SectionProps } from "./section";
 export { default as SectionHeading } from "./section-heading";
 export type { SectionHeadingProps } from "./section-heading";
 export { default as SplitPhotoFrame } from "./split-photo-frame";
-export type { SplitPhoto, SplitPhotoFrameProps } from "./split-photo-frame";
+export type { SplitPhotoFrameProps } from "./split-photo-frame";
 export { default as SiteFooter } from "./site-footer";
 export { default as SiteHeader } from "./site-header";
 export type { HeaderLinksProps, MobileMenuProps } from "./site-header";

@@ -25,6 +25,10 @@ export interface Photo {
   alt: Localized;
 }
 
+export interface FramedPhoto extends Photo {
+  position?: string;
+}
+
 export interface IconCard {
   id: string;
   icon: IconName;

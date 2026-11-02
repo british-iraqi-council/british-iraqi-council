@@ -2,11 +2,13 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useReducedMotion } from "@/hooks";
 import { LenisContext } from "./lenis-context";
 
 const ANCHOR_TARGET = "data-anchor-target";
+const SETTLE_LIMIT = 1500;
 
 const isPlainClick = (event: MouseEvent) =>
   !event.defaultPrevented &&
@@ -31,7 +33,11 @@ const samePageTarget = (event: MouseEvent): HTMLElement | null => {
   ) {
     return null;
   }
-  return document.getElementById(decodeURIComponent(url.hash.slice(1)));
+  try {
+    return document.getElementById(decodeURIComponent(url.hash.slice(1)));
+  } catch {
+    return null;
+  }
 };
 
 const focusTarget = (target: HTMLElement) => {
@@ -53,6 +59,21 @@ const focusTarget = (target: HTMLElement) => {
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   const reduced = useReducedMotion();
   const [lenis, setLenis] = useState<Lenis | null>(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    let cancelled = false;
+    const decoding = Array.from(document.images)
+      .filter((image) => !image.complete)
+      .map((image) => image.decode().catch(() => undefined));
+    const limit = new Promise((resolve) => setTimeout(resolve, SETTLE_LIMIT));
+    Promise.race([Promise.all(decoding), limit]).then(() => {
+      if (!cancelled) ScrollTrigger.refresh();
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const refresh = () => ScrollTrigger.refresh();

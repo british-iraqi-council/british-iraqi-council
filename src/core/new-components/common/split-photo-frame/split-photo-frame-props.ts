@@ -1,11 +1,7 @@
-import type { Photo } from "@/content";
-
-export interface SplitPhoto extends Photo {
-  position?: string;
-}
+import type { FramedPhoto } from "@/content";
 
 export interface SplitPhotoFrameProps {
-  images: readonly [SplitPhoto, SplitPhoto];
+  images: readonly [FramedPhoto, FramedPhoto];
   sizes: string;
   className?: string;
 }

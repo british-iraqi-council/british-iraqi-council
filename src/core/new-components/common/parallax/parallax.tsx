@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { ParallaxProps } from "./parallax-props";
 
-const SCALE = 1.12;
 const CONDITIONS =
   "(prefers-reduced-motion: no-preference) and (pointer: fine)";
 
@@ -27,10 +26,9 @@ export default function Parallax({
       media.add(CONDITIONS, () => {
         gsap.fromTo(
           layer,
-          { yPercent: from, scale: SCALE },
+          { yPercent: from },
           {
             yPercent: to,
-            scale: SCALE,
             ease: "none",
             scrollTrigger: {
               trigger: frame,
@@ -54,7 +52,7 @@ export default function Parallax({
   );
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={`parallax-layer ${className}`}>
       {children}
     </div>
   );

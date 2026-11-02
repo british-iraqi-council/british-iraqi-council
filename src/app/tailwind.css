@@ -85,7 +85,7 @@
   height: 3px;
   background: var(--color-red);
   transform-origin: left center;
-  &:dir(rtl) {
+  [dir="rtl"] & {
     transform-origin: right center;
   }
 }
@@ -226,6 +226,12 @@
   }
 }
 
+@utility parallax-layer {
+  @media (prefers-reduced-motion: no-preference) and (pointer: fine) {
+    scale: 1.12;
+  }
+}
+
 @utility card-lift {
   transition:
     translate 500ms var(--ease-out-quint),
@@ -300,7 +306,9 @@ html.lenis.lenis-stopped {
 
 @media print {
   [data-reveal-root],
-  [data-reveal-root] * {
+  [data-reveal-root] > *,
+  [data-reveal-zoom],
+  [data-reveal-draw] {
     opacity: 1 !important;
     transform: none !important;
   }

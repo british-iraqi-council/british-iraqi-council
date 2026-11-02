@@ -27,7 +27,7 @@ export default async function VisionMission({ locale }: HomeSectionProps) {
         {CARDS.map((card) => (
           <article
             key={card.key}
-            className="card-lift flex flex-col gap-4 rounded-2xl border border-white/20 bg-blue-deep/40 p-7 backdrop-blur-sm lg:p-10"
+            className="card-lift flex flex-col gap-4 rounded-2xl border border-white/20 bg-blue-deep/40 p-7 lg:p-10"
           >
             <h3 className="font-display text-title font-semibold text-white">
               <RichText text={t(card.title)} locale={locale} />
