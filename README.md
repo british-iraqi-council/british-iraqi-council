@@ -15,8 +15,12 @@ Arabic-first, bilingual (Arabic and English) website for the Iraqi–British Bus
 ```
 messages/            ar.json, en.json
 src/app/[locale]/    layout, (public) routes, catch-all, not-found
+src/content/         typed { ar, en } content: organisation, people, partners,
+                     objectives, why-iraq, benefits, tiers, committees, form options
+src/core/constants/  site URL, main navigation
 src/core/i18n/       routing, request config, navigation
-src/lib/             localize, split-ltr-runs, pick-messages
+src/lib/             localize, split-ltr-runs, pick-messages, about-sections,
+                     contact-items, parse-tier, organization-schema
 src/proxy.ts         next-intl middleware
 scripts/smoke.mjs    smoke checks against a running build
 tests/               vitest unit tests
@@ -48,4 +52,12 @@ npm run gitcheck   # lint, format, test, clean build
 
 ## Draft copy for review
 
-None yet. Each task that adds descriptive wording lists it here.
+Written for this build in Arabic and English, live as written, pending the council's review. Each task that adds descriptive wording lists it here.
+
+- `ORGANISATION.description` (`src/content/organisation.ts`): the one-sentence site description, also used in metadata and the schema.org block
+- `OBJECTIVES` (`src/content/objectives.ts`): the six objectives, titles and sentences
+- `WHY_IRAQ` (`src/content/why-iraq.ts`): four sector tiles (energy; infrastructure and construction; agriculture and food; technology), titles and sentences
+- `BENEFITS` (`src/content/benefits.ts`): Access, Visibility, Advocacy, Networking, each with its sentence
+- `TIERS` (`src/content/tiers.ts`): Bronze, Silver and Gold, their names, taglines and features (Silver and Gold list only what they add)
+- `COMMITTEES` (`src/content/committees.ts`): five sector committees
+- `CONTACT_SUBJECTS`, `APPLICATION_SECTORS`, `COMPANY_SIZES`, `COUNTRIES` (`src/content/application-options.ts`): the labels of the form select lists
