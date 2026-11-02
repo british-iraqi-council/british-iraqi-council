@@ -19,32 +19,34 @@ export default async function Hero({ locale }: HomeSectionProps) {
   });
 
   return (
-    <section className="relative isolate -mt-20 flex min-h-[38rem] flex-col justify-end overflow-hidden bg-blue-deep lg:-mt-24 lg:min-h-[42rem]">
-      <div className="absolute inset-0 -z-10 grid grid-rows-2 sm:grid-cols-2 sm:grid-rows-1">
-        {HALVES.map(({ key, image, position }) => (
-          <div key={key} className="relative">
-            <Image
-              src={image.src}
-              alt={localize(image.alt, locale)}
-              fill
-              loading="eager"
-              fetchPriority="high"
-              sizes="(min-width: 40rem) 50vw, 100vw"
-              className={`object-cover ${position}`}
-            />
-          </div>
-        ))}
+    <section className="relative isolate -mt-20 flex flex-col overflow-hidden bg-blue-deep sm:min-h-[38rem] sm:justify-end lg:-mt-24 lg:min-h-[42rem]">
+      <div className="relative h-64 sm:absolute sm:inset-0 sm:-z-10 sm:h-auto">
+        <div className="absolute inset-0 grid grid-cols-2">
+          {HALVES.map(({ key, image, position }) => (
+            <div key={key} className="relative">
+              <Image
+                src={image.src}
+                alt={localize(image.alt, locale)}
+                fill
+                loading="eager"
+                fetchPriority="high"
+                sizes="50vw"
+                className={`object-cover ${position}`}
+              />
+            </div>
+          ))}
+        </div>
+        <div
+          aria-hidden="true"
+          className="hero-veil absolute inset-0 rtl:hero-veil-mirrored"
+        />
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-20 bottom-0 mx-auto w-1 bg-red sm:top-0"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        className="hero-veil absolute inset-0 -z-10 rtl:hero-veil-mirrored"
-      />
-      <span
-        aria-hidden="true"
-        className="absolute inset-x-0 top-1/2 -z-10 h-1 -translate-y-1/2 bg-red sm:inset-y-0 sm:mx-auto sm:h-auto sm:w-1 sm:translate-y-0"
-      />
 
-      <div className="shell pt-36 pb-14 sm:pb-16 lg:pt-44 lg:pb-20">
+      <div className="shell pt-10 pb-14 sm:pt-36 sm:pb-16 lg:pt-44 lg:pb-20">
         <div
           id="content"
           tabIndex={-1}
