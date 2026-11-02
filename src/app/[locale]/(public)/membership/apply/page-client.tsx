@@ -7,6 +7,7 @@ import {
   TIERS,
 } from "@/content";
 import type { Option } from "@/content";
+import { BANNER_IMAGES } from "@/core/constants/images";
 import type { Locale } from "@/core/i18n/routing";
 import { PageHeading, Section } from "@/core/new-components/common";
 import { isolateLtrRuns } from "@/lib/isolate-ltr-runs";
@@ -33,7 +34,12 @@ export default async function ApplicationPageClient({
 
   return (
     <>
-      <PageHeading title={t("heading.title")} lede={t("heading.lede")} />
+      <PageHeading
+        title={t("heading.title")}
+        lede={t("heading.lede")}
+        image={BANNER_IMAGES.apply.src}
+        imagePosition={BANNER_IMAGES.apply.position}
+      />
       <Section>
         <div className="mx-auto max-w-3xl">
           <NextIntlClientProvider

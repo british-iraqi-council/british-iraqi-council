@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { CONTACT_SUBJECTS, ORGANISATION } from "@/content";
+import { BANNER_IMAGES } from "@/core/constants/images";
 import type { Locale } from "@/core/i18n/routing";
 import { PageHeading, RichText, Section } from "@/core/new-components/common";
 import { contactItems } from "@/lib/contact-items";
@@ -28,7 +29,12 @@ export default async function ContactPageClient({
 
   return (
     <>
-      <PageHeading title={t("heading.title")} lede={t("heading.lede")} />
+      <PageHeading
+        title={t("heading.title")}
+        lede={t("heading.lede")}
+        image={BANNER_IMAGES.contact.src}
+        imagePosition={BANNER_IMAGES.contact.position}
+      />
       <Section>
         {items.length === 0 ? (
           <div className="mx-auto flex max-w-2xl flex-col gap-8">

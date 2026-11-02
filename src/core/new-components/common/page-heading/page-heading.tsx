@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import RichText from "../rich-text";
 import { PageHeadingProps } from "./page-heading-props";
@@ -5,12 +6,30 @@ import { PageHeadingProps } from "./page-heading-props";
 export default function PageHeading({
   title,
   lede,
+  image,
+  imagePosition = "object-center",
   children,
 }: PageHeadingProps) {
   const locale = useLocale();
 
   return (
-    <section className="on-blue bg-blue">
+    <section
+      className={`on-blue relative isolate overflow-hidden ${image ? "bg-blue-deep" : "bg-blue"}`}
+    >
+      {image ? (
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          <Image
+            src={image}
+            alt=""
+            fill
+            loading="eager"
+            fetchPriority="high"
+            sizes="100vw"
+            className={`object-cover ${imagePosition}`}
+          />
+          <div className="photo-veil-start absolute inset-0 rtl:photo-veil-mirrored" />
+        </div>
+      ) : null}
       <div
         id="content"
         tabIndex={-1}

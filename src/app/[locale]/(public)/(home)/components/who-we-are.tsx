@@ -1,18 +1,13 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { HERO_IMAGES } from "@/core/constants/images";
+import { FLAGPOLE_IMAGES } from "@/core/constants/images";
 import {
   Button,
   RichText,
   Section,
   SectionHeading,
+  SplitPhotoFrame,
 } from "@/core/new-components/common";
 import { HomeSectionProps } from "../types";
-
-const FRAME = [
-  { key: "iraq", image: HERO_IMAGES.iraq, position: "object-[70%_50%]" },
-  { key: "uk", image: HERO_IMAGES.uk, position: "object-[35%_50%]" },
-] as const;
 
 export default async function WhoWeAre({ locale }: HomeSectionProps) {
   const t = await getTranslations({ locale, namespace: "home.who" });
@@ -31,23 +26,11 @@ export default async function WhoWeAre({ locale }: HomeSectionProps) {
             </Button>
           </div>
         </div>
-        <div className="relative grid h-64 grid-cols-2 overflow-hidden rounded-2xl sm:h-80">
-          {FRAME.map(({ key, image, position }) => (
-            <div key={key} className="relative">
-              <Image
-                src={image.src}
-                alt=""
-                fill
-                sizes="(min-width: 64rem) 22vw, 50vw"
-                className={`object-cover ${position}`}
-              />
-            </div>
-          ))}
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 mx-auto w-1 bg-red"
-          />
-        </div>
+        <SplitPhotoFrame
+          images={FLAGPOLE_IMAGES}
+          sizes="(min-width: 112.5rem) 22rem, (min-width: 64rem) 20vw, 50vw"
+          className="h-72 sm:h-96 lg:h-[28rem]"
+        />
       </div>
     </Section>
   );

@@ -140,6 +140,38 @@
   --hero-veil-x: 74%;
 }
 
+@utility photo-veil {
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-blue-deep) 84%, transparent) 0%,
+    color-mix(in srgb, var(--color-blue-deep) 72%, transparent) 50%,
+    color-mix(in srgb, var(--color-blue-deep) 84%, transparent) 100%
+  );
+}
+
+@utility photo-veil-start {
+  --photo-veil-side: 90deg;
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-blue-deep) 88%, transparent) 0%,
+    color-mix(in srgb, var(--color-blue-deep) 82%, transparent) 50%,
+    color-mix(in srgb, var(--color-blue-deep) 88%, transparent) 100%
+  );
+  @media (min-width: 64rem) {
+    background-image: linear-gradient(
+      var(--photo-veil-side),
+      color-mix(in srgb, var(--color-blue-deep) 92%, transparent) 0%,
+      color-mix(in srgb, var(--color-blue-deep) 84%, transparent) 45%,
+      color-mix(in srgb, var(--color-blue-deep) 55%, transparent) 78%,
+      color-mix(in srgb, var(--color-blue-deep) 40%, transparent) 100%
+    );
+  }
+}
+
+@utility photo-veil-mirrored {
+  --photo-veil-side: 270deg;
+}
+
 @utility bidi-isolate {
   unicode-bidi: isolate;
 }

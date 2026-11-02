@@ -20,11 +20,17 @@ export type IconName =
   | "eye"
   | "users";
 
+export interface Photo {
+  src: StaticImageData;
+  alt: Localized;
+}
+
 export interface IconCard {
   id: string;
   icon: IconName;
   title: Localized;
   body: Localized;
+  image?: Photo;
 }
 
 export interface Person {

@@ -1,4 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
+import { BANNER_IMAGES } from "@/core/constants/images";
 import { readLegalSections } from "@/lib/read-legal-sections";
 import PageHeading from "../page-heading";
 import RichText from "../rich-text";
@@ -12,7 +13,12 @@ export default async function LegalPage({ namespace }: LegalPageProps) {
 
   return (
     <>
-      <PageHeading title={t("heading.title")} lede={t("heading.lede")} />
+      <PageHeading
+        title={t("heading.title")}
+        lede={t("heading.lede")}
+        image={BANNER_IMAGES.legal.src}
+        imagePosition={BANNER_IMAGES.legal.position}
+      />
       <Section>
         <div className="flex max-w-[68ch] flex-col gap-10">
           <p className="text-sm font-medium text-muted">
