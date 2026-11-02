@@ -4,6 +4,7 @@ import {
   startTransition,
   useActionState,
   useEffect,
+  useId,
   useRef,
   useState,
   type FormEvent,
@@ -25,6 +26,7 @@ const INITIAL_STATE: FormActionState<ContactField> = { status: "idle" };
 
 export default function ContactForm({ locale, subjects }: ContactFormProps) {
   const t = useTranslations("contact.form");
+  const titleId = useId();
   const [state, formAction, isPending] = useActionState(
     sendMessage,
     INITIAL_STATE,
@@ -70,8 +72,12 @@ export default function ContactForm({ locale, subjects }: ContactFormProps) {
       action={formAction}
       onSubmit={onSubmit}
       noValidate
+      aria-labelledby={titleId}
       className="flex w-full flex-col gap-5 rounded-3xl border border-line bg-white p-6 shadow-[0_10px_40px_rgba(11,36,112,0.08)] sm:p-10"
     >
+      <h2 id={titleId} className="sr-only">
+        {t("title")}
+      </h2>
       <input type="hidden" name="locale" value={locale} />
 
       <div aria-hidden="true" className="sr-only">

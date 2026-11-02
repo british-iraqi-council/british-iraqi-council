@@ -102,11 +102,11 @@ export default async function SiteFooter() {
                 const Glyph = CONTACT_ICONS[item.kind];
                 const text = <RichText text={item.text} locale={locale} />;
                 return (
-                  <li key={item.kind} className="flex items-start gap-3">
+                  <li key={item.kind} className="flex items-center gap-3">
                     <Glyph
                       aria-hidden="true"
                       strokeWidth={1.75}
-                      className="mt-1 size-4.5 shrink-0 text-on-blue-muted"
+                      className="size-4.5 shrink-0 text-on-blue-muted"
                     />
                     {item.href ? (
                       <a href={item.href} className={linkClasses}>

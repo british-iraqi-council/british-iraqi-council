@@ -6,16 +6,18 @@ Arabic-first, bilingual (Arabic and English) website for the Iraqi–British Bus
 
 ```
 /ar, /en    Home: hero, standing strip, who we are, vision and mission,
-            objectives, why Iraq, membership band (partners once supplied)
+            objectives, why Iraq, membership band, the "Approved and ratified
+            by" band (partners once supplied)
 /about      About: page heading with in-page pills, who we are, official
-            standing, objectives (board, honorary advisors and executive
-            team once supplied, each with its pill)
+            standing, objectives, the Board (one member so far; honorary
+            advisors and executive team once supplied, each with its pill)
 /membership Membership: page heading with in-page pills, why join (four
             image and text rows, with the sector committees), benefits,
-            the three tiers, each with an Apply link to /membership/apply
+            the three tiers, each with an Apply link to /membership/apply,
+            then the "Approved and ratified by" band
 /membership/apply
             Membership application (?tier= pre-selects a tier)
-/contact    Contact form (contact details once supplied)
+/contact    Contact details card (phone so far) beside the form
 /privacy    Privacy policy (draft, needs legal review)
 /terms      Terms of use (draft, needs legal review)
 (any other) Branded 404 in the visitor's language
@@ -66,8 +68,10 @@ docs/                design spec and identity reference
 site-shell/        Skip link, header, <main> and footer around every page
 site-header/       Fixed header: transparent over the Home hero, white elsewhere;
                    links and Contact pill from lg, a focus-trapping menu below it
-site-footer/       Blue footer: brand, standing line, quick links, legal links;
-                   contact column and social links once supplied
+site-footer/       Blue footer: brand, standing line, quick links, legal links,
+                   contact column (the phone so far); social links once supplied
+institutions-band/ "Approved and ratified by" band naming the two Iraqi
+                   institutions, on Home and Membership
 brand/             Emblem with the IBBC wordmark and the council's name
 emblem/            The octagonal emblem with its red notch (inline SVG)
 button/            Pills: red, white, blue, outline-light
@@ -113,7 +117,7 @@ None of these blocks the launch. Each one, when it arrives, switches on the part
 - Logo files (SVG) and the full identity deck; the emblem on the site is a drawn match of the identity image
 - Fonts and exact colours; the fonts in use are stand-ins
 - The domain (the site's canonical URLs, sitemap and Open Graph links follow `NEXT_PUBLIC_SITE_URL`)
-- Confirmation of the two details taken from the business card in the identity deck: Sohaib Mohammed Abdullah as Vice Chairman (on About) and +964 790 199 9998 as the council's phone (on Contact, in the footer and in the schema.org block). Remove them from `src/content/people.ts` and `src/content/organisation.ts` if the card was a design mock-up
+- Confirmation of the two details taken from the business card in the identity deck: Sohaib Mohammed Abdullah as Vice Chairman (on About) and +964 790 199 9998 as the council's phone (on Contact, in the footer and in the schema.org block). Remove them from `src/content/people.ts` and `src/content/organisation.ts` if the card was a design mock-up, and update the checks that assert them: `scripts/smoke.mjs` (the `tel:+9647901999998` check and the board-present check), `tests/content.test.ts` (the BOARD ids) and `tests/organization-schema.test.ts` (the telephone)
 - People: the rest of the board, honorary advisors, executive team (names, roles, organisations, photos, links), and a photo of the Vice Chairman. Each About section and its pill appear once its people are supplied
 - Partners and supporters, with logos and permission. The Home section appears once supplied
 - Contact details still missing: address, email, office hours, social accounts. Each appears in the Contact details card, the footer and the schema.org block once supplied
@@ -124,7 +128,7 @@ None of these blocks the launch. Each one, when it arrives, switches on the part
 - Confirmation that Arabic is the default language
 - The council's own photographs, to replace the stock frames over time (all current photographs are stock, credited in `src/assets/images/stock/CREDITS.md`)
 - For the later phase: member companies for the directory, events, and news
-- Legal review of the privacy policy and terms. Two points need it in particular: the privacy text says the council shares the data with no one, which must be revisited once a hosting or processing provider or a form endpoint is in place; and the privacy text names the contact form as the channel for data requests, which cannot deliver anything until the form endpoint exists
+- Legal review of the privacy policy and terms. Two points need it in particular: the privacy text says the council shares the data with no one, which must be revisited once a hosting or processing provider or a form endpoint is in place; and the privacy text names the contact form as the channel for data requests, which cannot deliver anything until the form endpoint exists. A working phone now exists, so the privacy text could name it alongside the contact form for data requests
 
 ## Draft copy for review
 
@@ -141,6 +145,9 @@ Written for this build in Arabic and English, live as written, pending the counc
 - `WHY_JOIN` (`src/content/why-join.ts`): the four Why join rows (trade growth, investment opportunities, sector committees, events and networking), their titles and sentences, and the alt text of their four stock photographs
 - `membership.*` (`messages/ar.json`, `messages/en.json`): the Membership page's wording: the page title, lede and description, the in-page pill labels, the Why join introduction, the benefits and tiers titles and ledes, the "Everything in {tier}, plus" line, and the "Apply" label with its screen-reader suffix
 - `contact.*` (`messages/ar.json`, `messages/en.json`): the Contact page's wording: the page title, lede and description, the introduction sentence, the form labels and placeholders, the summary shown when fields need correcting, and the success and "could not send" messages
+- `contact.form.title` (`messages/ar.json`, `messages/en.json`): the visually hidden form heading ("Send a message")
+- `contact.details.*` (`messages/ar.json`, `messages/en.json`): the contact details card's title and labels
+- `institutions.*` (`messages/ar.json`, `messages/en.json`): the "Approved and ratified by" band's title and its Approval and Ratification labels
 - `apply.*` (`messages/ar.json`, `messages/en.json`): the application page's wording: the page title, lede and description, the three group titles, the field labels and hints, the consent sentence, the "Remove file" button, the "opens in a new tab" cue read to screen readers after the privacy policy link, the summary shown when fields need correcting, and the success and "could not send" messages. Two lines describe how the council handles applications and need its confirmation: the tier hint ("You can change tier later by talking it through with the council") and the success message ("the council will be in touch")
 - `forms.errors.*` (`messages/ar.json`, `messages/en.json`): the validation messages of both forms
 - `privacy.*` and `terms.*` (`messages/ar.json`, `messages/en.json`): the privacy policy and terms of use, with their titles, ledes, descriptions and "Last updated" lines. **Needs legal review** before launch (see the two points under "Waiting on the council")

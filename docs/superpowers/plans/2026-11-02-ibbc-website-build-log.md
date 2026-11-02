@@ -164,3 +164,10 @@ Final: parked — aria-disabled submit keeps hover style while pending — Rulin
 Final: parked — after a mouse submit focus may land on an sr-only tier radio without a visible ring — Ruling: keyboard path correct; acceptable
 Final: parked — about.who.p2 "close knowledge of the Iraqi market" same family as softened claims — Ruling: flag to council review
 Final: parked — ESLint should ignore .playwright-mcp/ (7 warnings from git-ignored sweep scripts) — Ruling: trivial tooling follow-up
+
+## After the first release (2026-11-02)
+
+- Ruling: red switched to the Iraqi flag red #CE1126 at the project lead's request. Cost if wrong: one token and five literals.
+- Ruling: the Vice Chairman and phone taken from the identity deck's business card at the project lead's instruction ("fill what you can from the info available"), pending the council's confirmation. Cost if wrong: remove two entries and update three checks.
+- Ruling: the institutions band title is "Approved and ratified by" / "بموافقة ومصادقة", not "Backed by", to avoid overstating the council's standing. Cost if wrong: one message key.
+- Deferred minors from the post-release review: the band duplicates About's institution cards and the index-based role pairing (refactor to a `role` on each institution); brand hexes hand-copied into tailwind.css, icon.svg, apple-icon.tsx, opengraph-image.tsx and not-found.tsx (introduce a shared constant with a test); hero contrast should be re-measured against pixels at the next sweep after the red change.

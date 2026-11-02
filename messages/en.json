@@ -157,6 +157,7 @@
     },
     "intro": "Send us a message using the form and the council will get back to you.",
     "form": {
+      "title": "Send a message",
       "name": "Full name",
       "company": "Company (optional)",
       "email": "Email address",
@@ -362,7 +363,7 @@
     ]
   },
   "institutions": {
-    "title": "Backed by",
+    "title": "Approved and ratified by",
     "approval": "Approval",
     "ratification": "Ratification"
   }

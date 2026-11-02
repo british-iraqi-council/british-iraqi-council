@@ -60,7 +60,7 @@ The site has three jobs:
 - **Live as soon as possible, no placeholders:** the site launches with what is confirmed. A section whose facts the council has not supplied is left out entirely and appears when the data arrives (section 7). Draft copy goes live as written and is revised as the council reviews it.
 - **Forms send nowhere at first:** both forms post to an endpoint that does not exist yet and say honestly that the message could not be sent (section 8).
 - **Logo:** the drawn emblem from the mockups is approved for launch, matched as closely as possible to the identity image (section 6.6).
-- **No contact details yet:** the Contact page launches as the form alone; the footer has no contact column until details arrive.
+- **Contact details:** the phone (+964 790 199 9998, from the business card in the identity deck, pending the council's confirmation) shows on Contact and in the footer; address, email, hours and social accounts are still awaited and appear when supplied.
 
 ## 4. Calls made by Claude (the project lead may overrule any of these)
 
@@ -96,6 +96,7 @@ In this order:
 6. **Why Iraq** (new): a short section on the opportunity for British companies, as three or four sector tiles. The sectors are a draft for the council to confirm; write them as areas of interest (for example energy, infrastructure and construction, agriculture, education, health, technology), with no figures or claims that need sourcing.
 7. **Membership band:** a blue band, one line, "Apply now".
 8. **Partners and supporters:** two logo rows, shown only once the council supplies partners (section 7).
+9. **"Approved and ratified by" band:** names the two Iraqi institutions, at the end of the page.
 
 ### 5.2 About `/about`
 
@@ -103,7 +104,7 @@ In this order:
 2. **Who we are:** three or four paragraphs.
 3. **Official standing:** its own section, with the Federation of Iraqi Chambers of Commerce and the Ministry of Commerce named. No logos of either body unless the council supplies them with permission.
 4. **Objectives:** the six from Home, in full.
-5. **Board of Directors**, **Honorary Advisors**, **Executive Team:** cards with a photo (or a neutral silhouette), name, role, organisation and an optional link. Each group appears only once its people are supplied (section 7). Use a responsive grid, not a carousel: four, three, two or one across.
+5. **Board of Directors**, **Honorary Advisors**, **Executive Team:** cards with a photo (or a neutral silhouette), name, role, organisation and an optional link. Each group appears only once its people are supplied (section 7). The Board shows the Vice Chairman, Sohaib Mohammed Abdullah (from the business card, pending confirmation). Use a responsive grid, not a carousel: four, three, two or one across.
 
 The About menu links to each section by anchor (`#who-we-are`, `#standing`, `#objectives`, `#board`, `#advisors`, `#team`).
 
@@ -119,7 +120,8 @@ The About menu links to each section by anchor (`#who-we-are`, `#standing`, `#ob
 
    Each card has an "Apply" button that opens the application with that tier pre-selected. Tier colours: bronze, silver and gold appear only as a thin top edge or small mark on each card, never as a full card colour, so the page stays blue and ivory. Feature text is at least 15px.
 
-5. **Application** (`/membership/apply`, its own page): the form in section 8.2.
+5. **"Approved and ratified by" band:** the same band as on Home, at the end of the page.
+6. **Application** (`/membership/apply`, its own page): the form in section 8.2.
 
 ### 5.4 Contact `/contact`
 
@@ -262,7 +264,7 @@ None of these blocks the launch. Each one, when it arrives, switches on the part
 - Logo files (SVG) and the full identity deck, including font names and exact colours.
 - The domain.
 - Board, honorary advisors, executive team: names, roles, photos, bios.
-- Address, phone, email, office hours, social accounts.
+- Address, email, office hours, social accounts. The phone is supplied from the business card, pending confirmation.
 - Partners and supporters, with logos and permission.
 - Confirmation or changes to: tiers and their features, sector committees, the Why Iraq sectors, vision, mission, objectives.
 - Where form submissions should go.
