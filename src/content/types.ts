@@ -81,6 +81,7 @@ export interface Organisation {
   name: Localized;
   short: "IBBC";
   standing: Localized;
+  institutions: Localized[];
   description: Localized;
   contact: ContactDetails;
 }

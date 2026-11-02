@@ -5,7 +5,8 @@ Arabic-first, bilingual (Arabic and English) website for the Iraqi–British Bus
 ## Routes
 
 ```
-/ar, /en    Home (temporary heading while the site is built)
+/ar, /en    Home: hero, standing strip, who we are, vision and mission,
+            objectives, why Iraq, membership band (partners once supplied)
 ```
 
 `/` redirects to `/ar`; unprefixed paths such as `/about` redirect to `/ar/about`. Planned pages: Home, About, Membership (and apply), Contact, Privacy, Terms.
@@ -17,10 +18,12 @@ messages/            ar.json, en.json
 src/app/[locale]/    layout, (public) routes, catch-all, not-found
 src/content/         typed { ar, en } content: organisation, people, partners,
                      objectives, why-iraq, benefits, tiers, committees, form options
-src/core/constants/  site URL, main navigation
+src/assets/images/   stock photographs (imported, never served from public/),
+                     with stock/CREDITS.md
+src/core/constants/  site URL, main navigation, hero images and alt text
 src/core/i18n/       routing, request config, navigation
-src/lib/             localize, split-ltr-runs, pick-messages, about-sections,
-                     contact-items, parse-tier, organization-schema
+src/lib/             localize, split-ltr-runs, highlight-terms, pick-messages,
+                     about-sections, contact-items, parse-tier, organization-schema
 src/proxy.ts         next-intl middleware
 scripts/smoke.mjs    smoke checks against a running build
 tests/               vitest unit tests
@@ -60,4 +63,6 @@ Written for this build in Arabic and English, live as written, pending the counc
 - `BENEFITS` (`src/content/benefits.ts`): Access, Visibility, Advocacy, Networking, each with its sentence
 - `TIERS` (`src/content/tiers.ts`): Bronze, Silver and Gold, their names, taglines and features (Silver and Gold list only what they add)
 - `COMMITTEES` (`src/content/committees.ts`): five sector committees
+- `home.*` (`messages/ar.json`, `messages/en.json`): the Home page's wording: the hero headline and sentence ("Where Iraqi enterprise meets British business"), button labels, the "Who we are" paragraph, the vision and mission, the objectives and Why Iraq ledes, the membership band sentence, the partners headings, and the Home page title and description
+- Hero image alt text (`src/core/constants/images.ts`)
 - `CONTACT_SUBJECTS`, `APPLICATION_SECTORS`, `COMPANY_SIZES`, `COUNTRIES` (`src/content/application-options.ts`): the labels of the form select lists

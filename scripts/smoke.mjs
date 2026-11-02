@@ -4,6 +4,10 @@ const LOCALES = [
   { code: "ar", dir: "rtl" },
   { code: "en", dir: "ltr" },
 ];
+const STANDING = {
+  ar: "تأسس المجلس في العراق بموافقة اتحاد الغرف التجارية العراقية ومصادقة وزارة التجارة.",
+  en: "Formed in Iraq with the approval of the Federation of Iraqi Chambers of Commerce, and ratified by the Ministry of Commerce.",
+};
 const FORBIDDEN = ["[", "]", "undefined", "TODO", "lorem"];
 
 const failures = [];
@@ -14,6 +18,14 @@ const visibleText = (html) =>
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
     .replace(/<[^>]*>/g, " ");
+
+const textOutsideFooter = (html) =>
+  html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<footer[\s\S]*?<\/footer>/gi, "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ");
 
 const get = (path) => fetch(`${BASE_URL}${path}`, { redirect: "manual" });
 
@@ -43,6 +55,9 @@ for (const { code, dir } of LOCALES) {
       fail(`${url}: missing <html lang="${code}" dir="${dir}">`);
     }
     const text = visibleText(html);
+    if (path === "" && !textOutsideFooter(html).includes(STANDING[code])) {
+      fail(`${url}: the page body does not contain the standing line`);
+    }
     for (const token of FORBIDDEN) {
       if (text.toLowerCase().includes(token.toLowerCase())) {
         fail(`${url}: visible text contains "${token}"`);

@@ -32,5 +32,46 @@
     "title": "Page not found",
     "body": "The page you asked for does not exist or has moved.",
     "home": "Back to home"
+  },
+  "home": {
+    "meta": {
+      "title": "IBBC | Iraqi–British Business Council",
+      "description": "A member-based council formed in Iraq to grow trade, investment and lasting partnerships between Iraqi and British companies."
+    },
+    "hero": {
+      "title": "Where Iraqi enterprise meets British business",
+      "sentence": "A member-based council building trade, investment and lasting partnerships between Iraq and the United Kingdom.",
+      "learnMore": "Learn more",
+      "becomeMember": "Become a member"
+    },
+    "who": {
+      "title": "Who we are",
+      "body": "The Iraqi–British Business Council brings Iraqi and British companies together. We open doors to partners, investors and markets in both countries, and give our members a trusted voice with official standing between the two economies.",
+      "readMore": "Read more"
+    },
+    "visionMission": {
+      "title": "Vision and mission",
+      "visionTitle": "Our vision",
+      "vision": "To be the leading bridge for trade and investment between Iraq and the United Kingdom.",
+      "missionTitle": "Our mission",
+      "mission": "To connect Iraqi and British companies and help them grow, through introductions, access to markets and practical support."
+    },
+    "objectives": {
+      "title": "Our objectives",
+      "lede": "Six areas of work that shape what the council does for its members."
+    },
+    "whyIraq": {
+      "title": "Why Iraq",
+      "lede": "Sectors where British expertise and investment can work with Iraqi companies on what the country is building next."
+    },
+    "membership": {
+      "title": "Bring your company into the council's network in Iraq and the United Kingdom.",
+      "apply": "Apply now"
+    },
+    "partners": {
+      "title": "Partners and supporters",
+      "partners": "Partners",
+      "supporters": "Supporters"
+    }
   }
 }

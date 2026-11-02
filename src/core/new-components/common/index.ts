@@ -6,6 +6,8 @@ export { default as Emblem } from "./emblem";
 export type { EmblemProps } from "./emblem";
 export { default as Icon } from "./icon";
 export type { IconProps } from "./icon";
+export { default as IconCardGrid } from "./icon-card-grid";
+export type { IconCardGridProps } from "./icon-card-grid";
 export { default as LanguageSwitcher } from "./language-switcher";
 export type { LanguageSwitcherProps } from "./language-switcher";
 export { default as LtrRun } from "./ltr-run";

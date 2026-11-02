@@ -1,23 +1,23 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ORGANISATION } from "@/content";
-import { PageHeading } from "@/core/new-components/common";
-import { localize } from "@/lib/localize";
+import HomePageClient from "./page-client";
+import { HomePageProps } from "./types";
 
-export default async function HomePage({
+export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+}: HomePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home.meta" });
+
+  return {
+    title: { absolute: t("title") },
+    description: t("description"),
+  };
+}
+
+export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("common");
 
-  return (
-    <div className="-mt-20 bg-blue pt-20 lg:-mt-24 lg:pt-24">
-      <PageHeading
-        title={t("siteName")}
-        lede={localize(ORGANISATION.description, locale)}
-      />
-    </div>
-  );
+  return <HomePageClient locale={locale} />;
 }
