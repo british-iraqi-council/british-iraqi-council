@@ -46,7 +46,7 @@
     },
     "who": {
       "title": "Who we are",
-      "body": "The Iraqi–British Business Council brings Iraqi and British companies together. We open doors to partners, investors and markets in both countries, and give our members a trusted voice with official standing between the two economies.",
+      "body": "The Iraqi–British Business Council brings Iraqi and British companies together. Formed officially in Iraq, it is a bridge between the two business communities, and it works to open doors for its members to partners, investors and markets in both countries.",
       "readMore": "Read more"
     },
     "visionMission": {
@@ -100,7 +100,7 @@
     },
     "standing": {
       "title": "Official standing",
-      "body": "This standing is the basis of the council's work: companies in both countries deal with a body established within Iraq's own institutions.",
+      "body": "This standing is the basis of the council's work: companies in both countries deal with a council formed with the approval of Iraqi institutions.",
       "approval": "Approval",
       "ratification": "Ratification"
     },
@@ -129,7 +129,7 @@
     },
     "whyJoin": {
       "title": "Why join",
-      "intro": "Membership places your company in a network of Iraqi and British businesses, close to the institutions that shape trade between the two countries, alongside a council that knows the Iraqi market from within. Whether you are an Iraqi firm looking to grow abroad or a British firm looking at Iraq, the council works to turn that interest into partnerships."
+      "intro": "Membership places your company in a network of Iraqi and British businesses, alongside a council rooted in Iraq's business community. Whether you are an Iraqi firm looking to grow abroad or a British firm looking at Iraq, the council works to turn that interest into partnerships."
     },
     "benefits": {
       "title": "Membership benefits",
@@ -137,7 +137,7 @@
     },
     "tiers": {
       "title": "Membership tiers",
-      "lede": "Three tiers, each building on the one before. Choose the one that suits your company and apply; the council will discuss the terms of membership with you after your application.",
+      "lede": "Three tiers, each building on the one before. Choose the one that suits your company and apply; every application is subject to the council's approval.",
       "includes": "Everything in {tier}, plus",
       "apply": "Apply",
       "applyFor": "for {tier} membership"
@@ -270,7 +270,7 @@
           "We collect only what you choose to send us through the two forms on this site.",
           "The contact form asks for your name, your email address, a subject and your message, and lets you add your company and a phone number.",
           "The membership application asks for your company’s name, sector and country, and for the contact person’s full name, email address and phone number. It lets you add the company’s city, website and size, and the contact person’s position. It also records the membership tier you choose, your agreement to this policy and, if you give them, how you heard about us, a message and a company profile in PDF.",
-          "Like any website, the servers that deliver this site may keep standard technical records of each request, such as your IP address and browser type, to keep the site running and secure. We do not use these records to identify you or to build a profile of you."
+          "Like any website, the servers that deliver this site may keep standard technical records of each request, such as your IP address and browser type, to keep the site running and secure."
         ]
       },
       {
@@ -282,7 +282,7 @@
       {
         "title": "How long we keep it",
         "paragraphs": [
-          "We keep your information only as long as we need it to handle your request or your membership, and then we delete it."
+          "We keep your information only as long as we need it to handle your request or your membership."
         ]
       },
       {
@@ -327,8 +327,7 @@
       {
         "title": "Content ownership",
         "paragraphs": [
-          "The text, the council’s name and emblem, and the design of this site belong to the council unless stated otherwise. The photographs come from free photo libraries, and their rights stay with their photographers.",
-          "You may link to this site and quote short passages with credit to the council. Any other use needs the council’s written permission."
+          "The content of this site, including the council’s name and emblem, belongs to the council or its partners unless stated otherwise. The photographs come from free photo libraries, and their rights stay with their photographers."
         ]
       },
       {
@@ -346,7 +345,7 @@
       {
         "title": "Membership applications",
         "paragraphs": [
-          "Sending a membership application does not make your company a member. Every application is subject to the council’s approval, and the council may accept or decline it. If it is approved, the council will discuss the terms of membership with you."
+          "Sending a membership application does not make your company a member. Every application is subject to the council’s approval, and the council may accept or decline it."
         ]
       },
       {

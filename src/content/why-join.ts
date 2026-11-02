@@ -22,8 +22,8 @@ export const WHY_JOIN: readonly WhyJoinRow[] = [
     id: "investment",
     title: { ar: "فرص الاستثمار", en: "Investment opportunities" },
     body: {
-      ar: "يبني العراق ويتوسّع في الطاقة والبنية التحتية والزراعة والتكنولوجيا. ويطّلع الأعضاء على الفرص في وقت مبكر، ويلتقون الشركاء العراقيين والجهات المعنية، ويدرسون كل فرصة مع من يعرفون السوق عن قرب.",
-      en: "Iraq is building and expanding in energy, infrastructure, agriculture and technology. Members learn of openings early, meet the Iraqi partners and authorities involved, and weigh each opportunity with people who know the market closely.",
+      ar: "يبني العراق ويتوسّع في الطاقة والبنية التحتية والزراعة والتكنولوجيا. ويُطلع المجلس أعضاءه على ما يصل إليه من فرص، ليلتقوا الشركاء العراقيين والجهات المعنية، ويدرسوا كل فرصة مع من يعرفون السوق عن قرب.",
+      en: "Iraq is building and expanding in energy, infrastructure, agriculture and technology. The council shares the opportunities it learns of with its members, so they can meet the Iraqi partners and authorities involved and weigh each one with people who know the market closely.",
     },
     image: baghdadRiverside,
     imageAlt: {
@@ -48,7 +48,7 @@ export const WHY_JOIN: readonly WhyJoinRow[] = [
     id: "events",
     title: { ar: "الفعاليات وبناء العلاقات", en: "Events and networking" },
     body: {
-      ar: "تجمع الإحاطات والطاولات المستديرة ولقاءات الأعمال الأعضاءَ بصنّاع القرار وببعضهم، لتصبح المحادثة الأولى بداية لشراكة عمل.",
+      ar: "تجمع الإحاطات والموائد المستديرة ولقاءات الأعمال الأعضاءَ بصنّاع القرار وببعضهم، لتصبح المحادثة الأولى بداية لشراكة عمل.",
       en: "Briefings, roundtables and business gatherings bring members together with decision-makers and with one another, so that a first conversation can become a working partnership.",
     },
     image: conferenceAudience,
