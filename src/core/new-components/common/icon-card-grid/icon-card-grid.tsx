@@ -36,7 +36,9 @@ export default function IconCardGrid({
   const colours = tones[tone];
 
   return (
-    <ul className={`grid gap-6 sm:grid-cols-2 ${columnClasses[columns]}`}>
+    <ul
+      className={`grid gap-6 sm:grid-cols-2 lg:gap-8 ${columnClasses[columns]}`}
+    >
       {items.map((item) => (
         <li
           key={item.id}

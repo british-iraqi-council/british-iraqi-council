@@ -12,9 +12,9 @@ export default async function VisionMission({ locale }: HomeSectionProps) {
 
   return (
     <section className="on-blue bg-blue">
-      <div className="shell reveal flex flex-col gap-12 py-16 lg:py-24">
+      <div className="shell reveal flex flex-col gap-10 py-16 lg:gap-12 lg:py-20">
         <SectionHeading title={t("title")} tone="light" align="center" />
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
           {CARDS.map((card) => (
             <article
               key={card.key}

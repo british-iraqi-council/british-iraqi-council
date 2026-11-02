@@ -13,7 +13,7 @@ export default async function Profile({ locale }: AboutSectionProps) {
 
   return (
     <Section id="who-we-are">
-      <div className="reveal flex flex-col gap-8">
+      <div className="reveal flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} />
         <div className="flex max-w-[68ch] flex-col gap-4">
           {PARAGRAPHS.map((key, index) => (

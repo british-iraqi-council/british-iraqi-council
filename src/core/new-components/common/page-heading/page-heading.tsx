@@ -14,7 +14,7 @@ export default function PageHeading({
       <div
         id="content"
         tabIndex={-1}
-        className="shell flex flex-col items-start gap-6 py-12 focus:outline-none lg:py-16"
+        className="shell flex flex-col items-start gap-6 py-16 focus:outline-none lg:py-24"
       >
         <h1 className="max-w-[22ch] font-display text-display font-semibold text-white hyphens-auto [overflow-wrap:anywhere]">
           <RichText text={title} locale={locale} />

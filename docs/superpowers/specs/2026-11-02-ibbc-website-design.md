@@ -168,12 +168,15 @@ The identity shows a serif in small capitals for the wordmark and titles. Until 
 
 All via `next/font/google`. Keep one type scale with no one-off sizes. The hero title is the largest text on the page at every width, and the hero paragraph is clearly smaller. Swap the families in one file when the identity's fonts arrive.
 
+The heading sizes follow the team's Baghdad Expo site, at the project lead's request (2026-11-02): `text-hero` `clamp(3rem, 1.9rem + 4.4vw, 5.5rem)` (48 to 88px, line-height 1.05), `text-display` `clamp(2.75rem, 1.9rem + 3.4vw, 4.5rem)` (44 to 72px, 1.08) for inner-page titles, and `text-headline` `clamp(2.25rem, 1.65rem + 2.4vw, 3.75rem)` (36 to 60px, 1.12) for section titles. Arabic keeps its own line-heights. The hero stays larger than the display, and the display than the headline, at every width.
+
 ### 6.3 Layout
 
 - Ivory page; white cards with a thin `line` edge and a modest radius (about 12 to 16px); blue full-width bands for Vision and Mission and the membership band.
 - Section titles: serif heading, then a short red rule (about 52 to 72px by 3px) below it, as in the identity deck.
 - Pill buttons: white on blue, red for the main call to action, blue on ivory.
-- One container width and side padding shared by every block, so edges line up.
+- One container width and side padding shared by every block, so edges line up. Following the Baghdad Expo site at the project lead's request (2026-11-02), the `shell` container is up to 1800px wide (`--shell-max`) with 24, 40, 80 and 112px side padding (`--shell-pad`, from 0, 640, 1024 and 1280px).
+- Spacing follows the same site: 96px between top-level blocks, 128px from 1024px, set once on `<main>`; 40 to 48px between a section heading and its content; 24 to 32px between cards; the blue bands pad 64 to 80px vertically and the page heading 64 to 96px. Prose is capped in `ch`, never by the container.
 - Logical properties only (start and end, never left and right), so Arabic mirrors correctly.
 
 ### 6.4 Header, page heading, footer

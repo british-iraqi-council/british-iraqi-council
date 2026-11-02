@@ -17,9 +17,9 @@ export default async function PeopleSection({
 
   return (
     <Section id={id}>
-      <div className="reveal flex flex-col gap-10">
+      <div className="reveal flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={title} />
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
           {people.map((person) => (
             <PersonCard
               key={person.id}

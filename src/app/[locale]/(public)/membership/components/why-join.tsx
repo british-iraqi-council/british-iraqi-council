@@ -14,7 +14,7 @@ export default async function WhyJoin({ locale }: MembershipSectionProps) {
 
   return (
     <Section id="why-join">
-      <div className="flex flex-col gap-12 lg:gap-16">
+      <div className="flex flex-col gap-10 lg:gap-12">
         <div className="reveal">
           <SectionHeading title={t("title")} lede={t("intro")} />
         </div>
@@ -31,7 +31,7 @@ export default async function WhyJoin({ locale }: MembershipSectionProps) {
                   src={row.image}
                   alt={localize(row.imageAlt, locale)}
                   fill
-                  sizes="(min-width: 84rem) 40rem, (min-width: 64rem) 48vw, 100vw"
+                  sizes="(min-width: 112.5rem) 48rem, (min-width: 64rem) 45vw, 100vw"
                   className="object-cover"
                 />
               </div>

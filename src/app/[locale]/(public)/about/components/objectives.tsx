@@ -12,7 +12,7 @@ export default async function Objectives({ locale }: AboutSectionProps) {
 
   return (
     <Section id="objectives">
-      <div className="reveal flex flex-col gap-10">
+      <div className="reveal flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} lede={t("lede")} />
         <IconCardGrid items={OBJECTIVES} columns={3} />
       </div>

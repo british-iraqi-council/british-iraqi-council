@@ -7,7 +7,7 @@ export default async function MembershipBand({ locale }: HomeSectionProps) {
 
   return (
     <section className="on-blue bg-blue-deep">
-      <div className="shell reveal flex flex-col items-start gap-8 py-14 lg:flex-row lg:items-center lg:justify-between lg:py-16">
+      <div className="shell reveal flex flex-col items-start gap-8 py-16 lg:flex-row lg:items-center lg:justify-between lg:py-20">
         <h2 className="max-w-[34ch] font-display text-headline font-semibold text-white hyphens-auto [overflow-wrap:anywhere]">
           <RichText text={t("title")} locale={locale} />
         </h2>

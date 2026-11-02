@@ -20,14 +20,16 @@ export default async function WhoWeAre({ locale }: HomeSectionProps) {
   return (
     <Section>
       <div className="reveal grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-        <div className="flex flex-col items-start gap-6">
+        <div className="flex flex-col gap-10 lg:gap-12">
           <SectionHeading title={t("title")} />
-          <p className="max-w-[60ch] text-lead text-muted">
-            <RichText text={t("body")} locale={locale} />
-          </p>
-          <Button href="/about" variant="blue">
-            {t("readMore")}
-          </Button>
+          <div className="flex flex-col items-start gap-6">
+            <p className="max-w-[60ch] text-lead text-muted">
+              <RichText text={t("body")} locale={locale} />
+            </p>
+            <Button href="/about" variant="blue">
+              {t("readMore")}
+            </Button>
+          </div>
         </div>
         <div className="relative grid h-64 grid-cols-2 overflow-hidden rounded-2xl sm:h-80">
           {FRAME.map(({ key, image, position }) => (

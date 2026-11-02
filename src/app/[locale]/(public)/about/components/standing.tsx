@@ -28,7 +28,7 @@ export default async function Standing({ locale }: AboutSectionProps) {
 
   return (
     <Section id="standing">
-      <div className="reveal flex flex-col gap-8">
+      <div className="reveal flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} />
         <div className="flex max-w-[68ch] flex-col gap-4">
           <p className="text-lead text-ink">
@@ -46,7 +46,7 @@ export default async function Standing({ locale }: AboutSectionProps) {
             <RichText text={t("body")} locale={locale} />
           </p>
         </div>
-        <ul className="grid gap-6 md:grid-cols-2">
+        <ul className="grid gap-6 md:grid-cols-2 lg:gap-8">
           {bodies.map(({ role, name }) => (
             <li
               key={role}

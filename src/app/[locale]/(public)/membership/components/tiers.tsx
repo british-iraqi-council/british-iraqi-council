@@ -9,9 +9,9 @@ export default async function Tiers({ locale }: MembershipSectionProps) {
 
   return (
     <Section id="tiers">
-      <div className="reveal flex flex-col gap-10">
+      <div className="reveal flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} lede={t("lede")} />
-        <ul className="grid gap-6 lg:grid-cols-3">
+        <ul className="grid gap-6 lg:grid-cols-3 lg:gap-8">
           {TIERS.map((tier, index) => (
             <TierCard
               key={tier.id}

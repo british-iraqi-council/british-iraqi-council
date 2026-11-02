@@ -24,9 +24,9 @@ export default async function InstitutionsBand({
 
   return (
     <Section>
-      <div className="reveal flex flex-col gap-8">
+      <div className="reveal flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} />
-        <ul className="grid gap-6 md:grid-cols-2">
+        <ul className="grid gap-6 md:grid-cols-2 lg:gap-8">
           {bodies.map(({ role, name }) => (
             <li
               key={role}

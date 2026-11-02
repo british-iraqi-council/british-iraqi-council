@@ -25,14 +25,14 @@ export default async function Partners({ locale }: HomeSectionProps) {
 
   return (
     <Section>
-      <div className="reveal flex flex-col gap-10">
+      <div className="reveal flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} />
         {groups.map((group) => (
           <div key={group.kind} className="flex flex-col gap-5">
             <h3 className="font-display text-title font-semibold text-blue">
               {t(group.label)}
             </h3>
-            <ul className="flex flex-wrap items-center gap-6">
+            <ul className="flex flex-wrap items-center gap-6 lg:gap-8">
               {group.items.map((partner) => {
                 const logo = (
                   <Image

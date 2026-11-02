@@ -15,7 +15,7 @@ export default async function SiteShell({ children }: SiteShellProps) {
         {t("skipToContent")}
       </a>
       <SiteHeader />
-      <main className="flex flex-1 flex-col gap-16 pt-20 pb-16 lg:gap-24 lg:pt-24 lg:pb-24">
+      <main className="flex flex-1 flex-col gap-24 pt-20 pb-24 lg:gap-32 lg:pt-24 lg:pb-32">
         {children}
       </main>
       <SiteFooter />
