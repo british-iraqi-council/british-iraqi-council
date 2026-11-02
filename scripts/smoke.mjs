@@ -8,6 +8,10 @@ const STANDING = {
   ar: "تأسس المجلس في العراق بموافقة اتحاد الغرف التجارية العراقية ومصادقة وزارة التجارة.",
   en: "Formed in Iraq with the approval of the Federation of Iraqi Chambers of Commerce, and ratified by the Ministry of Commerce.",
 };
+const HERO_TITLE = {
+  ar: "حيث تلتقي المؤسسات العراقية بالأعمال البريطانية",
+  en: "Where Iraqi enterprise meets British business",
+};
 const FORBIDDEN = ["[", "]", "undefined", "TODO", "lorem"];
 
 const failures = [];
@@ -19,13 +23,14 @@ const visibleText = (html) =>
     .replace(/<style[\s\S]*?<\/style>/gi, "")
     .replace(/<[^>]*>/g, " ");
 
-const textOutsideFooter = (html) =>
+const mainHtml = (html) => html.match(/<main[\s\S]*?<\/main>/i)?.[0] ?? "";
+
+const plainText = (html) =>
   html
     .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<[^>]*>/g, "")
-    .replace(/\s+/g, " ");
+    .replace(/\s+/g, " ")
+    .trim();
 
 const get = (path) => fetch(`${BASE_URL}${path}`, { redirect: "manual" });
 
@@ -55,8 +60,15 @@ for (const { code, dir } of LOCALES) {
       fail(`${url}: missing <html lang="${code}" dir="${dir}">`);
     }
     const text = visibleText(html);
-    if (path === "" && !textOutsideFooter(html).includes(STANDING[code])) {
-      fail(`${url}: the page body does not contain the standing line`);
+    if (path === "") {
+      const main = mainHtml(html);
+      if (!plainText(main).includes(STANDING[code])) {
+        fail(`${url}: <main> does not contain the standing line`);
+      }
+      const h1 = main.match(/<h1[\s\S]*?<\/h1>/i)?.[0] ?? "";
+      if (plainText(h1) !== HERO_TITLE[code]) {
+        fail(`${url}: <main> has no <h1> reading "${HERO_TITLE[code]}"`);
+      }
     }
     for (const token of FORBIDDEN) {
       if (text.toLowerCase().includes(token.toLowerCase())) {
