@@ -1,0 +1,14 @@
+{
+  "common": {
+    "siteName": "Iraqi–British Business Council",
+    "siteShort": "IBBC"
+  },
+  "nav": {
+    "home": "Home"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you asked for does not exist or has moved.",
+    "home": "Back to home"
+  }
+}
