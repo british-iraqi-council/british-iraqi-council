@@ -3,7 +3,7 @@ import en from "../../messages/en.json";
 import { routing } from "@/core/i18n/routing";
 
 const BLUE = "#0B2470";
-const RED = "#C8102E";
+const RED = "#CE1126";
 const IVORY = "#F3EEE4";
 const WHITE = "#FFFFFF";
 const INK = "#14204A";

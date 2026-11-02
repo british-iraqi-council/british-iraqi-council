@@ -15,6 +15,6 @@ describe("emblem artwork", () => {
 
   it("colours the favicon union blue with a red notch", () => {
     expect(icon).toContain('fill="#0B2470"');
-    expect(icon).toContain('fill="#C8102E"');
+    expect(icon).toContain('fill="#CE1126"');
   });
 });

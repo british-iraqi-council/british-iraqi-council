@@ -171,6 +171,13 @@
       "successMessage": "Thank you. Your message has been sent.",
       "unsentMessage": "We couldn't send your message right now. Please try again later.",
       "honeypotLabel": "Leave this field empty"
+    },
+    "details": {
+      "title": "Contact details",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Office hours"
     }
   },
   "forms": {
@@ -353,5 +360,10 @@
         ]
       }
     ]
+  },
+  "institutions": {
+    "title": "Backed by",
+    "approval": "Approval",
+    "ratification": "Ratification"
   }
 }

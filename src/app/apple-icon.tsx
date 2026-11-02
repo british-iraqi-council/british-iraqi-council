@@ -22,7 +22,7 @@ export default function AppleIcon() {
     >
       <svg width="124" height="124" viewBox={EMBLEM_VIEW_BOX}>
         <path fill="#0B2470" d={EMBLEM_BANDS} />
-        <path fill="#C8102E" d={EMBLEM_NOTCH} />
+        <path fill="#CE1126" d={EMBLEM_NOTCH} />
       </svg>
     </div>,
     size,

@@ -103,7 +103,10 @@ for (const { code, dir } of LOCALES) {
       if (!html.includes('id="objectives"')) {
         fail(`${url}: missing id="objectives"`);
       }
-      for (const id of ["board", "advisors", "team"]) {
+      if (!html.includes('id="board"') || !html.includes('href="#board"')) {
+        fail(`${url}: missing the "board" section or its pill`);
+      }
+      for (const id of ["advisors", "team"]) {
         if (html.includes(`id="${id}"`) || html.includes(`href="#${id}"`)) {
           fail(`${url}: renders the empty "${id}" section or its pill`);
         }
@@ -136,10 +139,11 @@ for (const { code, dir } of LOCALES) {
       }
     }
     if (path === "/contact") {
-      if (html.includes('href="tel:') || html.includes('href="mailto:')) {
-        fail(
-          `${url}: has a tel: or mailto: link before any contact detail is confirmed`,
-        );
+      if (!html.includes('href="tel:+9647901999998"')) {
+        fail(`${url}: missing the confirmed phone link`);
+      }
+      if (html.includes('href="mailto:')) {
+        fail(`${url}: has a mailto: link before an email is confirmed`);
       }
       if (!html.includes("<form")) {
         fail(`${url}: has no <form`);

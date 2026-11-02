@@ -113,9 +113,10 @@ None of these blocks the launch. Each one, when it arrives, switches on the part
 - Logo files (SVG) and the full identity deck; the emblem on the site is a drawn match of the identity image
 - Fonts and exact colours; the fonts in use are stand-ins
 - The domain (the site's canonical URLs, sitemap and Open Graph links follow `NEXT_PUBLIC_SITE_URL`)
-- People: board, honorary advisors, executive team (names, roles, organisations, photos, links). Each About section and its pill appear once its people are supplied
+- Confirmation of the two details taken from the business card in the identity deck: Sohaib Mohammed Abdullah as Vice Chairman (on About) and +964 790 199 9998 as the council's phone (on Contact, in the footer and in the schema.org block). Remove them from `src/content/people.ts` and `src/content/organisation.ts` if the card was a design mock-up
+- People: the rest of the board, honorary advisors, executive team (names, roles, organisations, photos, links), and a photo of the Vice Chairman. Each About section and its pill appear once its people are supplied
 - Partners and supporters, with logos and permission. The Home section appears once supplied
-- Contact details: address, phone, email, office hours, social accounts. The Contact details card and the footer contact column appear once supplied, and the schema.org block gains them
+- Contact details still missing: address, email, office hours, social accounts. Each appears in the Contact details card, the footer and the schema.org block once supplied
 - Map on the Contact page (needs a confirmed address)
 - Logos of the Federation of Iraqi Chambers of Commerce and the Ministry of Commerce, only if the council supplies them with permission; until then both are named in text
 - Where form submissions should go: both forms post to endpoints that do not exist yet (`src/core/constants/endpoints.ts`, with `NEXT_PUBLIC_BASE_URL`) and tell the visitor honestly that the message could not be sent

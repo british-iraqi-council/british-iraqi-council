@@ -39,7 +39,7 @@ export default async function ContactPageClient({
           </div>
         ) : (
           <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-            <ContactDetails items={items} />
+            <ContactDetails items={items} locale={locale} />
             {form}
           </div>
         )}

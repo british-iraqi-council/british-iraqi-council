@@ -4,39 +4,41 @@ Spec: docs/superpowers/specs/2026-11-02-ibbc-website-design.md (reachable, read)
 Branch: feat/first-release (from origin/main 3aca4d1). Local `master` renamed to `main`, tracking origin/main.
 
 ## Setup
+
 - Task 1 Step 1 (git init, remote, reset to origin/main, branch feat/first-release) done by the controller as the workspace setup. HEAD 3aca4d1.
 - Ruling: Task 1 Step 1 executed by the controller as setup — the repo had to exist before the SDD workspace could — costs nothing if wrong (identical commands to the plan).
 
 ## Pre-flight scan
 
-| Pair / task | Produces vs consumes | Finding |
-| --- | --- | --- |
-| T1 → T2 | T1 locale layout; T2 adds font variables to it | consistent |
-| T1 → T4 | T1 `(public)/layout.tsx` renders `<main id="content">`; T4 replaces with SiteShell | consistent |
-| T2 → T4, T7 | tokens.test asserts the 8 base values; T4 adds on-blue-muted, T7 adds tier-* | consistent (test checks only the 8 by name) |
-| T3 → T5, T6, T7, T9, T10 | content types, ORGANISATION, aboutSections, contactItems, parseTier, option lists | consistent |
-| T3 ↔ T7 | WhyJoinRow type in T3; WHY_JOIN data in T7; content.test walks exported collections | T7 must add WHY_JOIN to content.test's walk — carry in T7 dispatch |
-| T4 → T5 | T4 puts temporary home h1 in PageHeading (#content); T5 hero owns #content | consistent |
-| T4 → T5 | SiteShell `<main>`; T5 hero pulls up with -mt-20 lg:-mt-24 | GAP: T4 never gives `<main>` top padding for the fixed header (Al-Dallah: pt-20 lg:pt-24). Ruling below |
-| T5 → T6, T7 | IconCardGrid | consistent |
-| T5/T6/T7 → T11 | temporary metadata replaced by buildPageMetadata | consistent |
-| T8 → T9, T10 | schemas, repos, FormActionState, ContactField/ApplicationField | T8 Files list omits `src/core/types/form-action-state.ts` that its Interfaces name. Ruling below |
-| T9 → T10 | FormField | consistent |
-| T10 self | form reads tier with useSearchParams inside Suspense; smoke expects `name="tier"` ×3 in static HTML | CONFLICT: a Suspense-wrapped useSearchParams form renders only its fallback in the prerendered HTML, so the smoke check fails. Ruling below |
-| T11 self | robots ported from Al-Dallah (allows when NODE_ENV=production and no VERCEL_ENV); smoke expects disallow when VERCEL_ENV is not production | CONFLICT under `next start` locally. Ruling below |
-| T12 self | Steps 8–9 push and open a PR | side effect outside the worktree. Ruling below |
-| T1 self | tests vs code | consistent (regex verified by hand against both test strings) |
-| T2 self | consistent |
-| T3 self | consistent |
-| T4 self | consistent apart from the main padding gap |
-| T5 self | consistent |
-| T6 self | consistent |
-| T7 self | consistent (WHY_JOIN walk note) |
-| T8 self | file list gap only |
-| T9 self | consistent |
-| T11 self | robots conflict only |
+| Pair / task              | Produces vs consumes                                                                                                                       | Finding                                                                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| T1 → T2                  | T1 locale layout; T2 adds font variables to it                                                                                             | consistent                                                                                                                                  |
+| T1 → T4                  | T1 `(public)/layout.tsx` renders `<main id="content">`; T4 replaces with SiteShell                                                         | consistent                                                                                                                                  |
+| T2 → T4, T7              | tokens.test asserts the 8 base values; T4 adds on-blue-muted, T7 adds tier-*                                                               | consistent (test checks only the 8 by name)                                                                                                 |
+| T3 → T5, T6, T7, T9, T10 | content types, ORGANISATION, aboutSections, contactItems, parseTier, option lists                                                          | consistent                                                                                                                                  |
+| T3 ↔ T7                  | WhyJoinRow type in T3; WHY_JOIN data in T7; content.test walks exported collections                                                        | T7 must add WHY_JOIN to content.test's walk — carry in T7 dispatch                                                                          |
+| T4 → T5                  | T4 puts temporary home h1 in PageHeading (#content); T5 hero owns #content                                                                 | consistent                                                                                                                                  |
+| T4 → T5                  | SiteShell `<main>`; T5 hero pulls up with -mt-20 lg:-mt-24                                                                                 | GAP: T4 never gives `<main>` top padding for the fixed header (Al-Dallah: pt-20 lg:pt-24). Ruling below                                     |
+| T5 → T6, T7              | IconCardGrid                                                                                                                               | consistent                                                                                                                                  |
+| T5/T6/T7 → T11           | temporary metadata replaced by buildPageMetadata                                                                                           | consistent                                                                                                                                  |
+| T8 → T9, T10             | schemas, repos, FormActionState, ContactField/ApplicationField                                                                             | T8 Files list omits `src/core/types/form-action-state.ts` that its Interfaces name. Ruling below                                            |
+| T9 → T10                 | FormField                                                                                                                                  | consistent                                                                                                                                  |
+| T10 self                 | form reads tier with useSearchParams inside Suspense; smoke expects `name="tier"` ×3 in static HTML                                        | CONFLICT: a Suspense-wrapped useSearchParams form renders only its fallback in the prerendered HTML, so the smoke check fails. Ruling below |
+| T11 self                 | robots ported from Al-Dallah (allows when NODE_ENV=production and no VERCEL_ENV); smoke expects disallow when VERCEL_ENV is not production | CONFLICT under `next start` locally. Ruling below                                                                                           |
+| T12 self                 | Steps 8–9 push and open a PR                                                                                                               | side effect outside the worktree. Ruling below                                                                                              |
+| T1 self                  | tests vs code                                                                                                                              | consistent (regex verified by hand against both test strings)                                                                               |
+| T2 self                  | consistent                                                                                                                                 |
+| T3 self                  | consistent                                                                                                                                 |
+| T4 self                  | consistent apart from the main padding gap                                                                                                 |
+| T5 self                  | consistent                                                                                                                                 |
+| T6 self                  | consistent                                                                                                                                 |
+| T7 self                  | consistent (WHY_JOIN walk note)                                                                                                            |
+| T8 self                  | file list gap only                                                                                                                         |
+| T9 self                  | consistent                                                                                                                                 |
+| T11 self                 | robots conflict only                                                                                                                       |
 
 ## Rulings
+
 - Ruling: T4 SiteShell `<main>` gets `pt-20 lg:pt-24` (as Al-Dallah) so inner pages clear the fixed header, and the Home hero pulls up with `-mt-20 lg:-mt-24` — the plan's T5 pull-up only makes sense with it — costs a padding tweak if wrong.
 - Ruling: T8 creates `src/core/types/form-action-state.ts` (named in its Interfaces) — file-list omission — costs nothing.
 - Ruling: T10 does not use useSearchParams/Suspense; ApplicationForm renders fully in the static HTML and a `useEffect` reads `window.location.search` through `parseTier` on mount to pre-select the tier (controlled radios) — keeps the route static and the form in the HTML, satisfying the smoke check and no-JS use — cost if wrong: a brief unselected state before hydration.
@@ -45,6 +47,7 @@ Branch: feat/first-release (from origin/main 3aca4d1). Local `master` renamed to
 - Ruling: T7 adds WHY_JOIN to tests/content.test.ts's collection walk — keeps the invariant test complete — costs nothing.
 
 ## Progress
+
 Task 1: dispatched (implementer afaeb03801505483d, base 3aca4d1)
 Task 1: minor (deferred): CLAUDE.md writes the proxy matcher as `.*\..*` in prose; should show the string-literal `.*\..*`
 Task 1: minor (deferred): src/app/not-found.tsx hard-codes Arabic (Task 11 restyles it)

@@ -8,6 +8,7 @@ import {
   WhoWeAre,
   WhyIraq,
 } from "./components";
+import { InstitutionsBand } from "@/core/new-components/common";
 import { HomeSectionProps } from "./types";
 
 export default function HomePageClient({ locale }: HomeSectionProps) {
@@ -23,6 +24,7 @@ export default function HomePageClient({ locale }: HomeSectionProps) {
       <WhyIraq locale={locale} />
       <MembershipBand locale={locale} />
       <Partners locale={locale} />
+      <InstitutionsBand locale={locale} />
     </>
   );
 }

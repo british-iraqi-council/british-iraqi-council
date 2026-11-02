@@ -19,7 +19,7 @@ Arabic-first (RTL) bilingual website for the Iraqi–British Business Council (I
 
 ## Design tokens
 
-Colours are defined only in `src/app/tailwind.css`: blue `#0B2470`, blue-deep `#071A55`, red `#C8102E`, ivory `#F3EEE4`, white `#FFFFFF`, ink `#14204A`, muted `#545B78`, line `#E4DCCB`. Red is an accent only, never a large background and never text below 18px. Text is never coloured with opacity.
+Colours are defined only in `src/app/tailwind.css`: blue `#0B2470`, blue-deep `#071A55`, red `#CE1126` (the Iraqi flag red), ivory `#F3EEE4`, white `#FFFFFF`, ink `#14204A`, muted `#545B78`, line `#E4DCCB`. Red is an accent only, never a large background and never text below 18px. Text is never coloured with opacity.
 
 Fonts through `next/font/google`: Cormorant SC 600 (English headings), Amiri 400/700 (Arabic headings), Inter (English body), IBM Plex Sans Arabic 400/500/600 (Arabic body). Arabic never gets small caps or letter-spacing. The hero title is the largest text at every width; form inputs are 16px; tier feature text is at least 15px.
 

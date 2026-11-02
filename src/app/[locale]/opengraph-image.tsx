@@ -32,7 +32,7 @@ export default function OpenGraphImage() {
     >
       <svg width="260" height="260" viewBox={EMBLEM_VIEW_BOX}>
         <path fill="#FFFFFF" d={EMBLEM_BANDS} />
-        <path fill="#C8102E" d={EMBLEM_NOTCH} />
+        <path fill="#CE1126" d={EMBLEM_NOTCH} />
       </svg>
       <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
         <div
@@ -44,7 +44,7 @@ export default function OpenGraphImage() {
         >
           {ORGANISATION.short}
         </div>
-        <div style={{ width: 120, height: 8, background: "#C8102E" }} />
+        <div style={{ width: 120, height: 8, background: "#CE1126" }} />
         <div style={{ fontSize: 50, lineHeight: 1.2, maxWidth: 680 }}>
           {ORGANISATION.name.en}
         </div>

@@ -22,8 +22,8 @@ describe("organizationSchema", () => {
     expect(ar.alternateName).toBe("Iraqi–British Business Council");
     expect(ar.url).toBe("https://example.org/ar");
   });
-  it("carries no contact detail the council has not confirmed", () => {
-    expect(s).not.toHaveProperty("telephone");
+  it("carries only the contact details the council has confirmed", () => {
+    expect(s.telephone).toBe("+964 790 199 9998");
     expect(s).not.toHaveProperty("email");
     expect(s).not.toHaveProperty("address");
   });

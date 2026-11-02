@@ -23,6 +23,8 @@ const eslintConfig = [
       ".gemini/**",
       ".codex/**",
       ".cursor/**",
+      ".playwright-mcp/**",
+      ".superpowers/**",
     ],
   },
   {

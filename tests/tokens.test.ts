@@ -33,7 +33,7 @@ describe("colour tokens", () => {
   it("holds the eight base values exactly", () => {
     expect(tokens.blue).toBe("#0B2470");
     expect(tokens["blue-deep"]).toBe("#071A55");
-    expect(tokens.red).toBe("#C8102E");
+    expect(tokens.red).toBe("#CE1126");
     expect(tokens.ivory).toBe("#F3EEE4");
     expect(tokens.white).toBe("#FFFFFF");
     expect(tokens.ink).toBe("#14204A");

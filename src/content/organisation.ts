@@ -21,5 +21,5 @@ export const ORGANISATION: Organisation = {
     ar: "يجمع مجلس الأعمال العراقي البريطاني بين الشركات العراقية والبريطانية، ليعزّز التبادل التجاري والاستثمار ويبني شراكات راسخة بين البلدين.",
     en: "The Iraqi–British Business Council brings Iraqi and British companies together to grow trade and investment and build lasting partnerships between the two countries.",
   },
-  contact: { social: [] },
+  contact: { phone: "+964 790 199 9998", social: [] },
 };

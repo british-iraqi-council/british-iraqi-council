@@ -1,5 +1,9 @@
 import { getTranslations } from "next-intl/server";
-import { IndexPills, PageHeading } from "@/core/new-components/common";
+import {
+  IndexPills,
+  InstitutionsBand,
+  PageHeading,
+} from "@/core/new-components/common";
 import { Benefits, Tiers, WhyJoin } from "./components";
 import { MembershipSectionProps } from "./types";
 
@@ -19,6 +23,7 @@ export default async function MembershipPageClient({
       <WhyJoin locale={locale} />
       <Benefits locale={locale} />
       <Tiers locale={locale} />
+      <InstitutionsBand locale={locale} />
     </>
   );
 }

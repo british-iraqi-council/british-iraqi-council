@@ -97,8 +97,10 @@ describe("content", () => {
     }
   });
 
-  it("holds no people or partners until the council supplies them", () => {
-    expect(BOARD).toEqual([]);
+  it("holds only the people and partners the council has supplied", () => {
+    expect(BOARD.map((person) => person.id)).toEqual([
+      "sohaib-mohammed-abdullah",
+    ]);
     expect(ADVISORS).toEqual([]);
     expect(TEAM).toEqual([]);
     expect(PARTNERS).toEqual([]);

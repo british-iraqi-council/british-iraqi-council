@@ -143,16 +143,16 @@ Member directory, events (upcoming, past, event page), news. The header has no l
 
 Sampled by eye from a photograph of the identity deck, so treat the exact values as provisional. When the identity files arrive, re-sample and update the tokens; they live in one place (`src/app/tailwind.css`), as on Al-Dallah.
 
-| Token       | Value     | Use                                                                                                                                                     |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `blue`      | `#0B2470` | Union blue: headings, bands, primary buttons on ivory, the logo                                                                                         |
-| `blue-deep` | `#071A55` | The hero veil and the darkest bands                                                                                                                     |
-| `red`       | `#C8102E` | The accent: the short rule under titles, the hero seam, the active nav underline, the "Become a member" and "Contact" buttons. Never a large background |
-| `ivory`     | `#F3EEE4` | The page ground                                                                                                                                         |
-| `white`     | `#FFFFFF` | Cards and the standing strip                                                                                                                            |
-| `ink`       | `#14204A` | Body text on light surfaces                                                                                                                             |
-| `muted`     | `#545B78` | Secondary text                                                                                                                                          |
-| `line`      | `#E4DCCB` | Hairlines and card edges                                                                                                                                |
+| Token       | Value     | Use                                                                                                                                                                                                                                            |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `blue`      | `#0B2470` | Union blue: headings, bands, primary buttons on ivory, the logo                                                                                                                                                                                |
+| `blue-deep` | `#071A55` | The hero veil and the darkest bands                                                                                                                                                                                                            |
+| `red`       | `#CE1126` | The Iraqi flag red (changed from `#C8102E` at the project lead's request, 2026-11-02). The accent: the short rule under titles, the hero seam, the active nav underline, the "Become a member" and "Contact" buttons. Never a large background |
+| `ivory`     | `#F3EEE4` | The page ground                                                                                                                                                                                                                                |
+| `white`     | `#FFFFFF` | Cards and the standing strip                                                                                                                                                                                                                   |
+| `ink`       | `#14204A` | Body text on light surfaces                                                                                                                                                                                                                    |
+| `muted`     | `#545B78` | Secondary text                                                                                                                                                                                                                                 |
+| `line`      | `#E4DCCB` | Hairlines and card edges                                                                                                                                                                                                                       |
 
 Body text must meet WCAG AA on its surface (aim for AAA on body copy), checked against the darkest light surface (ivory), not white. Text on photographs is measured against the pixels (the hero), not the CSS background.
 
