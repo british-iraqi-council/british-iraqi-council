@@ -320,7 +320,7 @@ export default function ApplicationForm({
               {tiers.map((option) => (
                 <label
                   key={option.id}
-                  className="relative flex min-w-0 cursor-pointer flex-col gap-2 rounded-2xl border border-muted bg-white p-4 transition-[border-color,box-shadow] duration-150 hover:border-ink has-[:checked]:border-blue has-[:checked]:ring-2 has-[:checked]:ring-blue has-[:focus-visible]:ring-4 has-[:focus-visible]:ring-blue/25"
+                  className="relative flex min-w-0 cursor-pointer flex-col gap-2 rounded-2xl border border-muted bg-white p-4 transition-[border-color,box-shadow] duration-150 hover:border-ink has-[:checked]:border-blue has-[:checked]:ring-2 has-[:checked]:ring-blue has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-3 has-[:focus-visible]:outline-blue"
                 >
                   <input
                     type="radio"
@@ -399,7 +399,7 @@ export default function ApplicationForm({
           >
             <label
               htmlFor="attachment"
-              className="flex min-h-24 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-muted bg-ivory px-4 py-5 text-center transition-[border-color,box-shadow] duration-150 hover:border-ink has-[input:focus-visible]:border-blue has-[input:focus-visible]:ring-4 has-[input:focus-visible]:ring-blue/25"
+              className="flex min-h-24 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-muted bg-ivory px-4 py-5 text-center transition-[border-color,box-shadow] duration-150 hover:border-ink has-[input:focus-visible]:border-blue has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-3 has-[input:focus-visible]:outline-blue"
             >
               <Upload size={20} aria-hidden="true" className="text-blue" />
               <span className="text-sm font-semibold break-all text-ink">
