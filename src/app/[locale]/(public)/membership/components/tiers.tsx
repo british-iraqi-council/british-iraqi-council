@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { TIERS } from "@/content";
-import { Section, SectionHeading } from "@/core/new-components/common";
+import { Reveal, Section, SectionHeading } from "@/core/new-components/common";
 import { MembershipSectionProps } from "../types";
 import TierCard from "./tier-card";
 
@@ -9,9 +9,13 @@ export default async function Tiers({ locale }: MembershipSectionProps) {
 
   return (
     <Section id="tiers">
-      <div className="reveal flex flex-col gap-10 lg:gap-12">
+      <div className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} lede={t("lede")} />
-        <ul className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+        <Reveal
+          as="ul"
+          variant="stagger"
+          className="grid gap-6 lg:grid-cols-3 lg:gap-8"
+        >
           {TIERS.map((tier, index) => (
             <TierCard
               key={tier.id}
@@ -20,7 +24,7 @@ export default async function Tiers({ locale }: MembershipSectionProps) {
               locale={locale}
             />
           ))}
-        </ul>
+        </Reveal>
       </div>
     </Section>
   );

@@ -2,7 +2,7 @@ import { Link } from "@/core/i18n/navigation";
 import { ButtonProps } from "./button-props";
 
 const base =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold whitespace-nowrap transition-[background-color,color,border-color,filter] duration-150 motion-safe:active:scale-[0.97]";
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold whitespace-nowrap transition-[background-color,color,border-color,filter,translate,scale] duration-200 ease-out-quint motion-safe:hover:-translate-y-px motion-safe:active:translate-y-0 motion-safe:active:scale-[0.97]";
 
 const variants: Record<ButtonProps["variant"], string> = {
   red: "bg-red text-white hover:brightness-90",

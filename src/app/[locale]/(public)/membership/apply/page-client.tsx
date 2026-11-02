@@ -9,7 +9,7 @@ import {
 import type { Option } from "@/content";
 import { BANNER_IMAGES } from "@/core/constants/images";
 import type { Locale } from "@/core/i18n/routing";
-import { PageHeading, Section } from "@/core/new-components/common";
+import { PageHeading, Reveal, Section } from "@/core/new-components/common";
 import { isolateLtrRuns } from "@/lib/isolate-ltr-runs";
 import { localize } from "@/lib/localize";
 import { pickMessages } from "@/lib/pick-messages";
@@ -41,7 +41,7 @@ export default async function ApplicationPageClient({
         imagePosition={BANNER_IMAGES.apply.position}
       />
       <Section>
-        <div className="mx-auto max-w-3xl">
+        <Reveal className="mx-auto max-w-3xl">
           <NextIntlClientProvider
             messages={pickMessages(messages, ["apply.form", "forms.errors"])}
           >
@@ -57,7 +57,7 @@ export default async function ApplicationPageClient({
               countries={options(COUNTRIES)}
             />
           </NextIntlClientProvider>
-        </div>
+        </Reveal>
       </Section>
     </>
   );

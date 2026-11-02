@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import { localize } from "@/lib/localize";
 import Icon from "../icon";
+import Reveal from "../reveal";
 import RichText from "../rich-text";
 import { IconCardGridProps } from "./icon-card-grid-props";
 
@@ -44,22 +45,25 @@ export default function IconCardGrid({
   const colours = tones[tone];
 
   return (
-    <ul
+    <Reveal
+      as="ul"
+      variant="stagger"
       className={`grid gap-6 sm:grid-cols-2 lg:gap-8 ${columnClasses[columns]}`}
     >
       {items.map((item) => (
         <li
           key={item.id}
-          className={`flex flex-col overflow-hidden rounded-2xl border ${colours.card}`}
+          className={`group card-lift flex flex-col overflow-hidden rounded-2xl border ${colours.card}`}
         >
           {item.image ? (
-            <div className="relative aspect-[16/10] bg-line">
+            <div className="relative aspect-[16/10] overflow-hidden bg-line">
               <Image
                 src={item.image.src}
                 alt={localize(item.image.alt, locale)}
                 fill
                 sizes={imageSizes[columns]}
-                className="object-cover"
+                data-reveal-zoom
+                className="object-cover duration-700 ease-out-quint motion-safe:transition-[scale] motion-safe:group-hover:scale-105"
               />
             </div>
           ) : null}
@@ -80,6 +84,6 @@ export default function IconCardGrid({
           </div>
         </li>
       ))}
-    </ul>
+    </Reveal>
   );
 }

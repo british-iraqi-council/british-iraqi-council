@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { COMMITTEES, WHY_JOIN } from "@/content";
 import {
+  Reveal,
   RichText,
   Section,
   SectionHeading,
@@ -15,16 +16,15 @@ export default async function WhyJoin({ locale }: MembershipSectionProps) {
   return (
     <Section id="why-join">
       <div className="flex flex-col gap-10 lg:gap-12">
-        <div className="reveal">
-          <SectionHeading title={t("title")} lede={t("intro")} />
-        </div>
+        <SectionHeading title={t("title")} lede={t("intro")} />
         <ul className="flex flex-col gap-12 lg:gap-16">
           {WHY_JOIN.map((row, index) => (
             <li
               key={row.id}
-              className="reveal grid items-center gap-6 lg:grid-cols-2 lg:gap-12"
+              className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12"
             >
-              <div
+              <Reveal
+                variant="frame"
                 className={`relative aspect-[3/2] overflow-hidden rounded-2xl bg-line ${index % 2 === 1 ? "lg:order-last" : ""}`}
               >
                 <Image
@@ -32,10 +32,11 @@ export default async function WhyJoin({ locale }: MembershipSectionProps) {
                   alt={localize(row.imageAlt, locale)}
                   fill
                   sizes="(min-width: 112.5rem) 48rem, (min-width: 64rem) 45vw, 100vw"
+                  data-reveal-zoom
                   className="object-cover"
                 />
-              </div>
-              <div className="flex flex-col items-start gap-4">
+              </Reveal>
+              <Reveal delay={0.12} className="flex flex-col items-start gap-4">
                 <h3
                   id={`why-join-${row.id}`}
                   className="font-display text-title font-semibold text-blue hyphens-auto [overflow-wrap:anywhere]"
@@ -66,7 +67,7 @@ export default async function WhyJoin({ locale }: MembershipSectionProps) {
                     ))}
                   </ul>
                 ) : null}
-              </div>
+              </Reveal>
             </li>
           ))}
         </ul>

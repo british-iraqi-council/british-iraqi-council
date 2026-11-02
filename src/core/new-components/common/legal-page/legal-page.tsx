@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { BANNER_IMAGES } from "@/core/constants/images";
 import { readLegalSections } from "@/lib/read-legal-sections";
 import PageHeading from "../page-heading";
+import Reveal from "../reveal";
 import RichText from "../rich-text";
 import Section from "../section";
 import { LegalPageProps } from "./legal-page-props";
@@ -20,7 +21,7 @@ export default async function LegalPage({ namespace }: LegalPageProps) {
         imagePosition={BANNER_IMAGES.legal.position}
       />
       <Section>
-        <div className="flex max-w-[68ch] flex-col gap-10">
+        <Reveal variant="stagger" className="flex max-w-[68ch] flex-col gap-10">
           <p className="text-sm font-medium text-muted">
             <RichText text={t("updated")} locale={locale} />
           </p>
@@ -46,7 +47,7 @@ export default async function LegalPage({ namespace }: LegalPageProps) {
               </section>
             );
           })}
-        </div>
+        </Reveal>
       </Section>
     </>
   );

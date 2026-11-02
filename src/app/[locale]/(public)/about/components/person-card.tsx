@@ -10,15 +10,16 @@ export default function PersonCard({
   profileLabel,
 }: PersonCardProps) {
   return (
-    <li className="flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
-      <div className="relative aspect-[4/5] bg-line">
+    <li className="group card-lift flex flex-col overflow-hidden rounded-2xl border border-line bg-white">
+      <div className="relative aspect-[4/5] overflow-hidden bg-line">
         {person.photo ? (
           <Image
             src={person.photo}
             alt=""
             fill
             sizes="(min-width: 80rem) 20vw, (min-width: 64rem) 30vw, (min-width: 40rem) 45vw, 90vw"
-            className="object-cover"
+            data-reveal-zoom
+            className="object-cover duration-700 ease-out-quint motion-safe:transition-[scale] motion-safe:group-hover:scale-105"
           />
         ) : (
           <span className="absolute inset-0 grid place-items-center text-muted">

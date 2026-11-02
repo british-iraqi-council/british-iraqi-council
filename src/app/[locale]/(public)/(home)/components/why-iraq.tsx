@@ -12,7 +12,7 @@ export default async function WhyIraq({ locale }: HomeSectionProps) {
 
   return (
     <Section>
-      <div className="reveal flex flex-col gap-10 lg:gap-12">
+      <div className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} lede={t("lede")} />
         <IconCardGrid items={WHY_IRAQ} columns={4} />
       </div>

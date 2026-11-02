@@ -15,7 +15,7 @@ export default async function Benefits({ locale }: MembershipSectionProps) {
 
   return (
     <Section id="benefits">
-      <div className="reveal flex flex-col gap-10 lg:gap-12">
+      <div className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={t("title")} lede={t("lede")} />
         <IconCardGrid items={BENEFITS} columns={4} />
       </div>

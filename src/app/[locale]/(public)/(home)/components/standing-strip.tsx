@@ -1,5 +1,5 @@
 import { ORGANISATION } from "@/content";
-import { Emblem, RichText } from "@/core/new-components/common";
+import { Emblem, Reveal, RichText } from "@/core/new-components/common";
 import { highlightTerms } from "@/lib/highlight-terms";
 import { localize } from "@/lib/localize";
 import { HomeSectionProps } from "../types";
@@ -14,7 +14,7 @@ export default function StandingStrip({ locale }: HomeSectionProps) {
 
   return (
     <div className="border-b border-line bg-white">
-      <div className="shell reveal flex items-center gap-4 py-5">
+      <Reveal className="shell flex items-center gap-4 py-5">
         <Emblem className="size-9 text-blue" />
         <p className="text-ink">
           {runs.map((run, index) =>
@@ -27,7 +27,7 @@ export default function StandingStrip({ locale }: HomeSectionProps) {
             ),
           )}
         </p>
-      </div>
+      </Reveal>
     </div>
   );
 }

@@ -3,7 +3,12 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { CONTACT_SUBJECTS, ORGANISATION } from "@/content";
 import { BANNER_IMAGES } from "@/core/constants/images";
 import type { Locale } from "@/core/i18n/routing";
-import { PageHeading, RichText, Section } from "@/core/new-components/common";
+import {
+  PageHeading,
+  Reveal,
+  RichText,
+  Section,
+} from "@/core/new-components/common";
 import { contactItems } from "@/lib/contact-items";
 import { localize } from "@/lib/localize";
 import { pickMessages } from "@/lib/pick-messages";
@@ -37,17 +42,23 @@ export default async function ContactPageClient({
       />
       <Section>
         {items.length === 0 ? (
-          <div className="mx-auto flex max-w-2xl flex-col gap-8">
+          <Reveal
+            variant="stagger"
+            className="mx-auto flex max-w-2xl flex-col gap-8"
+          >
             <p className="text-lead">
               <RichText text={t("intro")} locale={locale} />
             </p>
             {form}
-          </div>
+          </Reveal>
         ) : (
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
+          <Reveal
+            variant="stagger"
+            className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]"
+          >
             <ContactDetails items={items} locale={locale} />
             {form}
-          </div>
+          </Reveal>
         )}
       </Section>
     </>

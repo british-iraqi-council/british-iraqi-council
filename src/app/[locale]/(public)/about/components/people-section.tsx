@@ -1,5 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { Section, SectionHeading } from "@/core/new-components/common";
+import { Reveal, Section, SectionHeading } from "@/core/new-components/common";
 import { PeopleSectionProps } from "../types";
 import PersonCard from "./person-card";
 
@@ -17,9 +17,13 @@ export default async function PeopleSection({
 
   return (
     <Section id={id}>
-      <div className="reveal flex flex-col gap-10 lg:gap-12">
+      <div className="flex flex-col gap-10 lg:gap-12">
         <SectionHeading title={title} />
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
+        <Reveal
+          as="ul"
+          variant="stagger"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4"
+        >
           {people.map((person) => (
             <PersonCard
               key={person.id}
@@ -28,7 +32,7 @@ export default async function PeopleSection({
               profileLabel={t("profile")}
             />
           ))}
-        </ul>
+        </Reveal>
       </div>
     </Section>
   );
