@@ -9,9 +9,14 @@ import {
 import { notFound } from "next/navigation";
 import { getLangDir } from "rtl-detect";
 import type { Metadata } from "next";
+import { ORGANISATION } from "@/content";
 import { routing } from "@/core/i18n/routing";
-import { pickMessages } from "@/lib/pick-messages";
 import { amiri, cormorant, inter, plexArabic } from "@/core/config/fonts";
+import { SITE_URL } from "@/core/constants/site";
+import { localize } from "@/lib/localize";
+import { openGraphLocale } from "@/lib/open-graph-locale";
+import { organizationSchema } from "@/lib/organization-schema";
+import { pickMessages } from "@/lib/pick-messages";
 
 export async function generateMetadata({
   params,
@@ -20,9 +25,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "common" });
+  const description = localize(ORGANISATION.description, locale);
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: { default: t("siteName"), template: `%s | ${t("siteName")}` },
+    description,
+    openGraph: {
+      type: "website",
+      siteName: t("siteName"),
+      title: t("siteName"),
+      description,
+      locale: openGraphLocale(locale),
+    },
   };
 }
 
@@ -64,6 +79,14 @@ export default async function RootLayout({
         className="bg-ivory font-sans text-ink antialiased"
         suppressHydrationWarning
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              organizationSchema(locale, SITE_URL, `${SITE_URL}/apple-icon`),
+            ).replace(/</g, "\\u003c"),
+          }}
+        />
         <NextIntlClientProvider messages={shellMessages}>
           {children}
         </NextIntlClientProvider>

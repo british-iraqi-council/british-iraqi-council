@@ -12,6 +12,8 @@ export { default as IndexPills } from "./index-pills";
 export type { IndexItem, IndexPillsProps } from "./index-pills";
 export { default as LanguageSwitcher } from "./language-switcher";
 export type { LanguageSwitcherProps } from "./language-switcher";
+export { default as LegalPage } from "./legal-page";
+export type { LegalPageProps } from "./legal-page";
 export { default as LtrRun } from "./ltr-run";
 export type { LtrRunProps } from "./ltr-run";
 export { default as PageHeading } from "./page-heading";

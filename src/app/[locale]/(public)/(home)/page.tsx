@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/build-page-metadata";
 import HomePageClient from "./page-client";
 import { HomePageProps } from "./types";
 
@@ -7,12 +8,7 @@ export async function generateMetadata({
   params,
 }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "home.meta" });
-
-  return {
-    title: { absolute: t("title") },
-    description: t("description"),
-  };
+  return buildPageMetadata(locale, "home", "");
 }
 
 export default async function HomePage({ params }: HomePageProps) {

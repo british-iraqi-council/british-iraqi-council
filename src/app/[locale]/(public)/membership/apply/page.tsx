@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/build-page-metadata";
 import ApplicationPageClient from "./page-client";
 import { ApplicationPageProps } from "./types";
 
@@ -7,12 +8,7 @@ export async function generateMetadata({
   params,
 }: ApplicationPageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "apply.meta" });
-
-  return {
-    title: t("title"),
-    description: t("description"),
-  };
+  return buildPageMetadata(locale, "apply", "/membership/apply");
 }
 
 export default async function ApplicationPage({

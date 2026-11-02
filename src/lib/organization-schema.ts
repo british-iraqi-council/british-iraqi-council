@@ -17,7 +17,6 @@ export const organizationSchema = (
     description: localize(description, locale),
     url: `${siteUrl}/${locale}`,
     logo: logoUrl,
-    inLanguage: locale,
     ...(contact.address && { address: localize(contact.address, locale) }),
     ...(contact.phone && { telephone: contact.phone }),
     ...(contact.email && { email: contact.email }),

@@ -1,5 +1,13 @@
 const BASE_URL = process.env.BASE_URL ?? "http://localhost:3100";
-const PATHS = ["", "/about", "/membership", "/membership/apply", "/contact"];
+const PATHS = [
+  "",
+  "/about",
+  "/membership",
+  "/membership/apply",
+  "/contact",
+  "/privacy",
+  "/terms",
+];
 const TIER_IDS = ["bronze", "silver", "gold"];
 const LOCALES = [
   { code: "ar", dir: "rtl" },
@@ -33,6 +41,17 @@ const plainText = (html) =>
     .replace(/\s+/g, " ")
     .trim();
 
+const linkTags = (html) => html.match(/<link\s[^>]*>/gi) ?? [];
+
+const hasAlternate = (html, language) =>
+  linkTags(html).some((tag) => {
+    const lower = tag.toLowerCase();
+    return (
+      lower.includes(' rel="alternate"') &&
+      lower.includes(` hreflang="${language}"`)
+    );
+  });
+
 const get = (path) => fetch(`${BASE_URL}${path}`, { redirect: "manual" });
 
 const checkRedirect = async (from, toSuffix) => {
@@ -62,6 +81,14 @@ for (const { code, dir } of LOCALES) {
       fail(`${url}: missing <html lang="${code}" dir="${dir}">`);
     }
     const text = visibleText(html);
+    for (const language of ["ar", "en"]) {
+      if (!hasAlternate(html, language)) {
+        fail(`${url}: missing <link rel="alternate" hreflang="${language}">`);
+      }
+    }
+    if (!/<meta[^>]*property="og:image"[^>]*content="[^"]+"/i.test(html)) {
+      fail(`${url}: missing og:image`);
+    }
     if (path === "") {
       const main = mainHtml(html);
       if (!plainText(main).includes(STANDING[code])) {
@@ -129,6 +156,8 @@ for (const { code, dir } of LOCALES) {
 for (const [path, type] of [
   ["/icon.svg", "image/svg+xml"],
   ["/apple-icon", "image/png"],
+  ["/ar/opengraph-image", "image/png"],
+  ["/en/opengraph-image", "image/png"],
 ]) {
   const response = await get(path);
   const contentType = response.headers.get("content-type") ?? "";
@@ -137,6 +166,24 @@ for (const [path, type] of [
       `${path}: expected 200 ${type}, got ${response.status} ${contentType}`,
     );
   }
+}
+
+const sitemap = await get("/sitemap.xml");
+const sitemapUrls = (await sitemap.text()).match(/<loc>/g)?.length ?? 0;
+if (sitemap.status !== 200 || sitemapUrls !== 14) {
+  fail(
+    `/sitemap.xml: expected 200 with 14 URLs, got ${sitemap.status} with ${sitemapUrls}`,
+  );
+}
+
+const robots = await get("/robots.txt");
+const robotsText = await robots.text();
+const disallowsAll = /^Disallow: \/\s*$/m.test(robotsText);
+const expectDisallow = process.env.VERCEL_ENV !== "production";
+if (robots.status !== 200 || disallowsAll !== expectDisallow) {
+  fail(
+    `/robots.txt: expected ${expectDisallow ? "" : "no "}"Disallow: /", got ${robots.status} ${JSON.stringify(robotsText)}`,
+  );
 }
 
 const missing = await get("/ar/does-not-exist");

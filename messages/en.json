@@ -242,5 +242,115 @@
       "unsentMessage": "We couldn't send your application right now. Please try again later.",
       "honeypotLabel": "Leave this field empty"
     }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy policy",
+      "description": "How the Iraqi–British Business Council collects, uses and keeps the information you send through its contact form and membership application."
+    },
+    "heading": {
+      "title": "Privacy policy",
+      "lede": "How the Iraqi–British Business Council handles the information you give us through this website."
+    },
+    "updated": "Last updated: 2 November 2026",
+    "sections": [
+      {
+        "title": "Who we are",
+        "paragraphs": [
+          "This website belongs to the Iraqi–British Business Council (IBBC), formed in Iraq with the approval of the Federation of Iraqi Chambers of Commerce, and ratified by the Ministry of Commerce. In this policy, “we” and “the council” mean IBBC."
+        ]
+      },
+      {
+        "title": "What we collect",
+        "paragraphs": [
+          "We collect only what you choose to send us through the two forms on this site.",
+          "The contact form asks for your name, your email address, a subject and your message, and lets you add your company and a phone number.",
+          "The membership application asks for your company’s name, sector and country, and for the contact person’s full name, email address and phone number. It lets you add the company’s city, website and size, and the contact person’s position. It also records the membership tier you choose, your agreement to this policy and, if you give them, how you heard about us, a message and a company profile in PDF.",
+          "Like any website, the servers that deliver this site may keep standard technical records of each request, such as your IP address and browser type, to keep the site running and secure. We do not use these records to identify you or to build a profile of you."
+        ]
+      },
+      {
+        "title": "Why we use it",
+        "paragraphs": [
+          "We use what you send us only to reply to your message, to consider your membership application and, if it is approved, to manage your membership. We do not use it for advertising and we do not sell it."
+        ]
+      },
+      {
+        "title": "How long we keep it",
+        "paragraphs": [
+          "We keep your information only as long as we need it to handle your request or your membership, and then we delete it."
+        ]
+      },
+      {
+        "title": "Who we share it with",
+        "paragraphs": [
+          "We do not share your information with anyone, except where the law requires us to."
+        ]
+      },
+      {
+        "title": "Cookies",
+        "paragraphs": [
+          "This site does not use cookies for advertising or analytics. It uses only the cookies it needs to work, such as one that remembers the language you chose."
+        ]
+      },
+      {
+        "title": "Your rights and how to use them",
+        "paragraphs": [
+          "You can ask us what information we hold about you, and ask us to correct it or delete it.",
+          "To make a request, write to us through the contact form on this website. We will reply to the email address you give."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of use",
+      "description": "The terms that apply to using the Iraqi–British Business Council’s website and applying for membership."
+    },
+    "heading": {
+      "title": "Terms of use",
+      "lede": "The terms that apply when you use the Iraqi–British Business Council’s website."
+    },
+    "updated": "Last updated: 2 November 2026",
+    "sections": [
+      {
+        "title": "Use of this site",
+        "paragraphs": [
+          "This website gives information about the Iraqi–British Business Council (IBBC) and lets companies contact the council and apply for membership. By using it, you accept these terms.",
+          "Please use the site lawfully. Do not try to disrupt it or reach parts of it that are not public, and do not send anything through its forms that is unlawful, misleading or harmful."
+        ]
+      },
+      {
+        "title": "Content ownership",
+        "paragraphs": [
+          "The text, the council’s name and emblem, and the design of this site belong to the council unless stated otherwise. The photographs come from free photo libraries, and their rights stay with their photographers.",
+          "You may link to this site and quote short passages with credit to the council. Any other use needs the council’s written permission."
+        ]
+      },
+      {
+        "title": "Accuracy",
+        "paragraphs": [
+          "We work to keep the information on this site accurate and up to date, but it is general information only. It is not legal, financial or investment advice, so please take your own professional advice before acting on it. We may correct or change it at any time."
+        ]
+      },
+      {
+        "title": "Links to other websites",
+        "paragraphs": [
+          "Where this site links to other websites, it does so for your convenience. We do not control those sites and are not responsible for their content or for how they handle your information."
+        ]
+      },
+      {
+        "title": "Membership applications",
+        "paragraphs": [
+          "Sending a membership application does not make your company a member. Every application is subject to the council’s approval, and the council may accept or decline it. If it is approved, the council will discuss the terms of membership with you."
+        ]
+      },
+      {
+        "title": "Changes to these terms",
+        "paragraphs": [
+          "We may update these terms from time to time. The date at the top of this page shows when they last changed, and the version published here is the one that applies."
+        ]
+      }
+    ]
   }
 }
