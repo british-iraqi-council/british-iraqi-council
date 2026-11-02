@@ -57,6 +57,8 @@ npm run gitcheck   # lint, format, test, clean build
 - People: board, honorary advisors, executive team (names, roles, photos)
 - Partners and supporters, with logos and permission
 - Contact details: address, phone, email, office hours, social accounts
+- Map on the Contact page (needs a confirmed address)
+- The Contact details card and the footer contact column appear once the council supplies contact details
 - Where form submissions should go
 - Legal review of the privacy policy and terms
 
