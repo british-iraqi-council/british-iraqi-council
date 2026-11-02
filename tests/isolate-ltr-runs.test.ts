@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { isolateLtrRuns } from "@/lib/isolate-ltr-runs";
 
-const FSI = "⁨";
-const PDI = "⁩";
+const FSI = "\u2068";
+const PDI = "\u2069";
 
 describe("isolateLtrRuns", () => {
   it("wraps each number in an isolate", () => {

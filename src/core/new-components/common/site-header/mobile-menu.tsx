@@ -83,7 +83,7 @@ export default function MobileMenu({
         ref={sheetRef}
         role="dialog"
         aria-modal="true"
-        aria-label={t("menuLabel")}
+        aria-label={t("menuDialog")}
         className="relative max-h-dvh overflow-y-auto rounded-b-3xl bg-white pb-6 shadow-xl"
       >
         <div className="shell flex flex-col gap-6">

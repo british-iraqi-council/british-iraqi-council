@@ -3,7 +3,8 @@ export interface TextRun {
   ltr: boolean;
 }
 
-const LTR_RUN = /‎?[A-Za-z0-9+@](?:[A-Za-z0-9 .,:/\-+&@'’%_]*[A-Za-z0-9%])?/g;
+const LTR_RUN =
+  /\u200E?[A-Za-z0-9+@](?:[A-Za-z0-9 .,:/\-+&@'’%_]*[A-Za-z0-9%])?/g;
 
 export const splitLtrRuns = (text: string): TextRun[] => {
   const runs: TextRun[] = [];

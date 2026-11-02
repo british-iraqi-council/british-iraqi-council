@@ -53,7 +53,11 @@ export const applicationSchema = z.object({
   city: optionalText(80, "cityTooLong"),
   website: z.preprocess(
     emptyToUndefined,
-    z.string().trim().pipe(z.url("websiteInvalid")).optional(),
+    z
+      .string()
+      .trim()
+      .pipe(z.url({ protocol: /^https?$/, error: "websiteInvalid" }))
+      .optional(),
   ),
   companySize: z.preprocess(
     emptyToUndefined,

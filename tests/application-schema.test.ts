@@ -43,6 +43,26 @@ describe("applicationSchema", () => {
       { website: "websiteInvalid" },
     );
   });
+  it("rejects a javascript: website", () => {
+    expect(
+      issue(applicationSchema, { ...base, website: "javascript:alert(1)" }),
+    ).toEqual({ website: "websiteInvalid" });
+  });
+  it("rejects an ftp website", () => {
+    expect(
+      issue(applicationSchema, { ...base, website: "ftp://example.com" }),
+    ).toEqual({ website: "websiteInvalid" });
+  });
+  it("accepts an http or https website", () => {
+    expect(
+      applicationSchema.safeParse({ ...base, website: "https://tigris.iq" })
+        .success,
+    ).toBe(true);
+    expect(
+      applicationSchema.safeParse({ ...base, website: "http://tigris.iq" })
+        .success,
+    ).toBe(true);
+  });
   it("rejects a non-PDF attachment", () => {
     expect(
       issue(applicationSchema, {

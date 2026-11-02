@@ -4,7 +4,7 @@ import { IndexPillsProps } from "./index-pills-props";
 export default function IndexPills({ items, title, locale }: IndexPillsProps) {
   return (
     <nav aria-label={title} className="-mx-4 mt-2 self-stretch sm:mx-0">
-      <ul className="flex gap-2 overflow-x-auto px-4 [scrollbar-width:none] sm:flex-wrap sm:overflow-visible sm:px-0">
+      <ul className="-my-2 flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none] sm:my-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:py-0">
         {items.map((item) => (
           <li key={item.id} className="shrink-0">
             <a
