@@ -1,1 +1,90 @@
 @import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-blue: #0b2470;
+  --color-blue-deep: #071a55;
+  --color-red: #c8102e;
+  --color-ivory: #f3eee4;
+  --color-white: #ffffff;
+  --color-ink: #14204a;
+  --color-muted: #545b78;
+  --color-line: #e4dccb;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
+
+  --text-hero: clamp(2.75rem, 1.9rem + 3.6vw, 4.75rem);
+  --text-hero--line-height: 1.05;
+  --text-display: clamp(2.25rem, 1.7rem + 2.4vw, 3.75rem);
+  --text-display--line-height: 1.1;
+  --text-headline: clamp(1.75rem, 1.4rem + 1.5vw, 2.625rem);
+  --text-headline--line-height: 1.15;
+  --text-title: clamp(1.125rem, 1.05rem + 0.3vw, 1.375rem);
+  --text-title--line-height: 1.3;
+  --text-lead: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
+  --text-lead--line-height: 1.6;
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility rule-red {
+  width: 4.5rem;
+  height: 3px;
+  background: var(--color-red);
+}
+
+@utility bidi-isolate {
+  unicode-bidi: isolate;
+}
+
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: reveal-rise 600ms ease-out both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html[lang="ar"] {
+  --font-sans:
+    var(--font-plex-arabic), "Segoe UI", Tahoma, system-ui, sans-serif;
+  --font-display: var(--font-amiri), "Segoe UI", Tahoma, serif;
+  --text-base--line-height: 1.75;
+  --text-sm--line-height: 1.7;
+  --text-lg--line-height: 1.7;
+  --text-lead--line-height: 1.75;
+  --text-title--line-height: 1.5;
+  --text-headline--line-height: 1.4;
+  --text-display--line-height: 1.35;
+  --text-hero--line-height: 1.35;
+}
+
+html[lang="ar"] *:not([dir="ltr"]):not([dir="ltr"] *) {
+  letter-spacing: normal !important;
+  font-variant-caps: normal !important;
+}

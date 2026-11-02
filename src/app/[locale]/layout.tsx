@@ -11,6 +11,7 @@ import { getLangDir } from "rtl-detect";
 import type { Metadata } from "next";
 import { routing } from "@/core/i18n/routing";
 import { pickMessages } from "@/lib/pick-messages";
+import { amiri, cormorant, inter, plexArabic } from "@/core/config/fonts";
 
 export async function generateMetadata({
   params,
@@ -47,8 +48,16 @@ export default async function RootLayout({
   const shellMessages = pickMessages(messages, ["common", "nav", "notFound"]);
 
   return (
-    <html lang={locale} dir={dir} suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={dir}
+      className={`${cormorant.variable} ${amiri.variable} ${inter.variable} ${plexArabic.variable}`}
+      suppressHydrationWarning
+    >
+      <body
+        className="bg-ivory font-sans text-ink antialiased"
+        suppressHydrationWarning
+      >
         <NextIntlClientProvider messages={shellMessages}>
           {children}
         </NextIntlClientProvider>
